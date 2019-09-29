@@ -12,6 +12,15 @@
 
 
     <a-scene  embedded arjs='trackingMethod: best;' >
+
+      <a-marker type='pattern' url='https://raw.githubusercontent.com/juliasaenz/juliasaenz.github.io/master/libro.patt'>
+
+        <a-box position='0 0.5 0' material='opacity: 0.5; side:double; color:blue;'>
+  				<a-torus-knot radius='0.26' radius-tubular='0.09'
+  				animation="property: rotation; to:360 0 0; dur: 1000; easing: linear; loop: true">
+  				</a-torus-knot>
+  			</a-box>
+      </a-marker>
 		  <a-marker type='pattern' url='https://raw.githubusercontent.com/juliasaenz/TDMM3/master/libro2.patt'>
 
         <!-- <a-entity
