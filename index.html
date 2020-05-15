@@ -1,163 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>GeoAR.js demo</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+  </head>
 
-<head>
-  <title> Julia vs AR.js </title>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-  <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
-  <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.0/aframe/build/aframe-ar.js"></script>
-  <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v4.1.2/dist/aframe-extras.min.js"></script>
-  <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script>
-AFRAME.registerComponent('vidhandler', {
-  // ...
-  init: function () {
-    // Set up initial state and variables.
-    this.toggle = false;
-    this.vid = document.querySelector("#vid")
-    this.vid.pause();
-  },
-  tick:function(){
-
-if(this.el.object3D.visible == true){
-  if(!this.toggle){
-     this.toggle = true;
-     this.vid.play();
-    }
-  }else{
-  this.toggle = false;
-    this.vid.pause();
-    }
-  }
-});
-  </script>
-</head>
-
-<body style=’margin : 0px; overflow: hidden;’>
-
-  <a-scene embedded ar.js >
-
-     <a-assets >
-        <video preload="auto"  id="vid"loop="false" crossorigin  webkit-playsinline playsinline controls>
-           <source  type="video/webm"  src="https://raw.githubusercontent.com/juliasaenz/juliasaenz.github.io/master/fuegoW.webm">
-           <h3>Error : Your browser does not support.</h3>
-          <!-- FOR NOTMAL VIDEO YOU CAN USE MP4 or WEBM BUT FOR ALPHA VIDEO YOU NEED TO USE .WEBM FORMAT-->
-        </video>
-     </a-assets>
-
-     <a-marker crossorigin="anonymous" id="memarker" type="pattern" url="https://raw.githubusercontent.com/juliasaenz/juliasaenz.github.io/master/bibliotecaPatronAR.patt" vidhandler>
-        <a-plane  position='0 0.1 0' scale="1 2 2" rotation="-90 0 0" material='transparent:true;alphaTest:0;src:#vid'></a-plane>
-     </a-marker>
-     <a-entity camera></a-entity>
-  </a-scene>
-
-  <style>
-     .footer {
-     position: fixed;
-     left: 0;
-     bottom: 0;
-     width: 100%;
-     color: white;
-     }
-     .onebleft{
-     padding: 5px 5px 5px 5px;
-     margin: 5px 15px 5px 5px ;
-     float: left;
-     z-index: 900000000000;
-     }
-     .onebright{
-     padding: 5px 5px 5px 5px;
-     margin: 5px 15px 5px 5px ;
-     float: right;
-     z-index: 900000000000;
-     }
-     .imgon{
-     width: 55px;
-     height: 55px;
-     background-color:white;
-     padding: 3px 2px 2px 2px !important;
-     }
-     .imgss{
-     width: 50px !important;
-     height:50px !important;
-     }
-     .imgname{
-     font-size: 10px;
-     }
-     .header {
-     position: fixed;
-     left: 0;
-     top: 0;
-     width: 100%;
-     color: white;
-     }
-     .oneleft{
-     padding: 5px 5px 5px 5px;
-     margin: 5px 15px 5px 5px ;
-     float: left;
-     z-index: 900000000000;
-     }
-     body{
-     margin:0px;
-     overflow: hidden;
-     }
-     .resets{
-     background-color: rgba(51, 51, 51, 0.529);
-     color: #fff;
-     text-align: center;
-     border-radius: 2px;
-     height: 50px;
-     padding: 10px 10px 10px 10px;
-     position: fixed;
-     top: 10px;
-     text-align: center;
-     z-index: 9000000000;
-     bottom: 10px;
-     }
-     .btnskips{
-     background: rgba(0, 0, 0, 0.433);
-     color: white !important;
-     }
-     .btnskips:hover{
-     background: rgb(197, 197, 197);
-     }
-     #arjsDebugUIContainer{
-     display: none;
-     }
-     .a-enter-vr-button{
-     display: none !important;
-     }
-  </style>
-
-</body>
-
+  <body style="margin: 0; overflow: hidden;">
+    <a-scene
+      vr-mode-ui="enabled: false"
+      embedded
+      arjs="sourceType: webcam; debugUIEnabled: false;"
+    >
+      <a-text
+        value="This content will always face you."
+        look-at="[gps-camera]"
+        scale="120 120 120"
+        gps-entity-place="latitude: <add-your-latitude>; longitude: <add-your-longitude>;"
+      ></a-text>
+      <a-camera gps-camera rotation-reader> </a-camera>
+    </a-scene>
+  </body>
 </html>
-<!--
-For more information :
-https://stackoverflow.com/a/45823557/7903663
-https://stackoverflow.com/q/47644935/7903663
--->
-
-
-<!-- @juliasaenz
-
-Attach files by dragging & dropping, selecting or pasting them.
-
-    © 2019 GitHub, Inc.
-    Terms
-    Privacy
-    Security
-    Status
-    Help
-
-    Contact GitHub
-    Pricing
-    API
-    Training
-    Blog
-    About
--->
