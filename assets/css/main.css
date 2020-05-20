@@ -572,7 +572,7 @@ button,
   -ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, opacity 0.2s ease-in-out;
   transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, opacity 0.2s ease-in-out;
   background-color: #fafafa;
-  border-radius: 3px;
+  border-radius: 5px;
   border: 0;
   color: #030303 !important;
   cursor: pointer;
