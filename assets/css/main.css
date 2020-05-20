@@ -643,7 +643,7 @@ button,
   display: flex;
   position: relative; }
   #signup-form input[type="text"],{
-    width: 18em; }
+    width: 6em; }
   #signup-form > * {
     margin: 0 0 0 1em; }
   #signup-form > :first-child {
