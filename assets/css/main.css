@@ -571,7 +571,7 @@ button,
   -ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, opacity 0.2s ease-in-out;
   transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, opacity 0.2s ease-in-out;
   background-color: #fafafa;
-  border-radius: 6px;
+  border-radius: 3px;
   border: 0;
   color: #030303 !important;
   cursor: pointer;
@@ -579,7 +579,7 @@ button,
   font-weight: 700;
   height: 2.75em;
   line-height: 2.75em;
-  padding: 1.125em 1.125em;
+  padding: 0 1.125em;
   text-align: center;
   text-decoration: none;
   white-space: nowrap; }
