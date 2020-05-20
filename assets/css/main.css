@@ -655,7 +655,7 @@ button,
       -ms-flex-direction: column;
       flex-direction: column; }
       #signup-form input[type="type"], {
-        width: 100%; }
+        width: 40%; }
       #signup-form > * {
         margin: 1.25em 0 0 0; }
       #signup-form .message {
