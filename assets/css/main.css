@@ -99,7 +99,7 @@ body {
   -webkit-justify-content: center;
   -ms-justify-content: center;
   justify-content: center;
-  background-color: #000;
+  background-color: #fafafa;
   padding: 6em 4em 4em 4em; }
   body.is-preload *, body.is-preload *:before, body.is-preload *:after {
     -moz-animation: none !important;
@@ -617,7 +617,7 @@ select {
   text-overflow: ellipsis; }
   select option {
     color: #fff;
-    background: #000; }
+    background: #fafafa; }
   select:focus::-ms-value {
     background-color: transparent; }
   select::-ms-expand {
