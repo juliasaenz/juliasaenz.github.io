@@ -47,8 +47,7 @@ body {
   -webkit-text-size-adjust: none; }
 
 mark {
-  background-color: transparent;
-  color: inherit; }
+ }
 
 input::-moz-focus-inner {
   border: 0;
@@ -65,7 +64,7 @@ input, select, textarea {
   width: device-width; }
 
 body {
-  -ms-overflow-style: scrollbar; }
+ }
 
 @media screen and (max-width: 480px) {
   html, body {
