@@ -22,7 +22,7 @@ import {
 
 const params = {
   exposure: -1,
-  bloomStrength: 2,
+  bloomStrength: 0.5,
   bloomThreshold: 0,
   bloomRadius: 0,
   scene: "Scene with Glow"
@@ -55,24 +55,35 @@ export class Mundo {
 
     var renderPass = new RenderPass(this.escena, this.camara); //Pass de escena
 
-    const bloomPass = new UnrealBloomPass(new THREE.Vector2(window.innerWidth, window.innerHeight), 1.5, 0.4, 0.85);
-    bloomPass.threshold = params.bloomThreshold;
-    bloomPass.strength = params.bloomStrength;
-    bloomPass.radius = params.bloomRadius;
+    this.bloomPass = new UnrealBloomPass(new THREE.Vector2(window.innerWidth, window.innerHeight), 1.5, 0.4, 0.85);
+    this.bloomPass.threshold = params.bloomThreshold;
+    this.bloomPass.strength = params.bloomStrength;
+    this.bloomPass.radius = params.bloomRadius;
 
     this.compositor.addPass(renderPass);
-    this.compositor.addPass(bloomPass);
+    this.compositor.addPass(this.bloomPass);
     renderPass.renderToScreen = true;
 
   }
+  crearFondoCustomizacion() {
+    this.escena.background = new THREE.Color(0x030002);
+    const light = new THREE.HemisphereLight(0xB4AFB0, 0x040406, 1); //Luz
+    light.position.set(-2, 2, 6);
+    this.escena.add(light);
+
+    this.camara.rotation.y = 0;
+    this.camara.position.set(0,0,1.5);
+  }
   crearFondo() {
     this.escena.background = new THREE.Color(0x030002);
-    //this.escena.fog = new THREE.Fog(0x010102, 1, 30);
+    this.escena.fog = new THREE.Fog(0x010102, 1, 30);
+
+    this.bloomPass.strength = params.bloomStrength + 1.8;
 
     const planeSize = 400;
 
     const loader = new THREE.TextureLoader();
-    const texture = loader.load('../Imagenes/cubo_fondo_006.png');
+    const texture = loader.load('../data/imagenes/cubo_fondo_006.png');
     texture.wrapS = THREE.RepeatWrapping;
     texture.wrapT = THREE.RepeatWrapping;
     texture.magFilter = THREE.NearestFilter;
@@ -93,11 +104,6 @@ export class Mundo {
     light.position.set(-2, 2, 6);
     this.escena.add(light);
 
-  }
-  crearOrbitControl() {
-    this.controls = new OrbitControls(this.camara, this.renderizador.domElement);
-    this.controls.minDistance = 0;
-    this.controls.maxDistance = 1000;
   }
   renderizar() {
     //this.renderizador.render(this.escena, this.camara);

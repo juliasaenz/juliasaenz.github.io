@@ -1,9 +1,8 @@
-import {
-  crearInstancia
-} from '../Etapa_1/funciones.js';
+import { crearInstanciaB } from '../Funciones/modelos3D.js'
+import { scale } from '../Funciones/calculos.js'
 
 export class Figura {
-  constructor(id, forma, color, x = 0, z = 0, nombre = "julia", sonido = '../Sonidos/thwknd.mp3') {
+  constructor(id, forma = 'cubo', color = '#FF0000', x = 0, z = 0, nombre = "juph", sonido = '../Sonidos/thwknd.mp3', activo = false) {
     this.nombre = nombre;
     this.id = this._crearID(id);
     this.forma = forma;
@@ -11,9 +10,10 @@ export class Figura {
     this.x = x;
     this.y = 0.1;
     this.z = z;
+    this.pos = -1 //posicion en el arreglo de modelos
     ///// estos porahora no importan
     this.sonido = sonido;
-    this.activo = false;
+    this.activo = activo;
     this.radio = 9;
     this.conexiones = [];
   }
@@ -75,5 +75,32 @@ export class Figura {
       }
     }
     //console.log(this.conexiones.length);
+  }
+  ecuacionDeUsuarioA(otro){
+    var m = 0;
+    var t = "";
+    if (this.forma == otro.forma){
+      m += 5;
+      t = t.concat("forma, ");
+    }
+    if (this.color == otro.color) {
+      m += 2;
+      t = t.concat("color, ");
+    }
+    if (this.activo == otro.activo){
+      m += 1;
+      t = t.concat("activo, ");
+    }
+    if (this.sonido == otro.sonido){
+      m += 0.5;
+      t = t.concat("sonido, ");
+    }
+    if (this.conexiones.length == otro.conexiones.length){
+      m+= 0.5;
+      t = t.concat("length");
+    }
+    const res = scale(m,0,10,0,1);
+    //console.log(t,res);
+    return res;
   }
 }
