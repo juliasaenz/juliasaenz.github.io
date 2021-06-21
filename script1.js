@@ -95,8 +95,11 @@ export function customizaciónB(seleccion) {
   // Botones
   mundo.escena.add(crearBotones(mundo.listener));
 
-  crearTexto(mundo.escena, "Comenzar", 0, -0.8, 0)
   crearTexto(mundo.escena, "<", -2.2, 0.85, 0)
+
+  btn = document.getElementById("bContinuar");
+  btn.value = "Comenzar";
+  btn.style.color = "grey";
 }
 
 export function etapa1() {
@@ -127,6 +130,10 @@ export function etapa1() {
   usuario.tiempo = usuario.tiempo + mundo.reloj.getElapsedTime();
   console.log("Tiempo en la obra", usuario.tiempo);
   mundo.reloj.start();
+  seguir = false;
+  btn.removeEventListener("click", etapa1);
+  btn.value = "";
+  btn.style.color = "white";
 
   //////////////////////////////////////// CAMARA
   mundo.camara.position.y = 2;
@@ -254,6 +261,7 @@ function inicializar() {
       clickCustomizacionA(mundo.escena.children, raycaster, usuario, mundo.listener, mundo.escena, estado);
     } else if (estado == "customizaciónB") {
       clickCustomizacionB(mundo.escena.children, raycaster, usuario, mundo.listener);
+
     } else if (estado == "etapa2") {
       clickEtapa2(modelosRed.children, red, raycaster);
       rota = true;
@@ -339,6 +347,18 @@ function animar() {
   } else if (estado == "customizaciónB") {
     rotarObjeto3D(mundo.escena.children[1]);
     texto.innerText = " ";
+
+    if(usuario.color != '#FF0000' && usuario.sonido != '../data/sonidos/1/Sonido (1).wav'){
+      // Botón para siguiente etapa
+      seguir = !seguir;
+      if (seguir) {
+        btn.style.color = "white";
+        btn.addEventListener("click", etapa1);
+      } else {
+        seguir = true;
+      }
+    }
+
   } else if (estado == "etapa1" || estado == "etapa2") {
     modeloUsuario.position.set(usuario.x, usuario.y, usuario.z);
     usuario.calcularConexiones(red);
