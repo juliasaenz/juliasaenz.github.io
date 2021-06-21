@@ -214,7 +214,7 @@ function calcularCaraB() {
 }
 
 function botonSeguir(reloj) {
-  if (reloj.getElapsedTime() > 5) {
+  if (reloj.getElapsedTime() > 15) {
     seguir = !seguir;
     if (seguir) {
       btn = document.getElementById("bContinuar");
