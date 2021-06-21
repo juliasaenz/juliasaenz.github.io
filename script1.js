@@ -143,6 +143,7 @@ function etapa2() {
   console.log("pasando a vista total")
   vistaTotalModelos(mundo.listener, red, modelosRed);
   mundo.escena.fog.near = 20;
+  mundo.bloomPass.strength += 0.8;
 }
 
 ///////////////////////////////////////////// Estas idealmente se irian de aca
@@ -288,6 +289,7 @@ function inicializar() {
             estado = "etapa1";
             recargarVistaCurada(mundo.listener, red, modelosRed, indicesSimilitud, usuario);
             mundo.escena.fog.near = 0.1;
+            mundo.bloomPass.strength -= 1;
           }
           break;
       } //switch
@@ -334,7 +336,7 @@ function animar() {
     if (estado == "etapa2") {
       texto.innerText = usuario.texto(mundo.reloj.getElapsedTime(), orientacion);
     } else {
-      texto.innerText = " ";
+      texto.innerText = "prototipo tip: presione 'A' para la siguiente etapa";
     }
 
   } else if (estado == "contemplacion") {
