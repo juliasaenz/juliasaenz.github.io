@@ -22,7 +22,7 @@ import {
 
 const params = {
   exposure: -1,
-  bloomStrength: 0.5,
+  bloomStrength: 0.3,
   bloomThreshold: 0,
   bloomRadius: 0,
   scene: "Scene with Glow"
@@ -83,7 +83,7 @@ export class Mundo {
     this.escena.background = new THREE.Color(0x030002);
     this.escena.fog = new THREE.Fog(0x010102, 0.1, 50);
 
-    this.bloomPass.strength = params.bloomStrength + 1.8;
+    this.bloomPass.strength = params.bloomStrength + 1;
 
     const planeSize = 400;
 

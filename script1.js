@@ -53,7 +53,8 @@ var colision = -1;
 var lastKey = -1;
 
 var seguir = false;
-var texto, continuar;
+var texto;
+var btn;
 
 ///////////////////////////////////////////// Inicializar Estados
 export function customizaciónA() {
@@ -144,6 +145,16 @@ function etapa2() {
   vistaTotalModelos(mundo.listener, red, modelosRed);
   mundo.escena.fog.near = 20;
   mundo.bloomPass.strength += 0.8;
+
+  // Tiempo
+  usuario.tiempo = usuario.tiempo + mundo.reloj.getElapsedTime();
+  console.log("Tiempo en la obra", usuario.tiempo);
+  mundo.reloj.start();
+
+  // Botón
+  btn.value = " ";
+  btn.removeEventListener("click", etapa2);
+  seguir = false;
 }
 
 ///////////////////////////////////////////// Estas idealmente se irian de aca
@@ -196,10 +207,20 @@ function calcularCaraB() {
 }
 
 function botonSeguir(reloj) {
-  if (reloj.getElapsedTime() > 5 && reloj.getElapsedTime() < 7) {
+  if (reloj.getElapsedTime() > 5) {
     seguir = !seguir;
     if (seguir) {
-      console.log("es hora de seguir");
+      btn = document.getElementById("bContinuar");
+      btn.value = "Continuar";
+      if (estado == "etapa1") {
+        btn.addEventListener("click", etapa2);
+      } else if (estado == "etapa2") {
+        btn.addEventListener("click", function(){
+          estado = "contemplacion";
+          btn.value = " ";
+        });
+        btn.value = "Terminar";
+      }
     } else {
       seguir = true;
     }
@@ -212,8 +233,6 @@ function inicializar() {
   ///// texto
   texto = document.createElement('p');
   document.body.append(texto);
-  continuar = document.createElement('p');
-  document.body.append(continuar);
 
   // Mundo
   mundo = new Mundo();
@@ -312,7 +331,7 @@ function animar() {
 
   if (estado == "aviso") {
     // Aca iria imagen o algo
-    texto.innerText = "prototipo tip: usen compu para verlo :) ";
+    texto.innerText = "prototipo tip: usen compu para verlo :) \n Último upadte: 21/06 18pm ";
   } else if (estado == "customizaciónA") {
     rotarObjeto3D(mundo.escena.children[1]);
     rotarObjeto3D(mundo.escena.children[2]);
@@ -336,7 +355,7 @@ function animar() {
     if (estado == "etapa2") {
       texto.innerText = usuario.texto(mundo.reloj.getElapsedTime(), orientacion);
     } else {
-      texto.innerText = "prototipo tip: presione 'A' para la siguiente etapa";
+      texto.innerText = " ";
     }
 
   } else if (estado == "contemplacion") {
@@ -344,7 +363,7 @@ function animar() {
     mundo.camara.position.x = usuario.x + 5 * Math.cos(0.5 * mov);
     mundo.camara.position.z = usuario.z + 5 * Math.sin(0.5 * mov);
     mundo.camara.lookAt(modeloUsuario.position);
-    texto.innerText = " ";
+    texto.innerText = " En realidad falta una etapa en medio :)";
   } // etapa1
 
   //console.log(mundo.reloj.getElapsedTime())

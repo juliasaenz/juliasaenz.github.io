@@ -139,7 +139,7 @@ export function crearTexto(escena, mensaje = "no hay mensaje", x = 0, y = 0, z =
   var text;
   const loader = new THREE.FontLoader();
 
-  loader.load('../data/Fonts/Source Code Pro Medium_Regular.json', function(font) {
+  loader.load('../data/Fonts/Source Code Pro_Regular.json', function(font) {
     const matLite = new THREE.MeshBasicMaterial({
       color: 0xFAFAFA,
     });
