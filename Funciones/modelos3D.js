@@ -133,6 +133,32 @@ export function crearInstancia(forma, colorcito, x, y, z) {
   return [mesh, interior];
 }
 
+// Crea un objeto texto
+export function crearTexto(escena, mensaje = "no hay mensaje", x = 0, y = 0, z = 0){
+  //crear texto
+  var text;
+  const loader = new THREE.FontLoader();
+
+  loader.load('../data/Fonts/Source Code Pro Medium_Regular.json', function(font) {
+    const matLite = new THREE.MeshBasicMaterial({
+      color: 0xFAFAFA,
+    });
+
+    const shapes = font.generateShapes(mensaje, 0.1);
+    const geometry = new THREE.ShapeGeometry(shapes);
+
+    geometry.computeBoundingBox();
+    const xMid = -0.5 * (geometry.boundingBox.max.x - geometry.boundingBox.min.x);
+    geometry.translate(xMid, 0, 0);
+
+    text = new THREE.Mesh(geometry, matLite);
+    text.position.set(x,y,z)
+    escena.add(text);
+
+  });
+
+}
+
 // Crea un objeto sonido
 export function cargarSonido(listener, archivo, fig) {
   const audioLoader = new THREE.AudioLoader();
@@ -180,7 +206,7 @@ export function crearFormaUsuario(escena, listener, usuario) {
 }
 
 export function figurasAleatorias(red) {
-  for (var i = 0; i < 10; i++) {
+  for (var i = 0; i < 30; i++) {
     var ran = Math.floor(Math.random() * (1 - 0 + 1) + 0);
     var tipo = 'cubo';
     if (ran >= 1) {
@@ -197,7 +223,7 @@ export function figuraPrueba(red) {
   red.push(f);
 }
 
-function agregarModelo(listener, f) {
+export function agregarModelo(listener, f) {
   var m = crearInstancia(f.forma, f.color, f.x, f.y, f.z);
   m[1].position.set(0, 0, 0);
   m[0].add(m[1]);
@@ -215,6 +241,7 @@ export function agregarModelos(listener, red, modelosRed) {
   // Paso la red a modelos 3D
   for (var i = 0; i < red.length; i++) {
     modelosRed.add(agregarModelo(listener, red[i]));
+    red[i].pos = modelosRed.length-1;
   }
 }
 

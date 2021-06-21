@@ -13,10 +13,10 @@ var colores = {
   lila: "#C86DDE"
 }
 
-export function elegirSonidoAzar() {
+export function elegirSonidoAzar(carpeta = "1") {
   const n1 = parseInt(Math.random() * 6 + 1).toString();
-  //const n1 = "6"
-  return "./data/sonidosB/Sonido (".concat(n1, ").wav");
+  const n3 = "./data/sonidos/".concat(carpeta,"/Sonido (",n1,").wav")
+  return n3;
 }
 
 export function colorRandom() {

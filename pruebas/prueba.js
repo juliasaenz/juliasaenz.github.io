@@ -92,57 +92,57 @@ function inicializar() {
       case 38:
         if (e.keyCode != colision) {
           switch (orientacion) {
-          case "frente":
-            obj.position.z -= 0.2;
-            break;
-          case "izquierda":
-            obj.position.x -= 0.2;
-            break;
-          case "derecha":
-            obj.position.x += 0.2;
-            break;
-          case "espalda":
-            obj.position.z += 0.2;
-            break;
-        }
+            case "frente":
+              obj.position.z -= 0.2;
+              break;
+            case "izquierda":
+              obj.position.x -= 0.2;
+              break;
+            case "derecha":
+              obj.position.x += 0.2;
+              break;
+            case "espalda":
+              obj.position.z += 0.2;
+              break;
+          }
         }
         break;
         //izquierda
       case 39:
         if (e.keyCode != colision) {
           switch (orientacion) {
-          case "frente":
-            obj.position.x += 0.2;
-            break;
-          case "izquierda":
-            obj.position.z -= 0.2;
-            break;
-          case "derecha":
-            obj.position.z += 0.2;
-            break;
-          case "espalda":
-            obj.position.x -= 0.2;
-            break;
-        }
+            case "frente":
+              obj.position.x += 0.2;
+              break;
+            case "izquierda":
+              obj.position.z -= 0.2;
+              break;
+            case "derecha":
+              obj.position.z += 0.2;
+              break;
+            case "espalda":
+              obj.position.x -= 0.2;
+              break;
+          }
         }
         break;
         //abajo
       case 40:
         if (e.keyCode != colision) {
           switch (orientacion) {
-          case "frente":
-            obj.position.z += 0.2;
-            break;
-          case "izquierda":
-            obj.position.x += 0.2;
-            break;
-          case "derecha":
-            obj.position.x -= 0.2;
-            break;
-          case "espalda":
-            obj.position.z -= 0.2;
-            break;
-        }
+            case "frente":
+              obj.position.z += 0.2;
+              break;
+            case "izquierda":
+              obj.position.x += 0.2;
+              break;
+            case "derecha":
+              obj.position.x -= 0.2;
+              break;
+            case "espalda":
+              obj.position.z -= 0.2;
+              break;
+          }
         }
         break;
     }
@@ -189,37 +189,22 @@ function inicializar() {
 
   i = Math.PI;
 
-}
+  }
 
-function animar() {
-  requestAnimationFrame(animar);
+  function animar() {
+    requestAnimationFrame(animar);
 
-  /*var originPoint = obj.position.clone();
 
-  for (var vertexIndex = 0; vertexIndex < obj.geometry.vertices.length; vertexIndex++) {
-    var localVertex = obj.geometry.vertices[vertexIndex].clone();
-    var globalVertex = localVertex.applyMatrix4(obj.matrix);
-    var directionVector = globalVertex.sub(obj.position);
 
-    var ray = new THREE.Raycaster(originPoint, directionVector.clone().normalize());
-    var collisionResults = ray.intersectObjects(objetos);
-    if (collisionResults.length > 0 && collisionResults[0].distance < 0.85) {
-      colision = lastKey;
-      console.log(" Hit ", colision);
-    } else{
-      colision = 0;
-    }
-  }*/
 
-  intersectObjMas(obj, objetos)
+    intersectObjMas(obj, objetos)
+    //////////// camara
+    mundo.camara.position.x = obj.position.x + 2 * Math.cos(0.5 * i);
+    mundo.camara.position.z = obj.position.z + 2 * Math.sin(0.5 * i);
+    mundo.camara.lookAt(obj.position);
+    mundo.renderizar();
+  }
 
-  //////////// camara
-  mundo.camara.position.x = obj.position.x + 2 * Math.cos(0.5 * i);
-  mundo.camara.position.z = obj.position.z + 2 * Math.sin(0.5 * i);
-  mundo.camara.lookAt(obj.position);
-  mundo.renderizar();
-}
-
-///// Programa Principal
-inicializar();
-animar();
+  ///// Programa Principal
+  inicializar();
+  animar();

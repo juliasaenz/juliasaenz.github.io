@@ -13,6 +13,7 @@ import {
   agregarModelosCurado,
   moveteSiNosParecemos,
   posInicioUsuario,
+  crearTexto
 } from './Funciones/modelos3D.js';
 import {
   aviso,
@@ -23,11 +24,12 @@ import {
   rotarObjeto3D
 } from './Funciones/customizacion.js'
 import {
-  clickEtapa1,
+  clickEtapa2,
   tecladoEtapa1,
   tecladoEtapa2,
-  cambiarVistaModelos,
-  contemplacion
+  contemplacion,
+  vistaTotalModelos,
+  recargarVistaCurada
 } from './Funciones/espacio3D.js'
 
 ///////////////////////////// Variables
@@ -50,12 +52,14 @@ var modelosRed;
 var colision = -1;
 var lastKey = -1;
 
+var seguir = false;
+var texto, continuar;
 
 ///////////////////////////////////////////// Inicializar Estados
-function customizaciónA() {
+export function customizaciónA() {
   estado = "customizaciónA";
   // Elimino si habia otras
-  if (mundo.escena.children.length > 1) {
+  while (mundo.escena.children.length > 1) {
     if (mundo.escena.children[1].children.length > 1) {
       mundo.escena.children[1].children[1].stop();
       mundo.escena.children[1].remove(mundo.escena.children[1].children[1])
@@ -89,12 +93,15 @@ export function customizaciónB(seleccion) {
 
   // Botones
   mundo.escena.add(crearBotones(mundo.listener));
+
+  crearTexto(mundo.escena, "Comenzar", 0, -0.8, 0)
+  crearTexto(mundo.escena, "<", -2.2, 0.85, 0)
 }
 
 export function etapa1() {
   // Elimino si habia otras
   estado = "etapa1";
-  if (mundo.escena.children.length > 1) {
+  while (mundo.escena.children.length > 1) {
     mundo.escena.remove(mundo.escena.children[1]);
     mundo.escena.remove(mundo.escena.children[1]);
   }
@@ -115,6 +122,11 @@ export function etapa1() {
 
   mundo.escena.add(modelosRed);
 
+  /////////// tiempo
+  usuario.tiempo = usuario.tiempo + mundo.reloj.getElapsedTime();
+  console.log("Tiempo en la obra", usuario.tiempo);
+  mundo.reloj.start();
+
   //////////////////////////////////////// CAMARA
   mundo.camara.position.y = 2;
   mundo.camara.lookAt({
@@ -124,6 +136,13 @@ export function etapa1() {
   });
 
   mov = Math.PI;
+}
+
+function etapa2() {
+  estado = "etapa2";
+  console.log("pasando a vista total")
+  vistaTotalModelos(mundo.listener, red, modelosRed);
+  mundo.escena.fog.near = 20;
 }
 
 ///////////////////////////////////////////// Estas idealmente se irian de aca
@@ -175,9 +194,26 @@ function calcularCaraB() {
   }
 }
 
+function botonSeguir(reloj) {
+  if (reloj.getElapsedTime() > 5 && reloj.getElapsedTime() < 7) {
+    seguir = !seguir;
+    if (seguir) {
+      console.log("es hora de seguir");
+    } else {
+      seguir = true;
+    }
+  }
+}
+
 ///// ThreeJS
 
 function inicializar() {
+  ///// texto
+  texto = document.createElement('p');
+  document.body.append(texto);
+  continuar = document.createElement('p');
+  document.body.append(continuar);
+
   // Mundo
   mundo = new Mundo();
   mundo.crearFondoCustomizacion();
@@ -198,11 +234,9 @@ function inicializar() {
       clickCustomizacionA(mundo.escena.children, raycaster, usuario, mundo.listener, mundo.escena, estado);
     } else if (estado == "customizaciónB") {
       clickCustomizacionB(mundo.escena.children, raycaster, usuario, mundo.listener);
-    } else if (estado == "etapa1" || estado == "etapa2") {
-      clickEtapa1(modelosRed.children, red, raycaster);
-      if (estado == "etapa2") {
-        rota = true;
-      }
+    } else if (estado == "etapa2") {
+      clickEtapa2(modelosRed.children, red, raycaster);
+      rota = true;
     }
 
   }, false); // Mouse
@@ -230,7 +264,7 @@ function inicializar() {
     } // ESTO ES PROVISORIO, DESPUES VA A HABER UN BOTÓN
     if (estado == "etapa1") {
       tecladoEtapa1(e, usuario);
-    } else if (estado == "etapa2") {
+    } else if (estado == "etapa2" || estado == "etapa3") {
       tecladoEtapa2(orientacion, e, usuario, colision, lastKey)
     }
     ///// Pruebas de vistas
@@ -246,35 +280,29 @@ function inicializar() {
             mov = Math.PI;
           }
           break;
-        case 87:
-          //w
-          cambiarVistaModelos(mundo.listener, red, modelosRed, indicesSimilitud, usuario);
         case 65:
           //a
           if (estado == "etapa1") {
-            estado = "etapa2";
-            cambiarVistaModelos(mundo.listener, red, modelosRed, indicesSimilitud, usuario);
-            mundo.escena.fog.near = 25;
+            etapa2();
           } else if (estado == "etapa2") {
             estado = "etapa1";
-            cambiarVistaModelos(mundo.listener, red, modelosRed, indicesSimilitud, usuario);
-            mundo.escena.fog.near = 1;
+            recargarVistaCurada(mundo.listener, red, modelosRed, indicesSimilitud, usuario);
+            mundo.escena.fog.near = 0.1;
           }
           break;
       } //switch
     }
   };
   // Resize
-  window.addEventListener('resize', function() {
-    mundo.camara.aspect = window.innerWidth / window.innerHeight;
-    mundo.camara.updateProjectionMatrix();
+  window.addEventListener('resize', onWindowResize);
 
-    mundo.renderizador.setSize(window.innerWidth, window.innerHeight);
-  }, false);
   // Para cuando me quiero saltar la customizacion
   if (estado == "etapa1") {
     etapa1();
+  } else {
+    crearTexto(mundo.escena, "Presione Q para comenzar")
   }
+
 }
 
 function animar() {
@@ -282,46 +310,60 @@ function animar() {
 
   if (estado == "aviso") {
     // Aca iria imagen o algo
+    texto.innerText = " aviso ";
   } else if (estado == "customizaciónA") {
     rotarObjeto3D(mundo.escena.children[1]);
     rotarObjeto3D(mundo.escena.children[2]);
+    texto.innerText = " ";
   } else if (estado == "customizaciónB") {
     rotarObjeto3D(mundo.escena.children[1]);
-
-    THREE.DefaultLoadingManager.onLoad = function() {
-      console.log('Loading Complete!');
-    };
-
+    texto.innerText = " ";
   } else if (estado == "etapa1" || estado == "etapa2") {
-    //etapa1
     modeloUsuario.position.set(usuario.x, usuario.y, usuario.z);
     usuario.calcularConexiones(red);
+    moveteSiNosParecemos(modelosRed.children, indicesSimilitud);
 
-    if (red.length > modelosRed.children.length) {
-      moveteSiNosParecemos(modelosRed.children, indicesSimilitud);
-    }
-
-    THREE.DefaultLoadingManager.onLoad = function() {
-      console.log('Loading Complete!');
-    };
-
-    colisiones(modeloUsuario, modelosRed.children);
+    colisiones(modeloUsuario, modelosRed.children); // no funciona
 
     mundo.camara.position.x = usuario.x + 3.5 * Math.cos(0.5 * mov);
     mundo.camara.position.z = usuario.z + 3.5 * Math.sin(0.5 * mov);
     mundo.camara.lookAt(modeloUsuario.position);
+
+    botonSeguir(mundo.reloj);
+
+    if (estado == "etapa2") {
+      texto.innerText = usuario.texto(mundo.reloj.getElapsedTime(), orientacion);
+    } else {
+      texto.innerText = " ";
+    }
 
   } else if (estado == "contemplacion") {
     mov += 0.01;
     mundo.camara.position.x = usuario.x + 5 * Math.cos(0.5 * mov);
     mundo.camara.position.z = usuario.z + 5 * Math.sin(0.5 * mov);
     mundo.camara.lookAt(modeloUsuario.position);
+    texto.innerText = " ";
   } // etapa1
 
-  //
+  //console.log(mundo.reloj.getElapsedTime())
+  ////////
+  THREE.DefaultLoadingManager.onLoad = function() {
+    console.log('Loading Complete!');
+  };
+
+  ////////
   mundo.renderizar();
 }
 
+function onWindowResize() {
+
+  mundo.camara.aspect = window.innerWidth / window.innerHeight;
+  mundo.camara.updateProjectionMatrix();
+
+  mundo.renderizador.setSize(window.innerWidth, window.innerHeight);
+
+}
 ///// Programa Principal
+
 inicializar();
 animar();

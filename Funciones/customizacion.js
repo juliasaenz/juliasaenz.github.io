@@ -8,6 +8,7 @@ import {
   elegirSonidoAzar
 } from './calculos.js'
 import {
+  customizaciónA,
   customizaciónB,
   etapa1
 } from '../script1.js'
@@ -32,7 +33,7 @@ var sonidos = [];
 
 export function aviso() {
   // Aca deberia haber algun texto o algo
-    //alert("aviso")
+  //alert("aviso")
 }
 
 export function customizaciónAA(estado, escena) {
@@ -99,8 +100,12 @@ export function clickCustomizacionB(lista, raycaster_, usuario_, listener) {
       lista[1].material.color.set(int.material.color);
       usuario_.color = int.material.color;
     } else if (index == botones.length - 1) {
+      // Toque botón continuar
       eliminarSonido(lista)
       etapa1();
+    } else if (index == botones.length - 2) {
+      // Toque botón volver
+      customizaciónA();
     } else {
       /// elegir sonido
       for (var i = Object.keys(colores).length; i < botones.length - 1; i++) {
@@ -144,6 +149,7 @@ export function crearBotones(listener) {
   var botones = new THREE.Object3D;
   botonesColor(colores, botones);
   botonesSonido(listener, botones);
+  botonVolver(botones);
   botonContinuar(botones)
   return botones;
 }
@@ -172,17 +178,53 @@ function botonesSonido(listener, botones) {
     circle.position.set(1.8, 0.5 - i * 0.22, 0);
 
     botones.add(circle);
-    sonidos[i] = elegirSonidoAzar();
+    sonidos[i] = elegirSonidoAzar(i + 1);
   }
 }
 
-function botonContinuar(botones) {
-  const geometry = new THREE.CircleGeometry(0.05, 32);
+function botonVolver(botones) {
+  /* FLECHA
+  const material = new THREE.LineBasicMaterial({
+    color: 0xFAFAFA,
+  });
+  const boton = new THREE.Line(_geometria(), material);
+  boton.position.set(-2.3, 0.95, 0);
+  */
+
+  const geometry = new THREE.PlaneGeometry(0.12, 0.12);
   const material = new THREE.MeshBasicMaterial({
-    color: 0xDDDDDD
+    color: 0x040404
   });
   const boton = new THREE.Mesh(geometry, material);
-  boton.position.set(0, -0.8, 0);
+  boton.position.set(-2.18, 0.9, 0);
 
   botones.add(boton);
+}
+
+function _geometria() {
+  const vertices = new Float32Array([
+    0.09, 0.05, 0,
+    0, 0, 0,
+    0.09, -0.05, 0,
+    0, 0, 0,
+    0.2, 0, 0,
+  ]);
+
+  const geoCono = new THREE.BufferGeometry();
+  geoCono.setAttribute('position', new THREE.BufferAttribute(vertices, 3));
+
+  return geoCono;
+}
+
+function botonContinuar(botones) {
+  const geometry = new THREE.PlaneGeometry(1, 0.2);
+  const material = new THREE.MeshBasicMaterial({
+    color: 0x040404
+  });
+  const boton = new THREE.Mesh(geometry, material);
+  boton.position.set(0, -0.7, 0);
+
+  botones.add(boton);
+
+  //////////////////////
 }

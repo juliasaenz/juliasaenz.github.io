@@ -47,6 +47,7 @@ export class Mundo {
     this.renderizador = new THREE.WebGLRenderer({
       antialias: true
     });
+    this.renderizador.setPixelRatio(window.devicePixelRatio);
     this.renderizador.setSize(window.innerWidth, window.innerHeight);
     document.body.appendChild(this.renderizador.domElement);
 
@@ -64,6 +65,10 @@ export class Mundo {
     this.compositor.addPass(this.bloomPass);
     renderPass.renderToScreen = true;
 
+    ////////// Reloj
+    this.reloj = new THREE.Clock();
+    this.reloj.start();
+
   }
   crearFondoCustomizacion() {
     this.escena.background = new THREE.Color(0x030002);
@@ -76,7 +81,7 @@ export class Mundo {
   }
   crearFondo() {
     this.escena.background = new THREE.Color(0x030002);
-    this.escena.fog = new THREE.Fog(0x010102, 1, 30);
+    this.escena.fog = new THREE.Fog(0x010102, 0.1, 50);
 
     this.bloomPass.strength = params.bloomStrength + 1.8;
 
