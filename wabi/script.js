@@ -20,7 +20,7 @@ function iniciar(){
     maceta = new THREE.Object3D();
 
     // Cargamos el modelo (Para cambiarlo solo se cambia el link)
-    cargarModelo('./modelo/macetaF002.glb',modelo);
+    cargarModelo('./modelo/skull.gltf',modelo);
     // Podemos cambiar la escala, rotación y posición del modelo
     modelo.scale.x = 0.2;
     modelo.scale.y = 0.2;
