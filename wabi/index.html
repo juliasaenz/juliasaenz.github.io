@@ -6,15 +6,16 @@
   <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 
   <title> Wabi </title>
+  /* Importamos las librerías que vamos a usar */
   <script src='https://unpkg.com/three@0.122.0/build/three.min.js'></script>
   <script src='https://raw.githack.com/AR-js-org/AR.js/master/three.js/build/ar.js'></script>
   <style>
+    /* Estas cosas del pueden toquetear para ver como cambia si quieren*/
     body {
       margin: 0px;
       padding: 0px;
       overflow: hidden;
     }
-
     .arjs-loader {
       margin: 0 auto;
       width: 100%;
@@ -26,7 +27,6 @@
       justify-content: center;
       align-items: center;
     }
-
     .arjs-loader-spinner {
       z-index: 10;
       -webkit-transform: spin 1s linear infinite;
@@ -37,7 +37,6 @@
       height: 75px;
       width: 75px;
     }
-
     @-webkit-keyframes spin {
       to {
         border-top-color: #9BB59E;
@@ -45,7 +44,6 @@
         transform: rotate(360deg);
       }
     }
-
     @keyframes spin {
       to {
         border-top-color: #9BB59E;
@@ -58,6 +56,7 @@
 
 <body>
   <div class="arjs-loader">
+    /* Esto muestra cuando se está cargando el modelo*/
     <div class="arjs-loader-spinner"></div>
   </div>
   <script type="module" src="./script.js"></script>

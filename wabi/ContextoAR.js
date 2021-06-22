@@ -1,5 +1,7 @@
 import * as THREE from 'https://unpkg.com/three@0.122.0/build/three.module.js';
 THREEx.ArToolkitContext.baseURL = './';
+
+////////////////////////////////// Toda esta parte no la tocaría, es la que maneja la Realidad Aumentada
 export class ContextoAR{
     constructor(mundo){
         this.mundo = mundo;
