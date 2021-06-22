@@ -1,43 +1,68 @@
 import * as THREE from 'https://unpkg.com/three@0.122.0/build/three.module.js';
-import { GLTFLoader } from 'https://unpkg.com/three@0.122.0/examples/jsm/loaders/GLTFLoader.js';
-import {Mundo} from './Mundo.js';
-import {cargarModelo} from './CargarModelo.js';
-import {ContextoAR} from './ContextoAR.js';
+import {
+  Mundo
+} from './Mundo.js';
+import {
+  cargarModelo,
+  cargarModeloAnimado
+} from './CargarModelo.js';
+import {
+  ContextoAR
+} from './ContextoAR.js';
 
-var modelo;
 var mundo;
 var contextoAR;
-
-function iniciar(){
-    // Creamos la escena sobre la que vamos a poner modelos 3D
-    mundo = new Mundo();
-    mundo.iluminar();
-    contextoAR = new ContextoAR(mundo);
+let clock = new THREE.Clock();
 
 
-    // Cargamos el marcador (Para cambiarlo solo se cambia el link)
-    var marcador = contextoAR.crearMarcador('./marcadores/wabi2.patt','nombreModelo');
-    maceta = new THREE.Object3D();
+/* Si quieren usar más modelos solo hacen variable modelo2 (y mixer2 si es animado)
+  y así sucesivamente los que quieran */
+var modelo;
+var mixer = [];
 
-    // Cargamos el modelo (Para cambiarlo solo se cambia el link)
-    cargarModelo('./modelo/skull.gltf',modelo);
-    // Podemos cambiar la escala, rotación y posición del modelo
-    modelo.scale.x = 0.2;
-    modelo.scale.y = 0.2;
-    modelo.scale.z = 0.2;
-    modelo.position.z = 0.7;
-    // Agregamos al modelo como hijo del marcador
-    marcador.add(modelo);
+
+function iniciar() {
+  /* Creamos la escena sobre la que vamos a poner modelos 3D */
+  mundo = new Mundo();
+  mundo.iluminar();
+  contextoAR = new ContextoAR(mundo);
+
+  /* Creamos el MARCADOR que vamos a usar */
+  //////// --> Link donde hacer marcadores https://jeromeetienne.github.io/AR.js/three.js/examples/marker-training/examples/generator.html
+  //////// --> Para cambiar de marcador solo hace falta agregar un nuevo archivo a la carpeta y cambiar el string en la siguiente función
+  var marcador = contextoAR.crearMarcador('./marcadores/wabi2.patt', 'nombreModelo');
+
+  /* Cargamos el MODELO 3D que vamos a usar */
+  //////// --> Cambiar de modelo tmb es solo cambiar el string de la función
+  modelo = new THREE.Object3D();
+  cargarModelo('./modelo/axolotl/scene.gltf', modelo); // Sin animación
+  //cargarModeloAnimado('./modelo/fire/scene.gltf', modelo, mixer); // Con animación
+  marcador.add(modelo); // Lo hacemos hijo del marcador
+
+  //////// --> Podemos cambiar la posición, escala y rotación inicial del modelo
+  modelo.scale.set(0.5, 0.5, 0.5);
+  modelo.rotation.x = Math.PI;
+  modelo.rotation.y = -Math.PI / 2;
+
 }
 
-function animacion(){
-    // Si quisieran animar el modelo, por ejemplo se puede hacer acá
+function animacion() {
+  requestAnimationFrame(animacion); // Loop animación
 
+  /* Si quisieran animar el modelo de forma simple (que rote, o vaya de un lado a otro), se puede hacer acá */
+  //modelo.rotation.z += 0.05;
 
-    // Estas tres líneas tienen que quedar sí o si, hacen que se actualice la página
-    requestAnimationFrame(animacion);
-    contextoAR.actualizar();
-    mundo.dibujar();
+  /* Esto solo se usa si el modelo viene con animación, igual si no es se puede dejar */
+  if (mixer[0] != undefined) {
+    mixer[0].update(clock.getDelta());
+    console.log("entro");
+  } else {
+    console.log("no entro")
+  }
+
+  /* Estas líneas tienen que quedar sí o si, hacen que se actualice la página */
+  contextoAR.actualizar();
+  mundo.dibujar();
 }
 
 

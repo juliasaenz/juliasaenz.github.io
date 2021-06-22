@@ -23,7 +23,7 @@ export class Mundo{
     iluminar(){
         // Las luces en la escena
 
-        var light = new THREE.AmbientLight( 0xffffff);
+        var light = new THREE.AmbientLight( 0xfafafa);
         this.escena.add( light ); // SIEMPRE tienen que agregarse a la escena para poder verlas
 
         var puntual = new THREE.PointLight( 0xF0F2A6, 0.5, 60 );
