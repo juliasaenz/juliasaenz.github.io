@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+
+  <title> Wabi </title>
+  <script src='https://unpkg.com/three@0.122.0/build/three.min.js'></script>
+  <script src='https://raw.githack.com/AR-js-org/AR.js/master/three.js/build/ar.js'></script>
+  <style>
+    body {
+      margin: 0px;
+      padding: 0px;
+      overflow: hidden;
+    }
+
+    .arjs-loader {
+      margin: 0 auto;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .arjs-loader-spinner {
+      z-index: 10;
+      -webkit-transform: spin 1s linear infinite;
+      animation: spin 1s linear infinite;
+      border: 6px solid #ddd;
+      border-top: 6px solid #9BB59E;
+      border-radius: 50%;
+      height: 75px;
+      width: 75px;
+    }
+
+    @-webkit-keyframes spin {
+      to {
+        border-top-color: #9BB59E;
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes spin {
+      to {
+        border-top-color: #9BB59E;
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="arjs-loader">
+    <div class="arjs-loader-spinner"></div>
+  </div>
+  <script type="module" src="./script.js"></script>
+</body>
+
+</html>
