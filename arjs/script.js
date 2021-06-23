@@ -17,7 +17,7 @@ let clock = new THREE.Clock();
 
 /* Si quieren usar más modelos solo hacen variable modelo2 (y mixer2 si es animado)
   y así sucesivamente los que quieran */
-var modelo;
+var modelo, modelo2;
 var mixer = [];
 
 
@@ -35,7 +35,7 @@ function iniciar() {
   /* Cargamos el MODELO 3D que vamos a usar */
   //////// --> Cambiar de modelo tmb es solo cambiar el string de la función
   modelo = new THREE.Object3D();
-  cargarModelo('./modelo/axolotl/scene.gltf', modelo); // Sin animación
+  cargarModelo('./modelo/smore/scene.gltf', modelo); // Sin animación
   //cargarModeloAnimado('./modelo/fire/scene.gltf', modelo, mixer); // Con animación
   marcador.add(modelo); // Lo hacemos hijo del marcador
 
@@ -43,6 +43,10 @@ function iniciar() {
   modelo.scale.set(0.5, 0.5, 0.5);
   modelo.rotation.x = Math.PI;
   modelo.rotation.y = -Math.PI / 2;
+
+  document.onkeydown = function(e) {
+    //marcador.add(modelo);
+  };
 
 }
 
@@ -55,9 +59,6 @@ function animacion() {
   /* Esto solo se usa si el modelo viene con animación, igual si no es se puede dejar */
   if (mixer[0] != undefined) {
     mixer[0].update(clock.getDelta());
-    console.log("entro");
-  } else {
-    console.log("no entro")
   }
 
   /* Estas líneas tienen que quedar sí o si, hacen que se actualice la página */
