@@ -104,8 +104,9 @@ export function clickCustomizacionB(lista, raycaster_, usuario_, listener) {
       customizaciónA();
     } else {
       /// elegir sonido
+      console.log("click")
       for (var i = Object.keys(colores).length; i < botones.length - 1; i++) {
-        botones[i].material.color.set(0xAAAAAA)
+        botones[i].material.color.set(0xFF6565)
       }
       int.material.color.set(0x777777)
       if (lista[1].children.length > 1) {

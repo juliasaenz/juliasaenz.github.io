@@ -1,5 +1,6 @@
 import * as THREE from 'https://unpkg.com/three@0.121.1/build/three.module.js';
 import { RGBELoader } from 'https://unpkg.com/three@0.121.1/examples/jsm/loaders/RGBELoader.js';
+
 export function ilumnarConHDRI(archivo,mundo){
     var pmremGenerator = new THREE.PMREMGenerator( mundo.renderizador );
     pmremGenerator.compileEquirectangularShader();
