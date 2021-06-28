@@ -15,43 +15,36 @@
         height: 100%;
         background-color: rgb(1, 1, 1);
         font-family: 'Source Code Pro', monospace;
-        text-align: center;
-        overflow: hidden;
       }
       canvas {
         width: 100%;
         height: 100%;
         display: block;
       }
-      input {
+      p {
         color: #FAFAFA;
         position: absolute;
-        font-family: 'Source Code Pro', monospace;
-        background-color: Transparent;
       }
       #bContinuar {
-        top: 85%;
+        position: absolute;
+        top: 80%;
         left: 80%;
-        font-size: 30px;
+        background-color: Transparent;
         background-repeat: no-repeat;
         border: none;
-      }
-      #nombre {
-        top: 85%;
-        left: 40%;
-        font-size: 18px;
-      }
-      #codigo {
-        z-index: -10;
+        color: #FAFAFA;
+        font-size: 30px;
+        font-family: 'Source Code Pro', monospace;
+        text-align: center;
       }
     </style>
 
   </head>
 
   <body>
-    <script id="codigo" type="module" src="./script1.js"></script>
-    <!-- <input id="nombre" type="text" placeholder="Nombre"/> -->
-    <input id="bContinuar" type="button" value=""/>
+    <script type="module" src="./script1.js"></script>
   </body>
+
+  <input id="bContinuar" type="button" value=""/>
 
 </html>

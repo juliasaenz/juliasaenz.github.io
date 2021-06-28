@@ -6,7 +6,7 @@ import {
 } from './modelos3D.js'
 ////////////////////////////////// Interacción con click
 
-export function clickEtapa3(lista, red_, raycaster_) {
+export function clickEtapa2(lista, red_, raycaster_) {
   var intersects = raycaster_.intersectObjects(lista);
   if (intersects.length > 0) {
     const int = intersects[0].object;
@@ -20,22 +20,18 @@ export function clickEtapa3(lista, red_, raycaster_) {
 export function tecladoEtapa1(e, usuario) {
   switch (e.keyCode) {
     case 37:
-    case 65:
       //derecha
       usuario.x -= 0.2;
       break;
     case 38:
-    case 87:
       //arriba
       usuario.z -= 0.2;
       break;
     case 39:
-    case 68:
       //izquierda
       usuario.x += 0.2;
       break;
     case 40:
-    case 83:
       //abajo
       usuario.z += 0.2;
       break
@@ -46,77 +42,73 @@ export function tecladoEtapa2(orientacion, e, usuario, colision, lastKey) {
   switch (e.keyCode) {
     //derecha
     case 37:
-    case 65:
       if (e.keyCode != colision) {
         switch (orientacion) {
           case "frente":
-            usuario.x -= 0.4;
+            usuario.x -= 0.2;
             break;
           case "izquierda":
-            usuario.z += 0.4;
+            usuario.z += 0.2;
             break;
           case "derecha":
-            usuario.z -= 0.4;
+            usuario.z -= 0.2;
             break;
           case "espalda":
-            usuario.x += 0.4;
+            usuario.x += 0.2;
             break;
         }
       }
       break;
       //arriba
     case 38:
-    case 87:
       if (e.keyCode != colision) {
         switch (orientacion) {
           case "frente":
-            usuario.z -= 0.4;
+            usuario.z -= 0.2;
             break;
           case "izquierda":
-            usuario.x -= 0.4;
+            usuario.x -= 0.2;
             break;
           case "derecha":
-            usuario.x += 0.4;
+            usuario.x += 0.2;
             break;
           case "espalda":
-            usuario.z += 0.4;
+            usuario.z += 0.2;
             break;
         }
       }
       break;
       //izquierda
     case 39:
-    case 68:
       if (e.keyCode != colision) {
         switch (orientacion) {
           case "frente":
-            usuario.x += 0.4;
+            usuario.x += 0.2;
             break;
           case "izquierda":
-            usuario.z -= 0.4;
+            usuario.z -= 0.2;
             break;
           case "derecha":
-            usuario.z += 0.4;
+            usuario.z += 0.2;
             break;
           case "espalda":
-            usuario.x -= 0.4;
+            usuario.x -= 0.2;
             break;
         }
       }
       break;
       //abajo
     case 40:
-    case 83:
       if (e.keyCode != colision) {
         switch (orientacion) {
           case "frente":
-            usuario.z += 0.4;
+            usuario.z += 0.2;
             break;
           case "izquierda":
-            usuario.x += 0.4;
+            usuario.x += 0.2;
             break;
           case "derecha":
-            usuario.x -= 0.4;
+            usuario.x -= 0.2;
             break;
           case "espalda":
             usuario.z -= 0.2;

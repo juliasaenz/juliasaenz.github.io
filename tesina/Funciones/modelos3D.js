@@ -168,12 +168,12 @@ export function cargarSonido(listener, archivo, fig) {
     sonido.setBuffer(buffer);
     sonido.setRefDistance(0.7);
 
-    var m = 1.5;
-    /*if (fig != null && !fig.activo) {
+    var m = 0.8;
+    if (fig != null && !fig.activo) {
       m = Math.random() * 1.5 + 0.8;
-    }*/
+    }
     sonido.setRolloffFactor(m);
-    sonido.setMaxDistance(1000);
+    //console.log(m);
     //entre 0.5 y 0.22
     sonido.setLoop(true);
     ////sonido.setVolume(4);
