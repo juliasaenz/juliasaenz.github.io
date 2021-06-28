@@ -100,16 +100,13 @@ export function clickCustomizacionB(lista, raycaster_, usuario_, listener) {
       lista[1].material.color.set(int.material.color);
       usuario_.color = int.material.color;
     } else if (index == botones.length - 1) {
-      // Toque botón continuar
-      eliminarSonido(lista)
-      etapa1();
-    } else if (index == botones.length - 2) {
       // Toque botón volver
       customizaciónA();
     } else {
       /// elegir sonido
+      console.log("click")
       for (var i = Object.keys(colores).length; i < botones.length - 1; i++) {
-        botones[i].material.color.set(0xAAAAAA)
+        botones[i].material.color.set(0xFF6565)
       }
       int.material.color.set(0x777777)
       if (lista[1].children.length > 1) {
@@ -150,7 +147,7 @@ export function crearBotones(listener) {
   botonesColor(colores, botones);
   botonesSonido(listener, botones);
   botonVolver(botones);
-  botonContinuar(botones)
+  //botonContinuar(botones)
   return botones;
 }
 
