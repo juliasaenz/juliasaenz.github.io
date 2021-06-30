@@ -88,7 +88,7 @@ export class Mundo {
     const planeSize = 400;
 
     const loader = new THREE.TextureLoader();
-    const texture = loader.load('../data/imagenes/cubo_fondo_006.png');
+    const texture = loader.load('../tesina/data/imagenes/cubo_fondo_006.png');
     texture.wrapS = THREE.RepeatWrapping;
     texture.wrapT = THREE.RepeatWrapping;
     texture.magFilter = THREE.NearestFilter;

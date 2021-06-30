@@ -75,6 +75,10 @@ const vertex = new THREE.Vector3();
 const color = new THREE.Color();
 
 
+/// instrucciones
+var cargo = true;
+var play = true;
+
 ///////////////////////////////////////////// Inicializar Estados
 export function customizaciónA() {
   estado = "customizaciónA";
@@ -132,6 +136,10 @@ export function customizaciónB(seleccion) {
 }
 
 export function etapa1() {
+  // Instrucciones
+  instrucciones(" Mover: WASD o Flechas \n\n ");
+  mundo.listener.setMasterVolume(0);
+
   //
   let inputVal = document.getElementById("nombre");
   console.log("este es el nombre: ", inputVal.value);
@@ -181,6 +189,9 @@ export function etapa1() {
 }
 
 function etapa2() {
+  instrucciones(" Mover: WASD o Flechas \n Rotar: Click & Drag \n\n ");
+  mundo.listener.setMasterVolume(0);
+
   estado = "etapa2";
   console.log("pasando a vista total")
   vistaTotalModelos(mundo.listener, red, modelosRed);
@@ -218,6 +229,10 @@ function etapa3() {
 }
 
 function etapa4() {
+  borrarDatos();
+  instrucciones(" Mover: WASD o Flechas \n Rotar: Click & Drag \n\n ");
+  cargo = true;
+
   estado = "etapa4";
   mundo.bloomPass.strength += 0.7;
 
@@ -235,32 +250,22 @@ function etapa4() {
 
 ///////////////////////////////////////////// Estas idealmente se irian de aca
 
-function colisiones(obj, lista) {
-  const x = obj.position.x;
-  const z = obj.position.z;
-  const w = obj.geometry.boundingBox.max.x + 0.1;
-  const d = obj.geometry.boundingBox.max.z + 0.1;
-  for (var i = 0; i < lista.length; i++) {
-    const xL = lista[i].position.x;
-    const zL = lista[i].position.z;
-    const wL = lista[i].geometry.boundingBox.max.x;
-    const dL = lista[i].geometry.boundingBox.max.z;
+function instrucciones(texto) {
+  const instructions = document.getElementById("instructions");
+  const blocker = document.getElementById("blocker");
+  instructions.style.display = 'flex';
+  const t = document.getElementById("tins");
+  t.innerText = texto;
+  t.style.textAlign = "center";
 
-    if (x - w > xL - wL && x - w < xL + wL || x + w > xL - wL && x + w < xL + wL) {
-      //x adentro
-      if (z - d > zL - dL && z - d < zL + dL || z + d > zL - dL && z + d < zL + dL) {
-        //z adentro
-        console.log("bonk")
-        colision = lastKey;
-      } else {
-        colision = -1;
-      }
-    } else {
-      colision = -1;
-    }
+  blocker.style.display = '';
 
+  if (estado != "etapa3") {
+    const p = document.getElementById("play");
+    p.innerText = " \n\n\n Preparando espacio";
+    cargo = false;
   }
-  //console.log(colision)
+  play = false;
 }
 
 function calcularCaraB() {
@@ -283,7 +288,7 @@ function calcularCaraB() {
 }
 
 function botonSeguir(reloj) {
-  if (reloj.getElapsedTime() > 1) {
+  if (play && reloj.getElapsedTime() > 5) {
     seguir = !seguir;
     if (seguir) {
 
@@ -299,11 +304,7 @@ function botonSeguir(reloj) {
         btn.addEventListener("click", function() {
           estado = "contemplacion";
           btn.remove();
-          var te = document.getElementById("dato");
-          while (te != null){
-            te.remove();
-            te = document.getElementById("dato");
-          }
+          borrarDatos();
         });
         btn.value = "Terminar";
       }
@@ -324,12 +325,20 @@ function borde(x, z) {
   return x, z;
 }
 
-function mostrarDatos(vel){
+function mostrarDatos(vel) {
   const te = document.getElementById("dato");
   if (te != null && te.style.opacity > 0) {
     te.style.opacity -= vel;
   } else if (te != null && te.style.opacity == 0) {
     te.remove();
+  }
+}
+
+function borrarDatos() {
+  var te = document.getElementById("dato");
+  while (te != null) {
+    te.remove();
+    te = document.getElementById("dato");
   }
 }
 ///// ThreeJS
@@ -342,31 +351,35 @@ function inicializar() {
   // Mundo
   mundo = new Mundo();
   mundo.crearFondoCustomizacion();
+
   // usuario
   usuario = new Figura();
+
   // Interacción
   raycaster = new THREE.Raycaster();
   mouse = new THREE.Vector2();
-  ////////////////////// Interacción click y teclado
+
+  // Interacción click y teclado
   document.addEventListener('mousedown', function(event) {
-    event.preventDefault();
-    // mouse
-    mouse.x = (event.clientX / mundo.renderizador.domElement.clientWidth) * 2 - 1;
-    mouse.y = -(event.clientY / mundo.renderizador.domElement.clientHeight) * 2 + 1;
-    raycaster.setFromCamera(mouse, mundo.camara);
+    if (play) {
+      event.preventDefault();
+      // mouse
+      mouse.x = (event.clientX / mundo.renderizador.domElement.clientWidth) * 2 - 1;
+      mouse.y = -(event.clientY / mundo.renderizador.domElement.clientHeight) * 2 + 1;
+      raycaster.setFromCamera(mouse, mundo.camara);
 
-    if (estado == "customizaciónA") {
-      clickCustomizacionA(mundo.escena.children, raycaster, usuario, mundo.listener, mundo.escena, estado);
-    } else if (estado == "customizaciónB") {
-      clickCustomizacionB(mundo.escena.children, raycaster, usuario, mundo.listener);
+      if (estado == "customizaciónA") {
+        clickCustomizacionA(mundo.escena.children, raycaster, usuario, mundo.listener, mundo.escena, estado);
+      } else if (estado == "customizaciónB") {
+        clickCustomizacionB(mundo.escena.children, raycaster, usuario, mundo.listener);
 
-    } else if (estado == "etapa2") {
-      rota = true;
-    } else if (estado == "etapa3" || estado == "etapa4") {
-      clickEtapa3(modelosRed.children, red, raycaster, mouse);
-      rota = true;
+      } else if (estado == "etapa2") {
+        rota = true;
+      } else if (estado == "etapa3" || estado == "etapa4") {
+        clickEtapa3(modelosRed.children, red, raycaster, mouse);
+        rota = true;
+      }
     }
-
   }, false); // Mouse
   document.onpointermove = function() {
     if ((estado == "etapa2" || estado == "etapa3") && rota) {
@@ -392,18 +405,15 @@ function inicializar() {
     }
   };
   document.onkeydown = function(e) {
-    if (estado == "aviso" || estado == "customizaciónB") {
-      if (e.keyCode == 81) {
-        //q
-        customizaciónA();
+    if (play) {
+      if (estado == "etapa1") {
+        tecladoEtapa1(e, usuario);
+      } else if (estado == "etapa2" || estado == "etapa3") {
+        tecladoEtapa2(orientacion, e, usuario, colision, lastKey)
       }
-    } // ESTO ES PROVISORIO, DESPUES VA A HABER UN BOTÓN
-    if (estado == "etapa1") {
-      tecladoEtapa1(e, usuario);
-    } else if (estado == "etapa2" || estado == "etapa3") {
-      tecladoEtapa2(orientacion, e, usuario, colision, lastKey)
     }
   };
+
   // Resize
   window.addEventListener('resize', onWindowResize);
   window.addEventListener("beforeunload", function(e) {
@@ -416,67 +426,77 @@ function inicializar() {
     }
   });
 
-  ////////////////// movimiento
+  // Movimiento cámara
   controls = new PointerLockControls(mundo.camara, document.body);
   mundo.escena.add(controls.getObject());
 
-  // Mov
+  // Movimiento teclas
   const onKeyDown = function(event) {
-    switch (event.code) {
-      case 'ArrowUp':
-      case 'KeyW':
-        moveForward = true;
-        break;
-      case 'ArrowLeft':
-      case 'KeyA':
-        moveLeft = true;
-        break;
-      case 'ArrowDown':
-      case 'KeyS':
-        moveBackward = true;
-        break;
-      case 'ArrowRight':
-      case 'KeyD':
-        moveRight = true;
-        break;
+    if (play) {
+      switch (event.code) {
+        case 'ArrowUp':
+        case 'KeyW':
+          moveForward = true;
+          break;
+        case 'ArrowLeft':
+        case 'KeyA':
+          moveLeft = true;
+          break;
+        case 'ArrowDown':
+        case 'KeyS':
+          moveBackward = true;
+          break;
+        case 'ArrowRight':
+        case 'KeyD':
+          moveRight = true;
+          break;
+      }
     }
   };
   const onKeyUp = function(event) {
+    if (play) {
+      switch (event.code) {
 
-    switch (event.code) {
+        case 'ArrowUp':
+        case 'KeyW':
+          moveForward = false;
+          break;
 
-      case 'ArrowUp':
-      case 'KeyW':
-        moveForward = false;
-        break;
+        case 'ArrowLeft':
+        case 'KeyA':
+          moveLeft = false;
+          break;
 
-      case 'ArrowLeft':
-      case 'KeyA':
-        moveLeft = false;
-        break;
+        case 'ArrowDown':
+        case 'KeyS':
+          moveBackward = false;
+          break;
 
-      case 'ArrowDown':
-      case 'KeyS':
-        moveBackward = false;
-        break;
+        case 'ArrowRight':
+        case 'KeyD':
+          moveRight = false;
+          break;
 
-      case 'ArrowRight':
-      case 'KeyD':
-        moveRight = false;
-        break;
-
+      }
     }
-
   };
   document.addEventListener('keydown', onKeyDown);
   document.addEventListener('keyup', onKeyUp);
 
-  // Para cuando me quiero saltar la customizacion
-  if (estado == "etapa1") {
-    etapa1();
-  } else {
-    crearTexto(mundo.escena, "Presione Q para comenzar")
-  }
+  // Instrucciones
+  const ins = document.getElementById("instructions");
+  const bl = document.getElementById("blocker");
+  bl.addEventListener('click', function() {
+    if (cargo) {
+      play = true;
+      ins.style.display = 'none';
+      bl.style.display = 'none';
+
+      if (estado == "aviso") {
+        customizaciónA();
+      }
+    }
+  });
 
 }
 
@@ -485,7 +505,7 @@ function animar() {
 
   if (estado == "aviso") {
     // Aca iria imagen o algo
-    texto.innerText = "prototipo tip: usen compu para verlo :) \n Último upadte: 29/06 16pm ";
+    texto.innerText = "prototipo tip: usen compu para verlo :) \n Último upadte: 29/06 18pm ";
   } else if (estado == "customizaciónA") {
     rotarObjeto3D(mundo.escena.children[1]);
     rotarObjeto3D(mundo.escena.children[2]);
@@ -511,8 +531,6 @@ function animar() {
     usuario.calcularConexiones(red);
     moveteSiNosParecemos(modelosRed.children, indicesSimilitud);
 
-    colisiones(modeloUsuario, modelosRed.children); // no funciona
-
     mundo.camara.position.x = usuario.x + 3.5 * Math.cos(0.5 * mov);
     mundo.camara.position.z = usuario.z + 3.5 * Math.sin(0.5 * mov);
     mundo.camara.lookAt(modeloUsuario.position);
@@ -527,7 +545,11 @@ function animar() {
     }*/
 
     if (estado == "etapa3") {
-      texto.innerText = usuario.texto(mundo.reloj.getElapsedTime(), orientacion);
+      if (play) {
+        texto.innerText = usuario.texto(mundo.reloj.getElapsedTime(), orientacion);
+      } else {
+        texto.innerText = "";
+      }
       mostrarDatos(0.02);
     } else {
       texto.innerText = " ";
@@ -540,7 +562,11 @@ function animar() {
     moveteSiNosParecemos(modelosRed.children, indicesSimilitud);
     botonSeguir(mundo.reloj);
 
-    texto.innerText = usuario.texto(mundo.reloj.getElapsedTime(), orientacion);
+    if (play) {
+      texto.innerText = usuario.texto(mundo.reloj.getElapsedTime(), orientacion);
+    } else {
+      texto.innerText = "";
+    }
     mostrarDatos(0.008);
 
 
@@ -587,6 +613,12 @@ function animar() {
   ////////
   THREE.DefaultLoadingManager.onLoad = function() {
     console.log('Loading Complete!');
+    cargo = true;
+    const bl = document.getElementById("blocker");
+    const ins = document.getElementById("play");
+    ins.innerText = ("\n\n\n Hace click para empezar");
+
+    mundo.listener.setMasterVolume(1);
   };
 
   ////////

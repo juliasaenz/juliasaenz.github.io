@@ -2,10 +2,10 @@
 <html lang="es" dir="ltr">
 
   <head>
-
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
     <title>
-      Página
+      Tes-aenz o Saenz-ina
     </title>
     <style>
       body {
@@ -48,11 +48,40 @@
         left: 40%;
         font-size: 18px;
       }
+
+      #blocker {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.8);
+      }
+      #instructions {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        font-size: 14px;
+        cursor: pointer;
+        position: absolute;
+      }
     </style>
 
   </head>
 
   <body>
+    <div id="blocker">
+      <div id="instructions">
+        <p id= "tins" style="font-size:24px">
+        </p>
+        <p id= "play" style="font-size:24px">
+          <br/><br/><br/><br/> Hace click para empezar
+        </p>
+      </div>
+    </div>
+
     <script id="codigo" type="module" src="./script1.js"></script>
     <!-- <input id="nombre" type="text" placeholder="Nombre"/> -->
     <input id="bContinuar" type="button" value=""/>

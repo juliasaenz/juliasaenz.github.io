@@ -30,7 +30,7 @@ const color = new THREE.Color();
 
 var mov = true;
 var btn;
-
+var play = false;
 
 function inicializar() {
 
@@ -59,8 +59,10 @@ function inicializar() {
 
   var cant = false;
   document.onpointerdown = function(event) {
-    mueve = true;
-    mouse.x = (event.clientX / mundo.renderizador.domElement.clientWidth) * 2 - 1;
+    if (play) {
+      mueve = true;
+      mouse.x = (event.clientX / mundo.renderizador.domElement.clientWidth) * 2 - 1;
+    }
   };
   document.onmousemove = function() {
     if (mueve) {
@@ -105,56 +107,71 @@ function inicializar() {
   mundo.camara.lookAt(obj.position);
 
   const onKeyDown = function(event) {
-
-    switch (event.code) {
-      case 'ArrowUp':
-      case 'KeyW':
-        moveForward = true;
-        break;
-      case 'ArrowLeft':
-      case 'KeyA':
-        moveLeft = true;
-        break;
-      case 'ArrowDown':
-      case 'KeyS':
-        moveBackward = true;
-        break;
-      case 'ArrowRight':
-      case 'KeyD':
-        moveRight = true;
-        break;
+    if (play) {
+      switch (event.code) {
+        case 'ArrowUp':
+        case 'KeyW':
+          moveForward = true;
+          break;
+        case 'ArrowLeft':
+        case 'KeyA':
+          moveLeft = true;
+          break;
+        case 'ArrowDown':
+        case 'KeyS':
+          moveBackward = true;
+          break;
+        case 'ArrowRight':
+        case 'KeyD':
+          moveRight = true;
+          break;
+      }
     }
-
   };
   const onKeyUp = function(event) {
+    if (play) {
+      switch (event.code) {
 
-    switch (event.code) {
+        case 'ArrowUp':
+        case 'KeyW':
+          moveForward = false;
+          break;
 
-      case 'ArrowUp':
-      case 'KeyW':
-        moveForward = false;
-        break;
+        case 'ArrowLeft':
+        case 'KeyA':
+          moveLeft = false;
+          break;
 
-      case 'ArrowLeft':
-      case 'KeyA':
-        moveLeft = false;
-        break;
+        case 'ArrowDown':
+        case 'KeyS':
+          moveBackward = false;
+          break;
 
-      case 'ArrowDown':
-      case 'KeyS':
-        moveBackward = false;
-        break;
-
-      case 'ArrowRight':
-      case 'KeyD':
-        moveRight = false;
-        break;
-
+        case 'ArrowRight':
+        case 'KeyD':
+          moveRight = false;
+          break;
+        case 'Escape':
+          console.log("escapeee");
+          const instructions = document.getElementById("instructions");
+          const blocker = document.getElementById("blocker");
+          instructions.style.display = 'flex';
+					blocker.style.display = '';
+          play = false;
+      }
     }
-
   };
   document.addEventListener('keydown', onKeyDown);
   document.addEventListener('keyup', onKeyUp);
+
+  //instrucciones
+  const block = document.getElementById("blocker");
+  const instr = document.getElementById("instructions");
+  blocker.addEventListener('click', function() {
+    play = true;
+    instr.style.display = 'none';
+    block.style.display = 'none';
+  });
 
 }
 
