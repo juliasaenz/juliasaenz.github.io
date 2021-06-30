@@ -505,7 +505,7 @@ function animar() {
 
   if (estado == "aviso") {
     // Aca iria imagen o algo
-    texto.innerText = "prototipo tip: usen compu para verlo :) \n Último upadte: 29/06 18pm ";
+    texto.innerText = "prototipo tip: usen compu para verlo :) \n Último upadte: 29/06 19pm ";
   } else if (estado == "customizaciónA") {
     rotarObjeto3D(mundo.escena.children[1]);
     rotarObjeto3D(mundo.escena.children[2]);
