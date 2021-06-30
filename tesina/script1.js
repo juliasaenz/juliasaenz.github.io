@@ -611,6 +611,11 @@ function animar() {
 
   //console.log(mundo.reloj.getElapsedTime())
   ////////
+  THREE.DefaultLoadingManager.onProgress = function(url, itemsLoaded, itemsTotal) {
+
+    console.log('Loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.');
+
+  };
   THREE.DefaultLoadingManager.onLoad = function() {
     console.log('Loading Complete!');
     cargo = true;
@@ -618,7 +623,9 @@ function animar() {
     const ins = document.getElementById("play");
     ins.innerText = ("\n\n\n Hace click para empezar");
 
-    mundo.listener.setMasterVolume(1);
+    for (let i = 0; i <= 1; i+= 0.001){
+      mundo.listener.setMasterVolume(i);
+    }
   };
 
   ////////
