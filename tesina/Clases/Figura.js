@@ -105,4 +105,16 @@ export class Figura {
     //console.log(tFinal)
     return tFinal;
   }
+  limite(lim){
+    if(this.x > lim ){
+      this.x = -lim + 5;
+    } else if ( this.x < -lim ){
+      this.x = lim - 5;
+    }
+    if (this.z > lim){
+      this.z = -lim + 5;
+    } else if( this.z < -lim ){
+      this.z = lim - 5;
+    }
+  }
 }

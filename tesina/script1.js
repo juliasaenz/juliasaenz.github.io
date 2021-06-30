@@ -56,7 +56,7 @@ var colision = -1;
 var lastKey = -1;
 
 var seguir = false;
-var texto;
+var texto, textob;
 var btn;
 
 /// movimiento
@@ -126,7 +126,7 @@ export function customizaciónB(seleccion) {
   nom.setAttribute('placeholder', 'Nombre');
   //nom.setAttribute('maxlength', '16');
   //nom.setAttribute('autocomplete', 'given-name');
-  nom.setAttribute('value','');
+  nom.setAttribute('value', '');
   nom.focus();
   document.body.appendChild(nom);
 }
@@ -211,6 +211,10 @@ function etapa3() {
   btn.value = " ";
   btn.removeEventListener("click", etapa3);
   seguir = false;
+
+  // Texto
+  texto.style.top = '45%';
+  texto.style.left = '60%';
 }
 
 function etapa4() {
@@ -279,7 +283,7 @@ function calcularCaraB() {
 }
 
 function botonSeguir(reloj) {
-  if (reloj.getElapsedTime() > 5) {
+  if (reloj.getElapsedTime() > 1) {
     seguir = !seguir;
     if (seguir) {
 
@@ -294,7 +298,12 @@ function botonSeguir(reloj) {
       } else if (estado == "etapa4") {
         btn.addEventListener("click", function() {
           estado = "contemplacion";
-          btn.value = " ";
+          btn.remove();
+          var te = document.getElementById("dato");
+          while (te != null){
+            te.remove();
+            te = document.getElementById("dato");
+          }
         });
         btn.value = "Terminar";
       }
@@ -305,6 +314,24 @@ function botonSeguir(reloj) {
   }
 }
 
+function borde(x, z) {
+  if (x > 195 || x < -195) {
+    x = 0;
+  }
+  if (z > 195 || x < -195) {
+    z = 0;
+  }
+  return x, z;
+}
+
+function mostrarDatos(vel){
+  const te = document.getElementById("dato");
+  if (te != null && te.style.opacity > 0) {
+    te.style.opacity -= vel;
+  } else if (te != null && te.style.opacity == 0) {
+    te.remove();
+  }
+}
 ///// ThreeJS
 
 function inicializar() {
@@ -336,7 +363,7 @@ function inicializar() {
     } else if (estado == "etapa2") {
       rota = true;
     } else if (estado == "etapa3" || estado == "etapa4") {
-      clickEtapa3(modelosRed.children, red, raycaster);
+      clickEtapa3(modelosRed.children, red, raycaster, mouse);
       rota = true;
     }
 
@@ -458,7 +485,7 @@ function animar() {
 
   if (estado == "aviso") {
     // Aca iria imagen o algo
-    texto.innerText = "prototipo tip: usen compu para verlo :) \n Último upadte: 28/06 18pm ";
+    texto.innerText = "prototipo tip: usen compu para verlo :) \n Último upadte: 29/06 16pm ";
   } else if (estado == "customizaciónA") {
     rotarObjeto3D(mundo.escena.children[1]);
     rotarObjeto3D(mundo.escena.children[2]);
@@ -480,6 +507,7 @@ function animar() {
 
   } else if (estado == "etapa1" || estado == "etapa2" || estado == "etapa3") {
     modeloUsuario.position.set(usuario.x, usuario.y, usuario.z);
+    usuario.limite(190);
     usuario.calcularConexiones(red);
     moveteSiNosParecemos(modelosRed.children, indicesSimilitud);
 
@@ -491,18 +519,30 @@ function animar() {
 
     botonSeguir(mundo.reloj);
 
+    /*if (usuario.x > 30 || usuario.x < -30){
+      usuario.x = 0;
+    }
+    if (usuario.z > 30 || usuario.z < -30){
+      usuario.z = 0;
+    }*/
+
     if (estado == "etapa3") {
       texto.innerText = usuario.texto(mundo.reloj.getElapsedTime(), orientacion);
+      mostrarDatos(0.02);
     } else {
       texto.innerText = " ";
+
     }
 
   } else if (estado == "etapa4") {
     usuario.calcularConexiones(red);
+    usuario.limite(190);
     moveteSiNosParecemos(modelosRed.children, indicesSimilitud);
     botonSeguir(mundo.reloj);
 
     texto.innerText = usuario.texto(mundo.reloj.getElapsedTime(), orientacion);
+    mostrarDatos(0.008);
+
 
     /// movimiento
     const time = performance.now();
@@ -540,7 +580,7 @@ function animar() {
     mundo.camara.position.x = usuario.x + 5 * Math.cos(0.5 * mov);
     mundo.camara.position.z = usuario.z + 5 * Math.sin(0.5 * mov);
     mundo.camara.lookAt(modeloUsuario.position);
-    texto.innerText = " En realidad falta una etapa en medio :)";
+    texto.innerText = " ";
   } // etapa1
 
   //console.log(mundo.reloj.getElapsedTime())

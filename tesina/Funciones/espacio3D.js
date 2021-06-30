@@ -4,15 +4,32 @@ import {
   agregarModelos,
   agregarModelosCurado
 } from './modelos3D.js'
+import { scale } from './calculos.js'
 ////////////////////////////////// Interacción con click
 
-export function clickEtapa3(lista, red_, raycaster_) {
+export function clickEtapa3(lista, red_, raycaster_, mouse) {
   var intersects = raycaster_.intersectObjects(lista);
   if (intersects.length > 0) {
     const int = intersects[0].object;
     const index = lista.indexOf(int);
-    console.log(red_[index].texto(0));
+    console.log(intersects);
+
+    const posX = scale(mouse.x,-1,1,0,window.innerWidth) - 10;
+    const posY = scale(-mouse.y,-1,1,0,window.innerHeight) - 10;
+
+    console.log('mouse', posX, posY)
+    const t = document.createElement('p');
+    t.setAttribute('id','dato');
+    t.style.left= posX.toString() + "px";
+    t.style.top= posY.toString() + "px";
+    t.style.opacity =1;
+    t.innerText = red_[index].texto(0);
+    document.body.append(t);
+
+    return index;
   }
+  return -1;
+
 }
 
 ////////////////////////////////// Interacción Teclado
