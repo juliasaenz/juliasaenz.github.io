@@ -505,7 +505,7 @@ function animar() {
 
   if (estado == "aviso") {
     // Aca iria imagen o algo
-    texto.innerText = "prototipo tip: usen compu para verlo :) \n Último upadte: 29/06 19pm ";
+    texto.innerText = "Último upadte: 01/07 18pm ";
   } else if (estado == "customizaciónA") {
     rotarObjeto3D(mundo.escena.children[1]);
     rotarObjeto3D(mundo.escena.children[2]);
@@ -623,7 +623,7 @@ function animar() {
     const ins = document.getElementById("play");
     ins.innerText = ("\n\n\n Hace click para empezar");
 
-    for (let i = 0; i <= 1; i+= 0.001){
+    for (let i = 0; i <= 1; i += 0.001) {
       mundo.listener.setMasterVolume(i);
     }
   };
@@ -640,7 +640,17 @@ function onWindowResize() {
   mundo.renderizador.setSize(window.innerWidth, window.innerHeight);
 
 }
-///// Programa Principal
 
-inicializar();
-animar();
+///// Programa Principal
+if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+  // true for mobile device
+  console.log("celular");
+  texto = document.createElement('p');
+  document.body.append(texto);
+  texto.innerText = "Por favor use una computadora para ver esta página";
+} else {
+  // false for not mobile device
+  console.log("web");
+  inicializar();
+  animar();
+}
