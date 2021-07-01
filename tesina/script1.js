@@ -648,6 +648,8 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
   texto = document.createElement('p');
   document.body.append(texto);
   texto.innerText = "Por favor use una computadora para ver esta página";
+  document.getElementById("play").innerText = "";
+
 } else {
   // false for not mobile device
   console.log("web");
