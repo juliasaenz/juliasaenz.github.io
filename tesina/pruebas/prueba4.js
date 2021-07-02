@@ -5,6 +5,9 @@ import {
 import {
   PointerLockControls
 } from 'https://unpkg.com/three@0.121.1/examples/jsm/controls/PointerLockControls.js'
+import {
+  SVGLoader
+} from 'https://unpkg.com/three@0.121.1/examples/jsm/loaders/SVGLoader.js';
 
 ///// ThreeJS
 var mundo;
@@ -32,18 +35,18 @@ var mov = true;
 var btn;
 var play = false;
 
-function inicializar() {
+var texto;
 
+
+
+function inicializar() {
   btn = document.createElement("p");
   btn.innerHTML = "prueba"
   //document.body.appendChild(btn);
-
-
   /////////////////////////////
   mundo = new Mundo();
   mundo.crearFondo();
   mundo.bloomPass.strength = 0.3;
-
   // crar objeto
   const geometry = new THREE.BoxGeometry(0.5, 0.5, 0.5, 8, 8, 8);
   const material = new THREE.MeshBasicMaterial({
@@ -56,23 +59,43 @@ function inicializar() {
   //mundo.camara.add(obj)
   //
   var mouse = new THREE.Vector2();
-
+  //
   var cant = false;
   document.onpointerdown = function(event) {
     if (play) {
       mueve = true;
       mouse.x = (event.clientX / mundo.renderizador.domElement.clientWidth) * 2 - 1;
+      mouse.y = -(event.clientY / mundo.renderizador.domElement.clientHeight) * 2 + 1;
+      console.log(mouse.y)
     }
   };
-  document.onmousemove = function() {
+  var oldX, oldY = 0;
+  document.onmousemove = function(e) {
+    mouse.x = (event.clientX / mundo.renderizador.domElement.clientWidth) * 2 - 1;
+    mouse.y = -(event.clientY / mundo.renderizador.domElement.clientHeight) * 2 + 1;
     if (mueve) {
-      if (mouse.x < 0 && i < Math.PI * 3) {
+      if (mouse.x < oldX) {
         i += 0.1;
-      } else if (mouse.x > 0 && i > 0) {
+      } else if (mouse.x > oldX) {
         i -= 0.1;
       }
+      /*if (mouse.y > oldY && mundo.camara.position.y > -0.9){
+        mundo.camara.position.y -= 0.1;
+      } else if ( mouse.y < oldY && mundo.camara.position.y < 0.6){
+        mundo.camara.position.y += 0.1;
+      }*/
     }
+    oldX = mouse.x;
+    oldY = mouse.y;
   }
+  document.addEventListener('wheel', function(event){
+     event.preventDefault();
+     if (event.deltaY > 0 && mundo.camara.position.y > -0.9){
+       mundo.camara.position.y -= 0.1;
+     } else if (event.deltaY < 0 && mundo.camara.position.y < 0.6) {
+       mundo.camara.position.y += 0.1;
+     }
+  });
   document.onmouseup = function() {
     mueve = false;
     btn.innerHTML = mundo.camara.position.x + " " + mundo.camara.position.z + " - " + obj.position.x + " " + obj.position.z;
@@ -97,15 +120,14 @@ function inicializar() {
       i = Math.PI * 3;
     }*/
   }
-
   //// CONTROLES
   controls = new PointerLockControls(mundo.camara, document.body);
   mundo.escena.add(controls.getObject());
-
+  //
   mundo.camara.position.x = obj.position.x + 2 * Math.cos(0);
   mundo.camara.position.z = obj.position.z + 2 * Math.sin(0);
   mundo.camara.lookAt(obj.position);
-
+  //
   const onKeyDown = function(event) {
     if (play) {
       switch (event.code) {
@@ -156,23 +178,47 @@ function inicializar() {
           const instructions = document.getElementById("instructions");
           const blocker = document.getElementById("blocker");
           instructions.style.display = 'flex';
-					blocker.style.display = '';
+          blocker.style.display = '';
           play = false;
       }
     }
   };
   document.addEventListener('keydown', onKeyDown);
   document.addEventListener('keyup', onKeyUp);
-
   //instrucciones
-  const block = document.getElementById("blocker");
+  /*const block = document.getElementById("blocker");
   const instr = document.getElementById("instructions");
   blocker.addEventListener('click', function() {
     play = true;
     instr.style.display = 'none';
     block.style.display = 'none';
-  });
+  });*/
+  play = true;
+  //
+  mundo.escena.fog = null;
+  //textoEnElCielo();
+  texto = document.createElement("p");
+  texto.style.top = '45%';
+  texto.style.left = '60%';
+  document.body.append(texto);
 
+  ///
+  verCodigo(obj);
+}
+
+function verCodigo(x,y,z) {
+  const loader = new THREE.TextureLoader();
+  const texture = loader.load('../data/imagenes/cod02.png');
+
+  const planeGeo = new THREE.PlaneGeometry(300, 420);
+  const planeMat = new THREE.MeshBasicMaterial({
+    map: texture,
+    side: THREE.DoubleSide,
+  });
+  const mesh = new THREE.Mesh(planeGeo, planeMat);
+  mesh.position.set(0,100,-200);
+  mesh.lookAt(x,y,z);
+  mundo.escena.add(mesh);
 }
 
 function animar() {
@@ -182,8 +228,8 @@ function animar() {
 
   //
   if (!mueve) {
-    velocity.x -= velocity.x * 20.0 * delta;
-    velocity.z -= velocity.z * 20.0 * delta;
+    velocity.x -= velocity.x * 10.0 * delta;
+    velocity.z -= velocity.z * 10.0 * delta;
 
     direction.z = Number(moveForward) - Number(moveBackward);
     direction.x = Number(moveRight) - Number(moveLeft);
@@ -206,6 +252,8 @@ function animar() {
     mundo.camara.position.z = obj.position.z + 2 * Math.sin(0.5 * i);
     mundo.camara.lookAt(obj.position);
   }
+
+  texto.innerText = parseInt(obj.position.x) + " " + parseInt(obj.position.y) + " " + parseInt(obj.position.z) + "  " + mundo.camara.position.y;
   //
   mundo.renderizar();
 }

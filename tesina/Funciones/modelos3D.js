@@ -213,6 +213,7 @@ export function figurasAleatorias(red) {
       tipo = 'cono';
     }
     var f = new Figura(-1, tipo, colorRandom(), 40 - Math.random() * 80, 40 - Math.random() * 80, "juph-prueba", elegirSonidoAzar(), booleanRandom());
+    f.crearID();
     red.push(f);
   }
 }
@@ -237,9 +238,12 @@ export function agregarModelo(listener, f) {
   return m[0];
 }
 
-export function agregarModelos(listener, red, modelosRed) {
+export function agregarModelos(listener, red, modelosRed, usuario, indicesSimilitud) {
   // Paso la red a modelos 3D
+  indicesSimilitud.splice(0, indicesSimilitud.length)
   for (var i = 0; i < red.length; i++) {
+    red[i].calcularConexiones(red);
+    indicesSimilitud.push(usuario.ecuacionDeUsuarioA(red[i]));
     modelosRed.add(agregarModelo(listener, red[i]));
     red[i].pos = modelosRed.length-1;
   }

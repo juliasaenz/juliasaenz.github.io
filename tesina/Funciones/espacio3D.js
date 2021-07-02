@@ -7,7 +7,7 @@ import {
 import { scale } from './calculos.js'
 ////////////////////////////////// Interacción con click
 
-export function clickEtapa3(lista, red_, raycaster_, mouse) {
+export function clickEtapa3(lista, red_, raycaster_, mouse, indicesSimilitud) {
   var intersects = raycaster_.intersectObjects(lista);
   if (intersects.length > 0) {
     const int = intersects[0].object;
@@ -23,7 +23,7 @@ export function clickEtapa3(lista, red_, raycaster_, mouse) {
     t.style.left= posX.toString() + "px";
     t.style.top= posY.toString() + "px";
     t.style.opacity =1;
-    t.innerText = red_[index].texto(0);
+    t.innerText = red_[index].texto(0, "estático", indicesSimilitud[index]);
     document.body.append(t);
 
     return index;
@@ -170,17 +170,10 @@ export function recargarVistaCurada(listener, red, modelos, indicesSimilitud, us
   agregarModelosCurado(listener, red, modelos, indicesSimilitud, usuario);
 }
 
-export function vistaTotalModelos(listener, red, modelos) {
-  /*for (var i = 0; i < red.length; i++) {
-    if (red[i].pos == -1) {
-      //si no estaba dibujada
-      red[i].pos = modelos.children.length - 1;
-      modelos.add(agregarModelo(listener, red[i]));
-    }
-  }*/
+export function vistaTotalModelos(listener, red, modelos, usuario, indicesSimilitud) {
   while (modelos.children.length > 0) {
     modelos.children[modelos.children.length - 1].children[1].stop();
     modelos.remove(modelos.children[modelos.children.length - 1])
   }
-  agregarModelos(listener, red, modelos);
+  agregarModelos(listener, red, modelos, usuario, indicesSimilitud);
 }

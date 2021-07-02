@@ -98,7 +98,6 @@ export class Mundo {
     const planeGeo = new THREE.PlaneGeometry(planeSize, planeSize);
     const planeMat = new THREE.MeshBasicMaterial({
       map: texture,
-      side: THREE.DoubleSide,
     });
     const mesh = new THREE.Mesh(planeGeo, planeMat);
     mesh.rotation.x = Math.PI * -.5;

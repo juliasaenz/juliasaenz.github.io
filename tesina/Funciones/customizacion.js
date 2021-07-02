@@ -80,6 +80,20 @@ function customizaciónBB(seleccion, lista, usuario, escena, listener, estado) {
 
 ////////////////////////////////// Interacción Customización ///////////////////////////////
 
+export function tecladoCustomizacionB(texto) {
+  var inp = String.fromCharCode(event.keyCode);
+  if (/[a-zA-Z0-9-_]/.test(inp) && texto.length < 18) {
+    if (texto == "escriba su nombre") {
+      return inp.toLowerCase();
+    } else {
+      return texto + inp.toLowerCase();
+    }
+  } else if (event.key == 'Backspace'){
+    return texto.slice(0, -1)
+  }
+  return texto;
+}
+
 export function clickCustomizacionA(lista, raycaster_, usuario, listener, escena, estado) {
   var intersects = raycaster_.intersectObjects(lista);
   if (intersects.length > 0) {
@@ -108,7 +122,7 @@ export function clickCustomizacionB(lista, raycaster_, usuario_, listener) {
       for (var i = Object.keys(colores).length; i < botones.length - 1; i++) {
         botones[i].material.color.set(0x555555)
       }
-      int.material.color.set(0x888888)
+      int.material.color.set(0xFAFAFA)
       if (lista[1].children.length > 1) {
         lista[1].children[1].stop();
         lista[1].remove(lista[1].children[1])

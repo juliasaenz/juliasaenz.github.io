@@ -8,7 +8,7 @@ import {
 export class Figura {
   constructor(id = -1, forma = 'cubo', color = '#FF0000', x = 0, z = 0, nombre = "juph", sonido = '../data/sonidos/1/Sonido (1).wav', activo = false) {
     this.nombre = nombre;
-    this.id = this._crearID(id);
+    this.id = id;
     this.forma = forma;
     this.color = color;
     this.x = x;
@@ -22,13 +22,13 @@ export class Figura {
     this.conexiones = [];
     this.tiempo = 0;
   }
-  _crearID(id) {
+  crearID() {
     //crea una ID unica de usuario usando el nombre + numeros random
-    if (id != -1) {
-      return id;
+    if (this.id != -1) {
+      this.id = id;
     }
     const n = parseInt(Math.random() * 999);
-    return this.nombre.concat("-", n.toString());
+    this.id = this.nombre.concat("-", n.toString());
   }
   _distancia(x, y, z) {
     //calculo de distancia entre una figura y el usuario
@@ -91,30 +91,44 @@ export class Figura {
     //console.log(t,res);
     return res;
   }
-  texto(reloj, orientacion = "estático"){
-    const t = "Usuario: ".concat(this.nombre,"\n");
-    const t2 = "ID: ".concat(this.id,"\n");
-    const t3 = "Forma: ".concat(this.forma,"\n");
-    const t4 = "Color: ".concat(this.color,"\n");
-    const t5 = "Posición: ".concat(parseInt(this.x),", ",parseInt(this.y),", ",parseInt(this.z),"\n");
-    const t9 = "Rotación: ".concat(orientacion,"\n");
-    const t6 = "Sonido: ".concat(this.sonido,"\n");
-    const t7 = "Conexiones: ".concat(this.conexiones.length,"\n");
-    const t8 = "Tiempo: ".concat(parseInt(this.tiempo+reloj),"\n");
-    const tFinal = t.concat(t2,t3,t4,t5,t9,t6,t7,t8);
+  texto(reloj, orientacion = "estático", similitud = -1) {
+    const t = "Usuario: ".concat(this.nombre, "\n");
+    const t2 = "ID: ".concat(this.id, "\n");
+    const t3 = "Forma: ".concat(this.forma, "\n");
+    let t4;
+    if (this.color.length == 7) {
+      t4 = "Color: ".concat(this.color, "\n");
+    } else {
+      t4 = "Color: ".concat("#",this.color.getHexString().toUpperCase(), "\n");
+    }
+    const t5 = "Posición: ".concat(parseInt(this.x), ", ", parseInt(this.y), ", ", parseInt(this.z), "\n");
+    const t9 = "Rotación: ".concat(orientacion, "\n");
+    const t6 = "Sonido: ".concat(this.sonido, "\n");
+    const t7 = "Formas cerca: ".concat(this.conexiones.length, "\n");
+    const t8 = "Tiempo: ".concat(parseInt(this.tiempo + reloj), "\n");
+    let t10 = "";
+    if (similitud != -1){
+      t10 = "Similitud con usuario: ".concat(similitud*100,"%\n");
+    }
+    const tFinal = t.concat(t2, t3, t4, t5, t9, t6, t7, t8,t10);
     //console.log(tFinal)
     return tFinal;
   }
-  limite(lim){
-    if(this.x > lim ){
+  limite(lim) {
+    if (this.x > lim) {
       this.x = -lim + 5;
-    } else if ( this.x < -lim ){
+      return true;
+    } else if (this.x < -lim) {
       this.x = lim - 5;
+      return true;
     }
-    if (this.z > lim){
+    if (this.z > lim) {
       this.z = -lim + 5;
-    } else if( this.z < -lim ){
+      return true;
+    } else if (this.z < -lim) {
       this.z = lim - 5;
+      return true;
     }
+    return false;
   }
 }

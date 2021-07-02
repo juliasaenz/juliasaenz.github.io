@@ -24,6 +24,7 @@ import {
   crearBotones,
   clickCustomizacionA,
   clickCustomizacionB,
+  tecladoCustomizacionB,
   rotarObjeto3D
 } from './Funciones/customizacion.js'
 import {
@@ -56,7 +57,7 @@ var colision = -1;
 var lastKey = -1;
 
 var seguir = false;
-var texto, textob;
+var texto, nom;
 var btn;
 
 /// movimiento
@@ -91,6 +92,12 @@ export function customizaciónA() {
     mundo.escena.remove(mundo.escena.children[1]);
     mundo.escena.remove(mundo.escena.children[1]);
   }
+
+  let inputVal = document.getElementById("nombre");
+  if (inputVal != null) {
+    document.body.removeChild(inputVal);
+  }
+
   crearFormasInicio(mundo.escena);
 }
 
@@ -124,14 +131,10 @@ export function customizaciónB(seleccion) {
   btn.value = "Comenzar";
   btn.style.color = "grey";
 
-  var nom = document.createElement("input");
-  nom.setAttribute('id', 'nombre');
-  nom.setAttribute('type', 'text');
-  nom.setAttribute('placeholder', 'Nombre');
-  //nom.setAttribute('maxlength', '16');
-  //nom.setAttribute('autocomplete', 'given-name');
-  nom.setAttribute('value', '');
-  nom.focus();
+  nom = document.createElement("p");
+  nom.setAttribute("id", "nombre");
+  nom.style.color = "white";
+  nom.innerText = "escriba su nombre";
   document.body.appendChild(nom);
 }
 
@@ -142,7 +145,8 @@ export function etapa1() {
 
   //
   let inputVal = document.getElementById("nombre");
-  console.log("este es el nombre: ", inputVal.value);
+  usuario.nombre = inputVal.innerText;
+  usuario.crearID();
   document.body.removeChild(inputVal);
 
   // Elimino si habia otras
@@ -164,7 +168,6 @@ export function etapa1() {
   figurasAleatorias(red);
   //agregarModelos(mundo.listener, red, modelosRed)
   agregarModelosCurado(mundo.listener, red, modelosRed, indicesSimilitud, usuario)
-  //posInicioUsuario(usuario, red, indicesSimilitud);
 
   mundo.escena.add(modelosRed);
 
@@ -186,6 +189,9 @@ export function etapa1() {
   });
 
   mov = Math.PI;
+
+  //
+  mundo.bloomPass.strength = 4;
 }
 
 function etapa2() {
@@ -194,9 +200,9 @@ function etapa2() {
 
   estado = "etapa2";
   console.log("pasando a vista total")
-  vistaTotalModelos(mundo.listener, red, modelosRed);
+  vistaTotalModelos(mundo.listener, red, modelosRed, usuario, indicesSimilitud);
   mundo.escena.fog.near = 20;
-  mundo.bloomPass.strength += 0.8;
+  mundo.bloomPass.strength -= 0.9;
 
   // Tiempo
   usuario.tiempo = usuario.tiempo + mundo.reloj.getElapsedTime();
@@ -211,7 +217,10 @@ function etapa2() {
 
 function etapa3() {
   estado = "etapa3";
-  mundo.bloomPass.strength += 0.7;
+  mundo.bloomPass.strength -= 0.9;
+
+  instrucciones(" Mover: WASD o Flechas \n Rotar: Click & Drag \n Ver: Click \n\n ");
+  cargo = true;
 
   // Tiempo
   usuario.tiempo = usuario.tiempo + mundo.reloj.getElapsedTime();
@@ -230,11 +239,11 @@ function etapa3() {
 
 function etapa4() {
   borrarDatos();
-  instrucciones(" Mover: WASD o Flechas \n Rotar: Click & Drag \n\n ");
+  instrucciones(" Mover: WASD o Flechas \n Rotar: Click & Drag \n Inclinación: Ruedita \n Ver: Click \n\n ");
   cargo = true;
 
   estado = "etapa4";
-  mundo.bloomPass.strength += 0.7;
+  mundo.bloomPass.strength -= 0.9;
 
   // Tiempo
   usuario.tiempo = usuario.tiempo + mundo.reloj.getElapsedTime();
@@ -246,15 +255,66 @@ function etapa4() {
   btn.removeEventListener("click", etapa4);
   seguir = false;
 
+  mundo.escena.fog = null;
+
+  //Código
+  verCodigo();
+
+  //Scroll
+  document.addEventListener('wheel', function(event){
+     event.preventDefault();
+     if (event.deltaY > 0 && mundo.camara.position.y > -0.9){
+       mundo.camara.position.y -= 0.1;
+     } else if (event.deltaY < 0 && mundo.camara.position.y < 1.5) {
+       mundo.camara.position.y += 0.1;
+     }
+     mundo.camara.lookAt(modeloUsuario.position);
+  });
 }
 
 ///////////////////////////////////////////// Estas idealmente se irian de aca
+
+function verCodigo() {
+    const alt = 130;
+    var m = cargarImagen('../tesina/data/imagenes/01cod.png')
+    m.position.set(0,alt,-200);
+    mundo.escena.add( m );
+
+    var m2 = cargarImagen('../tesina/data/imagenes/02cod.png')
+    m2.position.set(200,alt,0);
+    m2.rotation.y = -Math.PI / 2;
+    mundo.escena.add(m2);
+
+    var m3 = cargarImagen('../tesina/data/imagenes/03cod.png')
+    m3.position.set(0,alt,200);
+    m3.rotation.y = Math.PI;
+    mundo.escena.add( m3 );
+
+    var m4 = cargarImagen('../tesina/data/imagenes/04cod.png')
+    m4.position.set(-200,alt,0);
+    m4.rotation.y = Math.PI / 2;
+    mundo.escena.add(m4);
+}
+
+function cargarImagen(url){
+  const loader = new THREE.TextureLoader();
+  const texture = loader.load(url);
+
+  const planeGeo = new THREE.PlaneGeometry(400, 285);
+  const planeMat = new THREE.MeshBasicMaterial({
+    map: texture,
+    side: THREE.DoubleSide,
+  });
+  const mesh = new THREE.Mesh(planeGeo, planeMat);
+  return mesh;
+}
 
 function instrucciones(texto) {
   const instructions = document.getElementById("instructions");
   const blocker = document.getElementById("blocker");
   instructions.style.display = 'flex';
   const t = document.getElementById("tins");
+  t.style.top = "30%";
   t.innerText = texto;
   t.style.textAlign = "center";
 
@@ -288,7 +348,7 @@ function calcularCaraB() {
 }
 
 function botonSeguir(reloj) {
-  if (play && reloj.getElapsedTime() > 5) {
+  if (play && reloj.getElapsedTime() > 1) {
     seguir = !seguir;
     if (seguir) {
 
@@ -376,11 +436,12 @@ function inicializar() {
       } else if (estado == "etapa2") {
         rota = true;
       } else if (estado == "etapa3" || estado == "etapa4") {
-        clickEtapa3(modelosRed.children, red, raycaster, mouse);
+        clickEtapa3(modelosRed.children, red, raycaster, mouse, indicesSimilitud);
         rota = true;
       }
     }
   }, false); // Mouse
+  var oldX, oldY = 0;
   document.onpointermove = function() {
     if ((estado == "etapa2" || estado == "etapa3") && rota) {
       if (mouse.x < 0 && mov < Math.PI * 3) {
@@ -390,9 +451,9 @@ function inicializar() {
       }
     } else if (estado == "etapa4" && rota) {
       if (mouse.x < 0) {
-        mov += 0.1;
+        mov += 0.25;
       } else if (mouse.x > 0) {
-        mov -= 0.1;
+        mov -= 0.25;
       }
     }
   };
@@ -406,6 +467,9 @@ function inicializar() {
   };
   document.onkeydown = function(e) {
     if (play) {
+      if (estado == "customizaciónB") {
+        nom.innerText = tecladoCustomizacionB(nom.innerText);
+      }
       if (estado == "etapa1") {
         tecladoEtapa1(e, usuario);
       } else if (estado == "etapa2" || estado == "etapa3") {
@@ -505,7 +569,7 @@ function animar() {
 
   if (estado == "aviso") {
     // Aca iria imagen o algo
-    texto.innerText = "Último upadte: 01/07 18pm ";
+    texto.innerText = "Último upadte: 02/07 20pm ";
   } else if (estado == "customizaciónA") {
     rotarObjeto3D(mundo.escena.children[1]);
     rotarObjeto3D(mundo.escena.children[2]);
@@ -514,7 +578,7 @@ function animar() {
     rotarObjeto3D(mundo.escena.children[1]);
     texto.innerText = " ";
 
-    if (usuario.color != '#FF0000' && usuario.sonido != '../data/sonidos/1/Sonido (1).wav') {
+    if (usuario.color != '#FF0000' && usuario.sonido != '../data/sonidos/1/Sonido (1).wav' && nom.innerText != "escriba su nombre" && nom.innerText.length > 0) {
       // Botón para siguiente etapa
       seguir = !seguir;
       if (seguir) {
@@ -527,7 +591,7 @@ function animar() {
 
   } else if (estado == "etapa1" || estado == "etapa2" || estado == "etapa3") {
     modeloUsuario.position.set(usuario.x, usuario.y, usuario.z);
-    usuario.limite(190);
+    usuario.limite(195);
     usuario.calcularConexiones(red);
     moveteSiNosParecemos(modelosRed.children, indicesSimilitud);
 
@@ -536,13 +600,6 @@ function animar() {
     mundo.camara.lookAt(modeloUsuario.position);
 
     botonSeguir(mundo.reloj);
-
-    /*if (usuario.x > 30 || usuario.x < -30){
-      usuario.x = 0;
-    }
-    if (usuario.z > 30 || usuario.z < -30){
-      usuario.z = 0;
-    }*/
 
     if (estado == "etapa3") {
       if (play) {
@@ -558,17 +615,15 @@ function animar() {
 
   } else if (estado == "etapa4") {
     usuario.calcularConexiones(red);
-    usuario.limite(190);
     moveteSiNosParecemos(modelosRed.children, indicesSimilitud);
     botonSeguir(mundo.reloj);
 
     if (play) {
-      texto.innerText = usuario.texto(mundo.reloj.getElapsedTime(), orientacion);
+      texto.innerText = usuario.texto(mundo.reloj.getElapsedTime(), "libre");
     } else {
       texto.innerText = "";
     }
     mostrarDatos(0.008);
-
 
     /// movimiento
     const time = performance.now();
@@ -579,8 +634,8 @@ function animar() {
       mundo.camara.position.z = usuario.z + 3.5 * Math.sin(0.5 * mov);
       mundo.camara.lookAt(modeloUsuario.position);
     } else {
-      velocity.x -= velocity.x * 20.0 * delta;
-      velocity.z -= velocity.z * 20.0 * delta;
+      velocity.x -= velocity.x * 8.0 * delta;
+      velocity.z -= velocity.z * 8.0 * delta;
 
       direction.z = Number(moveForward) - Number(moveBackward);
       direction.x = Number(moveRight) - Number(moveLeft);
@@ -597,6 +652,11 @@ function animar() {
       usuario.z = mundo.camara.position.z + 3.5 * Math.sin(angulo);
 
       prevTime = time;
+    }
+
+    if ( usuario.limite(200) ){
+      mundo.camara.position.x = usuario.x + 3.5 * Math.cos(0.5 * mov);
+      mundo.camara.position.z = usuario.z + 3.5 * Math.sin(0.5 * mov);
     }
 
     modeloUsuario.position.set(usuario.x, usuario.y, usuario.z);
