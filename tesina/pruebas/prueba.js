@@ -5,7 +5,7 @@ import {
 
 ///// ThreeJS
 var mundo;
-var obj;
+var obj, obj2;
 var i = 1;
 var mueve = false;
 var orientacion = "frente";
@@ -15,32 +15,8 @@ var objetos = [];
 var lastKey = "none";
 var colision = -1;
 
-function intersectObjMas(obj, lista) {
-  const x = obj.position.x;
-  const z = obj.position.z;
-  const w = obj.geometry.parameters.width / 2;
-  const d = obj.geometry.parameters.depth / 2;
-  for (var i = 0; i < lista.length; i++) {
-    const xL = lista[i].position.x;
-    const zL = lista[i].position.z;
-    const wL = lista[i].geometry.parameters.width / 2 + 0.01;
-    const dL = lista[i].geometry.parameters.depth / 2 + 0.01;
-
-    if (x - w > xL - wL && x - w < xL + wL || x + w > xL - wL && x + w < xL + wL) {
-      //x adentro
-      if (z - d > zL - dL && z - d < zL + dL || z + d > zL - dL && z + d < zL + dL) {
-        //z adentro
-        console.log("bonk")
-        colision = lastKey;
-      } else {
-        colision = -1;
-      }
-    } else {
-      colision = -1;
-    }
-
-  }
-}
+var texto;
+var play = false;
 
 function inicializar() {
   mundo = new Mundo();
@@ -53,24 +29,27 @@ function inicializar() {
   obj = new THREE.Mesh(geometry, material);
   obj.position.set(0, -0.5, -1);
   mundo.escena.add(obj);
+  //var audio = cargarSonido(mundo.listener, '../data/sonidos/1/Sonido (1).wav');
+  //obj.add(audio);
 
-  var obj2 = new THREE.Mesh(geometry, material);
+  obj2 = new THREE.Mesh(geometry, material);
   obj2.position.set(0.5, -0.5, -2);
   mundo.escena.add(obj2);
   objetos.push(obj2)
+  var audio = cargarSonido(mundo.listener, '../data/sonidos/1/Sonido (1).wav');
+  obj2.add(audio);
+
 
 
   mundo.camara.position.x = obj.position.x + 2 * Math.cos(0);
   mundo.camara.position.z = obj.position.z + 2 * Math.sin(0);
   mundo.camara.lookAt(obj.position);
 
-  var box = obj.geometry.computeBoundingBox();
-  console.log(box)
-
   document.onkeydown = function(e) {
     switch (e.keyCode) {
       //derecha
       case 37:
+      case 65:
         if (e.keyCode != colision) {
           switch (orientacion) {
             case "frente":
@@ -90,6 +69,7 @@ function inicializar() {
         break;
         //arriba
       case 38:
+      case 87:
         if (e.keyCode != colision) {
           switch (orientacion) {
             case "frente":
@@ -109,6 +89,7 @@ function inicializar() {
         break;
         //izquierda
       case 39:
+      case 68:
         if (e.keyCode != colision) {
           switch (orientacion) {
             case "frente":
@@ -128,6 +109,7 @@ function inicializar() {
         break;
         //abajo
       case 40:
+      case 83:
         if (e.keyCode != colision) {
           switch (orientacion) {
             case "frente":
@@ -145,10 +127,12 @@ function inicializar() {
           }
         }
         break;
+      case 81:
+        play = !play;
+        break;
     }
     lastKey = e.keyCode;
   };
-
   var mouse = new THREE.Vector2();
   document.onpointerdown = function(event) {
     mueve = true;
@@ -189,22 +173,71 @@ function inicializar() {
 
   i = Math.PI;
 
+  ///////////
+  texto = document.createElement("p");
+  texto.style.top = '45%';
+  texto.style.left = '60%';
+  document.body.append(texto);
+
+}
+
+export function cargarSonido(listener, archivo) {
+  const audioLoader = new THREE.AudioLoader();
+
+  const sonido = new THREE.PositionalAudio(listener);
+  audioLoader.load(archivo, function(buffer) {
+    sonido.setBuffer(buffer);
+
+    sonido.setRefDistance(0.7); // A que distancia empieza a reducir el volumen
+    sonido.setRolloffFactor(1.2); // A que velocidad disminuye el volumen
+    sonido.setMaxDistance(1000);
+
+    sonido.play();
+    sonido.setLoop(true);
+    sonido.setVolume(1);
+    sonido.setDistanceModel("exponential");
+  });
+
+  return sonido;
+}
+
+function distancia(obj1, obj2) {
+  const audio = obj2.children[0];
+
+  var a = obj.position.x - obj2.position.x;
+  var b = obj.position.y - obj2.position.y;
+  var c = obj.position.z - obj2.position.z;
+
+  var distance = a * a + b * b + c * c;
+  texto.innerText = distance + " " + Math.pow(6, 2) + " " + audio.isPlaying + " " + play;
+
+  if (distance < Math.pow(6, 2)) {
+    if (!audio.isPlaying) {
+      audio.play();
+    }
+  } else {
+    if (audio.isPlaying) {
+      audio.stop();
+    }
   }
+}
 
-  function animar() {
-    requestAnimationFrame(animar);
+function animar() {
+  requestAnimationFrame(animar);
 
+  //texto.innerText = obj.position.x + "  " + obj.position.y;
 
+  //////////// camara
+  mundo.camara.position.x = obj.position.x + 2 * Math.cos(0.5 * i);
+  mundo.camara.position.z = obj.position.z + 2 * Math.sin(0.5 * i);
+  mundo.camara.lookAt(obj.position);
 
-
-    intersectObjMas(obj, objetos)
-    //////////// camara
-    mundo.camara.position.x = obj.position.x + 2 * Math.cos(0.5 * i);
-    mundo.camara.position.z = obj.position.z + 2 * Math.sin(0.5 * i);
-    mundo.camara.lookAt(obj.position);
-    mundo.renderizar();
+  if (play) {
+    distancia(obj, obj2);
   }
+  mundo.renderizar();
+}
 
-  ///// Programa Principal
-  inicializar();
-  animar();
+///// Programa Principal
+inicializar();
+animar();

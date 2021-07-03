@@ -67,16 +67,16 @@ export function tecladoEtapa2(orientacion, e, usuario, colision, lastKey) {
       if (e.keyCode != colision) {
         switch (orientacion) {
           case "frente":
-            usuario.x -= 0.4;
+            usuario.x -= 0.2;
             break;
           case "izquierda":
-            usuario.z += 0.4;
+            usuario.z += 0.2;
             break;
           case "derecha":
-            usuario.z -= 0.4;
+            usuario.z -= 0.2;
             break;
           case "espalda":
-            usuario.x += 0.4;
+            usuario.x += 0.2;
             break;
         }
       }
@@ -87,16 +87,16 @@ export function tecladoEtapa2(orientacion, e, usuario, colision, lastKey) {
       if (e.keyCode != colision) {
         switch (orientacion) {
           case "frente":
-            usuario.z -= 0.4;
+            usuario.z -= 0.2;
             break;
           case "izquierda":
-            usuario.x -= 0.4;
+            usuario.x -= 0.2;
             break;
           case "derecha":
-            usuario.x += 0.4;
+            usuario.x += 0.2;
             break;
           case "espalda":
-            usuario.z += 0.4;
+            usuario.z += 0.2;
             break;
         }
       }
@@ -107,16 +107,16 @@ export function tecladoEtapa2(orientacion, e, usuario, colision, lastKey) {
       if (e.keyCode != colision) {
         switch (orientacion) {
           case "frente":
-            usuario.x += 0.4;
+            usuario.x += 0.2;
             break;
           case "izquierda":
-            usuario.z -= 0.4;
+            usuario.z -= 0.2;
             break;
           case "derecha":
-            usuario.z += 0.4;
+            usuario.z += 0.2;
             break;
           case "espalda":
-            usuario.x -= 0.4;
+            usuario.x -= 0.2;
             break;
         }
       }
@@ -127,13 +127,13 @@ export function tecladoEtapa2(orientacion, e, usuario, colision, lastKey) {
       if (e.keyCode != colision) {
         switch (orientacion) {
           case "frente":
-            usuario.z += 0.4;
+            usuario.z += 0.2;
             break;
           case "izquierda":
-            usuario.x += 0.4;
+            usuario.x += 0.2;
             break;
           case "derecha":
-            usuario.x -= 0.4;
+            usuario.x -= 0.2;
             break;
           case "espalda":
             usuario.z -= 0.2;

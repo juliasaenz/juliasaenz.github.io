@@ -12,6 +12,7 @@ import {
   crearFormaUsuario,
   figurasAleatorias,
   figuraPrueba,
+  figurasFijas,
   agregarModelos,
   agregarModelosCurado,
   moveteSiNosParecemos,
@@ -165,7 +166,8 @@ export function etapa1() {
 
   //////////////// Pruebas
   //figuraPrueba(red);
-  figurasAleatorias(red);
+  //figurasAleatorias(red);
+  figurasFijas(red);
   //agregarModelos(mundo.listener, red, modelosRed)
   agregarModelosCurado(mundo.listener, red, modelosRed, indicesSimilitud, usuario)
 
@@ -320,6 +322,8 @@ function instrucciones(texto) {
 
   blocker.style.display = '';
 
+  mundo.listener.setMasterVolume(0);
+
   if (estado != "etapa3") {
     const p = document.getElementById("play");
     p.innerText = " \n\n\n Preparando espacio";
@@ -402,6 +406,32 @@ function borrarDatos() {
   }
 }
 ///// ThreeJS
+
+function distancia(obj, obj2) {
+  const audio = obj2.children[1];
+
+  var a = obj.position.x - obj2.position.x;
+  var b = obj.position.y - obj2.position.y;
+  var c = obj.position.z - obj2.position.z;
+
+  var distance = a * a + b * b + c * c;
+
+  if (distance < Math.pow(9, 2)) {
+    if (!audio.isPlaying) {
+      audio.play();
+    }
+  } else {
+    if (audio.isPlaying) {
+      audio.stop();
+    }
+  }
+}
+
+function distanciaSonidos(obj, modelos){
+  for(var i = 0; i < modelos.length; i++){
+    distancia(obj,modelos[i]);
+  }
+}
 
 function inicializar() {
   ///// texto
@@ -555,6 +585,7 @@ function inicializar() {
       play = true;
       ins.style.display = 'none';
       bl.style.display = 'none';
+      mundo.listener.setMasterVolume(1);
 
       if (estado == "aviso") {
         customizaciónA();
@@ -569,7 +600,7 @@ function animar() {
 
   if (estado == "aviso") {
     // Aca iria imagen o algo
-    texto.innerText = "Último upadte: 02/07 20pm ";
+    texto.innerText = "Último upadte: 03/07 18pm ";
   } else if (estado == "customizaciónA") {
     rotarObjeto3D(mundo.escena.children[1]);
     rotarObjeto3D(mundo.escena.children[2]);
@@ -601,6 +632,12 @@ function animar() {
 
     botonSeguir(mundo.reloj);
 
+
+    /////
+    distanciaSonidos(modeloUsuario,modelosRed.children);
+    /////
+
+
     if (estado == "etapa3") {
       if (play) {
         texto.innerText = usuario.texto(mundo.reloj.getElapsedTime(), orientacion);
@@ -610,7 +647,6 @@ function animar() {
       mostrarDatos(0.02);
     } else {
       texto.innerText = " ";
-
     }
 
   } else if (estado == "etapa4") {
@@ -624,6 +660,10 @@ function animar() {
       texto.innerText = "";
     }
     mostrarDatos(0.008);
+
+    /////
+    distanciaSonidos(modeloUsuario,modelosRed.children);
+    /////
 
     /// movimiento
     const time = performance.now();
@@ -683,8 +723,8 @@ function animar() {
     const ins = document.getElementById("play");
     ins.innerText = ("\n\n\n Hace click para empezar");
 
-    for (let i = 0; i <= 1; i += 0.001) {
-      mundo.listener.setMasterVolume(i);
+    for (let i = 0; i <= 1; i += 0.01) {
+      //mundo.listener.setMasterVolume(i);
     }
   };
 

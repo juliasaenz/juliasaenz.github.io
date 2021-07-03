@@ -14,9 +14,13 @@ var colores = {
 }
 
 export function elegirSonidoAzar(carpeta = "1") {
-  const n1 = parseInt(Math.random() * 6 + 1).toString();
-  const n3 = "./data/sonidos/".concat(carpeta,"/Sonido (",n1,").wav")
+  const n1 = parseInt(Math.random() * 5 + 1).toString();
+  const n3 = "../tesina/data/sonidos/".concat(carpeta,"/Sonido (",n1,").mp3")
   return n3;
+}
+
+export function elegirSonido(carpeta = "1", archivo = "1"){
+  return "../tesina/data/sonidos/".concat(carpeta,"/Sonido (",archivo,").mp3");
 }
 
 export function colorRandom() {

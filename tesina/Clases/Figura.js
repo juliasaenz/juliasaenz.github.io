@@ -67,7 +67,7 @@ export class Figura {
     var m = 0;
     var t = "";
     if (this.forma == otro.forma) {
-      m += 5;
+      m += 6;
       t = t.concat("forma, ");
     }
     if (this.color == otro.color) {
@@ -78,16 +78,15 @@ export class Figura {
       m += 0.5;
       t = t.concat("activo, ");
     }
-    //console.log("hewo",this.sonido[16],"-",otro.sonido[15])
     if (this.sonido[16] == otro.sonido[15]) {
-      m += 2;
+      m += 4;
       t = t.concat("sonido, ");
-    }
+    } 
     if (this.conexiones.length == otro.conexiones.length) {
       m += 0.5;
       t = t.concat("length");
     }
-    const res = scale(m, 0, 10, 0, 1);
+    const res = scale(m, 0, 13, 0, 1);
     //console.log(t,res);
     return res;
   }
