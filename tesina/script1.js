@@ -644,6 +644,9 @@ function inicializar() {
       bl.style.display = 'none';
       mundo.listener.setMasterVolume(1);
 
+      usuario.tiempo = usuario.tiempo + mundo.reloj.getElapsedTime();
+      mundo.reloj.start();
+
       if (estado == "aviso") {
         customizaciónA();
       }
