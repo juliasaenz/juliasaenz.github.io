@@ -8,7 +8,8 @@
       Tes-aenz o Saenz-ina
     </title>
     <style>
-      html, body {
+      body,
+      html {
         margin: 0;
         padding: 0;
         height: 100%;
@@ -49,7 +50,6 @@
         font-size: 24px;
         text-align: "center";
       }
-
       #blocker {
         position: absolute;
         width: 100%;
@@ -75,17 +75,19 @@
   <body>
     <div id="blocker">
       <div id="instructions">
-        <p id= "tins" style="font-size:24px">
-        </p>
-        <p id= "play" style="font-size:24px">
-          <br/><br/><br/><br/><br/> Hace click para empezar
+        <p id="tins" style="font-size:24px"></p>
+        <p id="play" style="font-size:24px">
+          <br/><br/><br/><br/><br/>
+          Haga click para entrar
         </p>
       </div>
     </div>
 
     <script id="codigo" type="module" src="./script1.js"></script>
     <!-- <input id="nombre" type="text" placeholder="Nombre"/> -->
-    <input id="bContinuar" type="button" value=""/>
+    <div>
+      <input id="bContinuar" type="button" value=""/>
+    </div>
   </body>
 
 </html>

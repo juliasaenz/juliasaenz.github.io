@@ -30,6 +30,7 @@ import {
 } from './Funciones/customizacion.js'
 import {
   clickEtapa3,
+  hoverEtapa4,
   tecladoEtapa1,
   tecladoEtapa2,
   contemplacion,
@@ -81,16 +82,14 @@ const color = new THREE.Color();
 var cargo = true;
 var play = true;
 
+///borrar
+var prevI = -1;
+
 ///////////////////////////////////////////// Inicializar Estados
 export function customizaciónA() {
   estado = "customizaciónA";
   // Elimino si habia otras
   while (mundo.escena.children.length > 1) {
-    if (mundo.escena.children[1].children.length > 1) {
-      mundo.escena.children[1].children[1].stop();
-      mundo.escena.children[1].remove(mundo.escena.children[1].children[1])
-    }
-    mundo.escena.remove(mundo.escena.children[1]);
     mundo.escena.remove(mundo.escena.children[1]);
   }
 
@@ -100,6 +99,8 @@ export function customizaciónA() {
   }
 
   crearFormasInicio(mundo.escena);
+  seguir = false;
+  usuario.sonido = "ninguno";
 }
 
 export function customizaciónB(seleccion) {
@@ -137,12 +138,13 @@ export function customizaciónB(seleccion) {
   nom.style.color = "white";
   nom.innerText = "escriba su nombre";
   document.body.appendChild(nom);
+
 }
 
 export function etapa1() {
+  bajarVolumen();
   // Instrucciones
   instrucciones(" Mover: WASD o Flechas \n\n ");
-  mundo.listener.setMasterVolume(0);
 
   //
   let inputVal = document.getElementById("nombre");
@@ -152,10 +154,22 @@ export function etapa1() {
 
   // Elimino si habia otras
   estado = "etapa1";
+
   while (mundo.escena.children.length > 1) {
-    mundo.escena.remove(mundo.escena.children[1]);
+    if(mundo.escena.children[1].type == "Object3D"){
+      var botones = mundo.escena.children[1];
+      for(var j= 0; j < botones.children.length; j++){
+        if (botones.children[j].children.length > 0){ // busco hijos con audio
+          const audio = botones.children[j].children[0];
+          if (audio.isPlaying){
+            audio.stop();
+          }
+        }
+      }
+    }
     mundo.escena.remove(mundo.escena.children[1]);
   }
+
   mundo.crearFondo();
 
   // modelo3D usuario
@@ -175,7 +189,7 @@ export function etapa1() {
 
   /////////// tiempo
   usuario.tiempo = usuario.tiempo + mundo.reloj.getElapsedTime();
-  console.log("Tiempo en la obra", usuario.tiempo);
+  //console.log("Tiempo en la obra", usuario.tiempo);
   mundo.reloj.start();
   seguir = false;
   btn.removeEventListener("click", etapa1);
@@ -197,11 +211,11 @@ export function etapa1() {
 }
 
 function etapa2() {
+  bajarVolumen();
   instrucciones(" Mover: WASD o Flechas \n Rotar: Click & Drag \n\n ");
-  mundo.listener.setMasterVolume(0);
 
   estado = "etapa2";
-  console.log("pasando a vista total")
+  //console.log("pasando a vista total")
   vistaTotalModelos(mundo.listener, red, modelosRed, usuario, indicesSimilitud);
   mundo.escena.fog.near = 20;
   mundo.bloomPass.strength -= 0.9;
@@ -218,6 +232,7 @@ function etapa2() {
 }
 
 function etapa3() {
+  bajarVolumen();
   estado = "etapa3";
   mundo.bloomPass.strength -= 0.9;
 
@@ -240,6 +255,7 @@ function etapa3() {
 }
 
 function etapa4() {
+  bajarVolumen();
   borrarDatos();
   instrucciones(" Mover: WASD o Flechas \n Rotar: Click & Drag \n Inclinación: Ruedita \n Ver: Click \n\n ");
   cargo = true;
@@ -263,42 +279,48 @@ function etapa4() {
   verCodigo();
 
   //Scroll
-  document.addEventListener('wheel', function(event){
-     event.preventDefault();
-     if (event.deltaY > 0 && mundo.camara.position.y > -0.9){
-       mundo.camara.position.y -= 0.1;
-     } else if (event.deltaY < 0 && mundo.camara.position.y < 1.5) {
-       mundo.camara.position.y += 0.1;
-     }
-     mundo.camara.lookAt(modeloUsuario.position);
+  document.addEventListener('wheel', function(event) {
+    event.preventDefault();
+    if (event.deltaY > 0 && mundo.camara.position.y > -0.9) {
+      mundo.camara.position.y -= 0.1;
+    } else if (event.deltaY < 0 && mundo.camara.position.y < 1.5) {
+      mundo.camara.position.y += 0.1;
+    }
+    mundo.camara.lookAt(modeloUsuario.position);
   });
 }
 
 ///////////////////////////////////////////// Estas idealmente se irian de aca
 
-function verCodigo() {
-    const alt = 130;
-    var m = cargarImagen('../tesina/data/imagenes/01cod.png')
-    m.position.set(0,alt,-200);
-    mundo.escena.add( m );
-
-    var m2 = cargarImagen('../tesina/data/imagenes/02cod.png')
-    m2.position.set(200,alt,0);
-    m2.rotation.y = -Math.PI / 2;
-    mundo.escena.add(m2);
-
-    var m3 = cargarImagen('../tesina/data/imagenes/03cod.png')
-    m3.position.set(0,alt,200);
-    m3.rotation.y = Math.PI;
-    mundo.escena.add( m3 );
-
-    var m4 = cargarImagen('../tesina/data/imagenes/04cod.png')
-    m4.position.set(-200,alt,0);
-    m4.rotation.y = Math.PI / 2;
-    mundo.escena.add(m4);
+function bajarVolumen(){
+  for(var i = 1; i > 0; i -= 0.01){
+    mundo.listener.setMasterVolume(i);
+  }
 }
 
-function cargarImagen(url){
+function verCodigo() {
+  const alt = 130;
+  var m = cargarImagen('../tesina/data/imagenes/01cod.png')
+  m.position.set(0, alt, -200);
+  mundo.escena.add(m);
+
+  var m2 = cargarImagen('../tesina/data/imagenes/02cod.png')
+  m2.position.set(200, alt, 0);
+  m2.rotation.y = -Math.PI / 2;
+  mundo.escena.add(m2);
+
+  var m3 = cargarImagen('../tesina/data/imagenes/03cod.png')
+  m3.position.set(0, alt, 200);
+  m3.rotation.y = Math.PI;
+  mundo.escena.add(m3);
+
+  var m4 = cargarImagen('../tesina/data/imagenes/04cod.png')
+  m4.position.set(-200, alt, 0);
+  m4.rotation.y = Math.PI / 2;
+  mundo.escena.add(m4);
+}
+
+function cargarImagen(url) {
   const loader = new THREE.TextureLoader();
   const texture = loader.load(url);
 
@@ -349,10 +371,11 @@ function calcularCaraB() {
     orientacion = "espalda"
     mov = Math.PI * 3;
   }
+
 }
 
 function botonSeguir(reloj) {
-  if (play && reloj.getElapsedTime() > 1) {
+  if (play && reloj.getElapsedTime() > 15) {
     seguir = !seguir;
     if (seguir) {
 
@@ -416,7 +439,7 @@ function distancia(obj, obj2) {
 
   var distance = a * a + b * b + c * c;
 
-  if (distance < Math.pow(9, 2)) {
+  if (distance < 100) {
     if (!audio.isPlaying) {
       audio.play();
     }
@@ -427,9 +450,9 @@ function distancia(obj, obj2) {
   }
 }
 
-function distanciaSonidos(obj, modelos){
-  for(var i = 0; i < modelos.length; i++){
-    distancia(obj,modelos[i]);
+function distanciaSonidos(obj, modelos) {
+  for (var i = 0; i < modelos.length; i++) {
+    distancia(obj, modelos[i]);
   }
 }
 
@@ -456,6 +479,7 @@ function inicializar() {
       // mouse
       mouse.x = (event.clientX / mundo.renderizador.domElement.clientWidth) * 2 - 1;
       mouse.y = -(event.clientY / mundo.renderizador.domElement.clientHeight) * 2 + 1;
+      oldX = mouse.x;
       raycaster.setFromCamera(mouse, mundo.camara);
 
       if (estado == "customizaciónA") {
@@ -463,34 +487,67 @@ function inicializar() {
       } else if (estado == "customizaciónB") {
         clickCustomizacionB(mundo.escena.children, raycaster, usuario, mundo.listener);
 
-      } else if (estado == "etapa2") {
+      } else if (estado == "etapa2" || estado == "etapa4") {
         rota = true;
-      } else if (estado == "etapa3" || estado == "etapa4") {
+      } else if (estado == "etapa3") {
         clickEtapa3(modelosRed.children, red, raycaster, mouse, indicesSimilitud);
         rota = true;
       }
     }
   }, false); // Mouse
   var oldX, oldY = 0;
+
+  /////
+  var der, izq;
+  der = document.createElement("p");
+  der.style.top = '45%';
+  der.style.left = '80%';
+  der.style.fontSize = '32px';
+  der.innerText = "";
+  document.body.append(der);
+  izq = document.createElement("p");
+  izq.style.top = '45%';
+  izq.style.left = '20%';
+  izq.style.fontSize = '32px';
+  izq.innerText = "";
+  document.body.append(izq);
+  ///////
+  var prevI = -1;
+
   document.onpointermove = function() {
+    var dir = 1;
     if ((estado == "etapa2" || estado == "etapa3") && rota) {
-      if (mouse.x < 0 && mov < Math.PI * 3) {
-        mov += 0.1;
-      } else if (mouse.x > 0 && mov > 0) {
-        mov -= 0.1;
+      if (mouse.x > oldX && mov < Math.PI * 3) {
+        dir = 1;
+      } else if (mouse.x < oldX && mov > 0) {
+        dir = -1;
       }
-    } else if (estado == "etapa4" && rota) {
-      if (mouse.x < 0) {
-        mov += 0.25;
-      } else if (mouse.x > 0) {
-        mov -= 0.25;
+      mov += 0.1 * dir;
+
+    } else if (estado == "etapa4") {
+      if (rota) {
+        if (mouse.x > oldX) {
+          dir = 1;
+        } else if (mouse.x < oldX) {
+          dir = -1;
+        }
+        mov += 0.3 * dir;
       }
+      //raycaster.setFromCamera(mouse, mundo.camara);
+      //prevI = hoverEtapa4(modelosRed.children, red, raycaster, mouse, indicesSimilitud, prevI);
     }
+    oldX = mouse.x;
+    oldY = mouse.y;
+    mouse.x = (event.clientX / mundo.renderizador.domElement.clientWidth) * 2 - 1;
+    mouse.y = -(event.clientY / mundo.renderizador.domElement.clientHeight) * 2 + 1;
   };
+
   document.onpointerup = function() {
     if (estado == "etapa2" || estado == "etapa3") {
       rota = false;
       calcularCaraB();
+      izq.innerText = "";
+      der.innerText = "";
     } else if (estado == "etapa4") {
       rota = false;
     }
@@ -600,7 +657,7 @@ function animar() {
 
   if (estado == "aviso") {
     // Aca iria imagen o algo
-    texto.innerText = "Último upadte: 03/07 18pm ";
+    texto.innerText = "";
   } else if (estado == "customizaciónA") {
     rotarObjeto3D(mundo.escena.children[1]);
     rotarObjeto3D(mundo.escena.children[2]);
@@ -609,7 +666,7 @@ function animar() {
     rotarObjeto3D(mundo.escena.children[1]);
     texto.innerText = " ";
 
-    if (usuario.color != '#FF0000' && usuario.sonido != '../data/sonidos/1/Sonido (1).wav' && nom.innerText != "escriba su nombre" && nom.innerText.length > 0) {
+    if (usuario.color != '#FF0000' && usuario.sonido != 'ninguno' && nom.innerText != "escriba su nombre" && nom.innerText.length > 0) {
       // Botón para siguiente etapa
       seguir = !seguir;
       if (seguir) {
@@ -631,10 +688,13 @@ function animar() {
     mundo.camara.lookAt(modeloUsuario.position);
 
     botonSeguir(mundo.reloj);
-
+    const audio = modeloUsuario.children[1];
+    if (!audio.isPlaying){
+      //audio.play();
+    }
 
     /////
-    distanciaSonidos(modeloUsuario,modelosRed.children);
+    distanciaSonidos(modeloUsuario, modelosRed.children);
     /////
 
 
@@ -659,10 +719,10 @@ function animar() {
     } else {
       texto.innerText = "";
     }
-    mostrarDatos(0.008);
+    mostrarDatos(0.01);
 
     /////
-    distanciaSonidos(modeloUsuario,modelosRed.children);
+    distanciaSonidos(modeloUsuario, modelosRed.children);
     /////
 
     /// movimiento
@@ -694,37 +754,46 @@ function animar() {
       prevTime = time;
     }
 
-    if ( usuario.limite(200) ){
+    if (usuario.limite(200)) {
       mundo.camara.position.x = usuario.x + 3.5 * Math.cos(0.5 * mov);
       mundo.camara.position.z = usuario.z + 3.5 * Math.sin(0.5 * mov);
     }
 
     modeloUsuario.position.set(usuario.x, usuario.y, usuario.z);
 
+    ////////
+    raycaster.setFromCamera(mouse, mundo.camara);
+    prevI = hoverEtapa4(modelosRed.children, red, raycaster, mouse, indicesSimilitud, prevI);
+    ////////
   } else if (estado == "contemplacion") {
     mov += 0.01;
     mundo.camara.position.x = usuario.x + 5 * Math.cos(0.5 * mov);
+    mundo.camara.position.y = 2;
     mundo.camara.position.z = usuario.z + 5 * Math.sin(0.5 * mov);
     mundo.camara.lookAt(modeloUsuario.position);
     texto.innerText = " ";
   } // etapa1
 
-  //console.log(mundo.reloj.getElapsedTime())
   ////////
   THREE.DefaultLoadingManager.onProgress = function(url, itemsLoaded, itemsTotal) {
 
     console.log('Loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.');
+    mundo.reloj.getDelta();
+
+    if (estado != "customizaciónB") {
+      mundo.listener.setMasterVolume(0);
+    }
 
   };
   THREE.DefaultLoadingManager.onLoad = function() {
     console.log('Loading Complete!');
-    cargo = true;
-    const bl = document.getElementById("blocker");
-    const ins = document.getElementById("play");
-    ins.innerText = ("\n\n\n Hace click para empezar");
-
-    for (let i = 0; i <= 1; i += 0.01) {
-      //mundo.listener.setMasterVolume(i);
+    if (estado == "etapa1" || estado == "etapa2") {
+      while (mundo.reloj.getElapsedTime() < 3) {
+        cargo = true;
+        const bl = document.getElementById("blocker");
+        const ins = document.getElementById("play");
+        ins.innerText = ("\n\n\n Hace click para empezar");
+      }
     }
   };
 
@@ -744,7 +813,7 @@ function onWindowResize() {
 ///// Programa Principal
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
   // true for mobile device
-  console.log("celular");
+  //console.log("celular");
   texto = document.createElement('p');
   document.body.append(texto);
   texto.innerText = "Por favor use una computadora para ver esta página";
@@ -752,7 +821,7 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
 
 } else {
   // false for not mobile device
-  console.log("web");
+  //console.log("web");
   inicializar();
   animar();
 }

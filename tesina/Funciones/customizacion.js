@@ -115,22 +115,33 @@ export function clickCustomizacionB(lista, raycaster_, usuario_, listener) {
       usuario_.color = int.material.color;
     } else if (index == botones.length - 1) {
       // Toque botón volver
-      customizaciónA();
-    } else {
-      /// elegir sonido
-      console.log("click")
       for (var i = Object.keys(colores).length; i < botones.length - 1; i++) {
         botones[i].material.color.set(0x555555)
+        if(botones[i].children[0].isPlaying){
+          botones[i].children[0].stop();
+        }
       }
+      var btn = document.getElementById("bContinuar");
+      btn.value = "";
+      btn.style.color = "grey";
+      customizaciónA();
+    } else {
+      /// SONIDO
+      for (var i = Object.keys(colores).length; i < botones.length - 1; i++) {
+        botones[i].material.color.set(0x555555)
+        if(botones[i].children[0].isPlaying){
+          botones[i].children[0].stop();
+        }
+      }
+
       int.material.color.set(0xFAFAFA)
-      if (lista[1].children.length > 1) {
-        lista[1].children[1].stop();
-        lista[1].remove(lista[1].children[1])
-      }
+
+      const audio = int.children[0];
+      audio.play();
       const pos = index - Object.keys(colores).length;
-      const sonido = cargarSonido(listener, sonidos[pos], null);
       usuario_.sonido = sonidos[pos];
-      lista[1].add(sonido);
+
+      console.log("este es el sonido del usuario", sonidos[pos], audio.source)
 
     }
   }
@@ -187,9 +198,11 @@ function botonesSonido(listener, botones) {
     });
     const circle = new THREE.Mesh(geometry, material);
     circle.position.set(1.8, 0.5 - i * 0.22, 0);
-
     botones.add(circle);
     sonidos[i] = elegirSonidoAzar(i + 1);
+
+    const audio = cargarSonido(listener, sonidos[i], false);
+    circle.add(audio);
   }
 }
 

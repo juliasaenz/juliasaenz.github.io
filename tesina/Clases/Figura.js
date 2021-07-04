@@ -6,7 +6,7 @@ import {
 } from '../Funciones/calculos.js'
 
 export class Figura {
-  constructor(id = -1, forma = 'cubo', color = '#FF0000', x = 0, z = 0, nombre = "juph", sonido = '../data/sonidos/1/Sonido (1).wav', activo = false) {
+  constructor(id = -1, forma = 'cubo', color = '#FF0000', x = 0, z = 0, nombre = "juph", sonido = 'ninguno', activo = false) {
     this.nombre = nombre;
     this.id = id;
     this.forma = forma;
@@ -81,7 +81,7 @@ export class Figura {
     if (this.sonido[16] == otro.sonido[15]) {
       m += 4;
       t = t.concat("sonido, ");
-    } 
+    }
     if (this.conexiones.length == otro.conexiones.length) {
       m += 0.5;
       t = t.concat("length");
