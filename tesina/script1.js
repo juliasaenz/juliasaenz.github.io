@@ -104,6 +104,7 @@ export function customizaciónA() {
 }
 
 export function customizaciónB(seleccion) {
+  instrucciones("");
   estado = "customizaciónB";
 
   // Guardo forma elegida
@@ -136,7 +137,7 @@ export function customizaciónB(seleccion) {
   nom = document.createElement("p");
   nom.setAttribute("id", "nombre");
   nom.style.color = "white";
-  nom.innerText = "escriba su nombre";
+  nom.innerText = "";
   document.body.appendChild(nom);
 
 }
@@ -779,7 +780,6 @@ function animar() {
 
   ////////
   THREE.DefaultLoadingManager.onProgress = function(url, itemsLoaded, itemsTotal) {
-
     console.log('Loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.');
     mundo.reloj.getDelta();
 
@@ -791,15 +791,23 @@ function animar() {
   THREE.DefaultLoadingManager.onLoad = function() {
     mundo.reloj.getDelta();
     console.log('Loading Complete!');
+    const bl = document.getElementById("blocker");
+    const ins = document.getElementById("play");
     if (estado == "etapa1" || estado == "etapa2") {
-      const bl = document.getElementById("blocker");
-      const ins = document.getElementById("play");
       //console.log("entre", mundo.reloj.getElapsedTime())
       while (mundo.reloj.getElapsedTime() < 3) {
         ins.innerText = ("\n\n\n Preparando el espacio");
       }
       cargo = true;
       ins.innerText = ("\n\n\n Hace click para empezar");
+    } else if (estado == "customizaciónB"){
+      nom = document.getElementById("nombre");
+      nom.innerText = "escriba su nombre";
+      cargo = true;
+      play = true;
+      //ins.style.display = 'none';
+      bl.style.display = 'none';
+      mundo.listener.setMasterVolume(1);
     }
   };
 
