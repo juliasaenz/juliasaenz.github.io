@@ -789,14 +789,17 @@ function animar() {
 
   };
   THREE.DefaultLoadingManager.onLoad = function() {
+    mundo.reloj.getDelta();
     console.log('Loading Complete!');
     if (estado == "etapa1" || estado == "etapa2") {
+      const bl = document.getElementById("blocker");
+      const ins = document.getElementById("play");
+      //console.log("entre", mundo.reloj.getElapsedTime())
       while (mundo.reloj.getElapsedTime() < 3) {
-        cargo = true;
-        const bl = document.getElementById("blocker");
-        const ins = document.getElementById("play");
-        ins.innerText = ("\n\n\n Hace click para empezar");
+        ins.innerText = ("\n\n\n Preparando el espacio");
       }
+      cargo = true;
+      ins.innerText = ("\n\n\n Hace click para empezar");
     }
   };
 
