@@ -1,0 +1,120 @@
+{
+  "data": [{
+      "tiempo": "00:00",
+      "nombre": "Inicio",
+      "camara": [0, 0, 12],
+      "target": [0, 0, 0]
+    },
+    {
+      "tiempo": "00:06",
+      "camara": [0, 0, 15],
+      "target": [3, 0, 0]
+    },
+    {
+      "tiempo": "00:10",
+      "camara": [-13, 0, 13],
+      "target": [0, 0, 0]
+    },
+    {
+      "tiempo": "00:20",
+      "camara": [20, 0, 0],
+      "target": [0, 0, 0]
+    },
+    {
+      "tiempo": "00:22",
+      "camara": [-15, 0, 0],
+      "target": [-15, 0, 0]
+    },
+    {
+      "tiempo": "00:23",
+      "camara": [-17, 0, 0],
+      "target": [0, 0, 0]
+    },
+    {
+      "tiempo": "00:25",
+      "nombre": "intento de recorrer",
+      "camara": [0, 0, 15],
+      "target": [0, 0, 0]
+    },
+    {
+      "tiempo": "00:30",
+      "nombre": "intento de recorrer",
+      "camara": [18, 0, 0],
+      "target": [0, 0, 0]
+    },
+    {
+      "tiempo": "00:35",
+      "nombre": "intento de recorrer",
+      "camara": [0, 0, -15],
+      "target": [0, 0, 0]
+    },
+    {
+      "tiempo": "00:40",
+      "nombre": "intento de recorrer",
+      "camara": [-18, 0, 0],
+      "target": [0, 0, 0]
+    },
+    {
+      "tiempo": "00:45",
+      "nombre": "intento de recorrer",
+      "camara": [0, 0, 15],
+      "target": [0, 0, 0]
+    },
+    {
+      "tiempo": "02:00",
+      "camara": [-14, 0, 8],
+      "target": [-14, 0, 0]
+    },
+    {
+      "tiempo": "02:01",
+      "camara": [-10, 0, 8],
+      "target": [-10, 0, 0]
+    },
+    {
+      "tiempo": "02:02",
+      "camara": [-6, 0, 8],
+      "target": [-6, 0, 0]
+    },
+    {
+      "tiempo": "02:03",
+      "camara": [-2, 0, 8],
+      "target": [-2, 0, 0]
+    },
+    {
+      "tiempo": "02:04",
+      "camara": [2, 0, 8],
+      "target": [2, 0, 0]
+    },
+    {
+      "tiempo": "02:05",
+      "camara": [6, 0, 8],
+      "target": [6, 0, 0]
+    },
+    {
+      "tiempo": "02:06",
+      "camara": [10, 0, 8],
+      "target": [10, 0, 0]
+    },
+    {
+      "tiempo": "02:07",
+      "camara": [14, 0, 8],
+      "target": [14, 0, 0]
+    },
+    {
+      "tiempo": "02:08",
+      "camara": [0, 0, 20],
+      "target": [0, 0, 0]
+    },
+    {
+      "tiempo": "02:10",
+      "camara": [0, 0, 15],
+      "target": [0, 0, 0]
+    },
+    {
+      "tiempo": "03:09",
+      "nombre": "fin",
+      "camara": [12, 1, -1],
+      "target": [14, 0, 0.5]
+    }
+  ]
+}
