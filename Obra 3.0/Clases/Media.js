@@ -40,7 +40,7 @@ export class Media {
   }
   cargarImagen(nombre) {
     const loader = new THREE.TextureLoader();
-    const texture = loader.load("../Obra 3.0/data/imagenes/".concat(nombre, ".png"));
+    const texture = loader.load("./data/imagenes/".concat(nombre, ".png"));
 
     const planeGeo = new THREE.PlaneGeometry(400, 285);
     const planeMat = new THREE.MeshBasicMaterial({

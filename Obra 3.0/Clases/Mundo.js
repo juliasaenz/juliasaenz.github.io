@@ -71,7 +71,7 @@ export class Mundo {
     const planeSize = 400;
 
     const loader = new THREE.TextureLoader();
-    const texture = loader.load('../data/imagenes/fondo.png');
+    const texture = loader.load('./data/imagenes/fondo.png');
     texture.wrapS = THREE.RepeatWrapping;
     texture.wrapT = THREE.RepeatWrapping;
     texture.magFilter = THREE.NearestFilter;
