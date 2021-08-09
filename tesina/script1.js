@@ -569,10 +569,7 @@ function inicializar() {
   // Resize
   window.addEventListener('resize', onWindowResize);
   window.addEventListener("beforeunload", function(e) {
-
     if (estado != "contemplacion") {
-      var confirmationMessage = 'La experiencia aun no termina';
-
       (e || window.event).returnValue = confirmationMessage; //Gecko + IE
       return confirmationMessage; //Gecko + Webkit, Safari, Chrome etc.
     }

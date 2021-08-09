@@ -1,0 +1,44 @@
+[{
+    "id": "julia001",
+    "nombre": "julia",
+    "tiempo": 234,
+    "estilo": {
+      "forma": "cubo",
+      "color": "verde",
+      "pos": {
+        "x": 2,
+        "y": 0.1,
+        "z": -2
+      }
+    }
+  },
+  {
+    "id": "julia002",
+    "nombre": "julia",
+    "tiempo": 234,
+    "estilo": {
+      "forma": "cono",
+      "color": "rosita",
+      "pos": {
+        "x": -5,
+        "y": 0.1,
+        "z": -4
+      }
+    }
+  }
+  ,
+  {
+    "id": "julia003",
+    "nombre": "julia",
+    "tiempo": 234,
+    "estilo": {
+      "forma": "cono",
+      "color": "lila",
+      "pos": {
+        "x": 3.4,
+        "y": 0.1,
+        "z": 4
+      }
+    }
+  }
+]
