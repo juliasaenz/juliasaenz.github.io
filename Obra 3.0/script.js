@@ -14,15 +14,15 @@ import {
   inicioEtapa3,
   animarEtapa3,
   inicioEtapa4,
-  animarEtapa4
+  animarEtapa4,
+  inicioContemplacion,
+  animarContemplacion
 } from './estados.js'
 
 let mundo;
 let media;
 let usuario;
 let red;
-
-//let estado = "intro"; // intro/customizacionA/customizacionB/etapa1/etapa2/etapa3/etapa4/contemplacion
 let int = {
   play: false,
   raycaster: null,
@@ -69,7 +69,17 @@ function inicializar() {
     return response.json();
   }).then(function(data) {
     red.lista = data;
-    int.play = true;
+    //int.play = true;
+  });
+  // instrucciones
+  const ins = document.getElementById("instructions");
+  const bl = document.getElementById("blocker");
+  bl.addEventListener('click', function() {
+    if (media.cargo && red.lista.length > 0) {
+      ins.style.display = 'none';
+      bl.style.display = 'none';
+      int.play = true;
+    }
   });
   // para debugeo
   crearP("log", "--");
@@ -88,10 +98,13 @@ function animar() {
     // Intro --> Carga de archivos
     if (!media.cargo) {
       media.cargo = media.actualizar();
-    } else if (media.cargo && int.play) {
-      int.play = false;
-      red.cargarUsuarios(media.colores);
-      int.estado = inicioCustomizacionA(mundo, int.raycaster, int.mouse, usuario.estilo, media.colores);
+    } else {
+      modificarP("play", "Haga click para comenzar");
+      if (int.play) {
+        int.play = false;
+        red.cargarUsuarios(media.colores);
+        inicioCustomizacionA(mundo, int, usuario.estilo, media.colores);
+      }
     }
   } else if (int.estado === "customizacionA") {
     // Customización A -->
@@ -123,15 +136,20 @@ function animar() {
   } else if (int.estado === "etapa3") {
     // Etapa 3 -->
     animarEtapa3();
-    if (int.play){
+    if (int.play) {
       inicioEtapa4(int, mundo.camara, usuario.modelo);
       int.play = false;
     }
   } else if (int.estado === "etapa4") {
     // Etapa4 -->
     animarEtapa4(int, mov);
+    if (int.play) {
+      inicioContemplacion(int, mundo.camara);
+      int.play = false;
+    }
   } else if (int.estado === "contemplacion") {
     // Contemplación
+    animarContemplacion(mundo.camara, usuario.estilo.pos, mov, usuario.modelo.position);
   }
   // mov de la figura en espacio3D
   if (int.estado.includes("etapa")) {

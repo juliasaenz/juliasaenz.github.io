@@ -1,6 +1,37 @@
 import * as THREE from 'https://unpkg.com/three@0.121.1/build/three.module.js';
 import { BufferGeometryUtils } from 'https://unpkg.com/three@0.121.1/examples/jsm/utils/BufferGeometryUtils.js';
-
+// Instrucciones
+export function mostrarInstucciones(int) {
+  document.getElementById("botonC").disabled = true;
+  const instructions = document.getElementById("instructions");
+  const blocker = document.getElementById("blocker");
+  instructions.style.display = 'flex';
+  blocker.style.display = '';
+  let texto;
+  switch (int.estado) {
+    case "customizacionB":
+      texto = "WASD o Flechas: Mover \n\n Haga click para continuar"
+      break;
+    case "etapa1":
+      texto = "Click: Ver \n\n Haga click para continuar"
+      break
+    case "etapa2":
+      texto = "Click & Drag: Rotar \n\n Haga click para continuar";
+      break
+    case "etapa3":
+      texto = "Scroll: Inclinar \n\n Haga click para continuar";
+      break
+    case "etapa4":
+      instructions.style.display = 'none';
+      blocker.style.display = 'none';
+      int.play = true;
+      texto = "";
+      break
+    default:
+      texto = "tuve un problema en: ".concat(int.estado);
+  }
+  modificarP("play", texto);
+}
 // Mapear valores
 export function scale(number, inMin, inMax, outMin, outMax) {
   return (number - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
@@ -8,9 +39,9 @@ export function scale(number, inMin, inMax, outMin, outMax) {
 // Texto html
 export function mostrarDatos(vel = 0.02) {
   const te = document.getElementById("uDato");
-  if (te != null && te.style.opacity > 0){
+  if (te != null && te.style.opacity > 0) {
     te.style.opacity -= vel;
-  } else if (te != null && te.style.opacity <= 0){
+  } else if (te != null && te.style.opacity <= 0) {
     te.remove();
   }
 }

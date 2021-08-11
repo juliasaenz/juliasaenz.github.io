@@ -1,7 +1,21 @@
 import * as THREE from 'https://unpkg.com/three@0.121.1/build/three.module.js';
 import { PointerLockControls } from 'https://unpkg.com/three@0.121.1/examples/jsm/controls/PointerLockControls.js'
-import { armarModelo, movimientoTeclas, crearP, modificarP, scale, mostrarDatos } from './funciones.js';
+import { armarModelo, movimientoTeclas, crearP, modificarP, scale, mostrarDatos, mostrarInstucciones, borrarDatos } from './funciones.js';
 
+export function animarContemplacion(camara, userP, mov, modeloP) {
+  mov.movs += 0.01;
+  camara.position.x = userP.x + 5 * Math.cos(0.5 * mov.movs);
+  camara.position.z = userP.z + 5 * Math.sin(0.5 * mov.movs);
+  camara.lookAt(modeloP);
+}
+// Contemplación
+export function inicioContemplacion(int, cam) {
+  int.estado = "contemplacion";
+  cam.position.y = 2;
+  document.getElementById("dato").remove();
+  borrarDatos();
+  crearP("fin","Gracias por interactuar :) \n tu figura quedará en este espacio \n (aun no funciona)","80%","10%");
+}
 // Etapa 4
 export function animarEtapa4(int, mov) {
   //movimiento
@@ -26,6 +40,7 @@ export function inicioEtapa4(int, camara, modelo) {
     }
     camara.lookAt(modelo.position);
   });
+  document.getElementById("botonC").disabled = false;
 }
 // Etapa 3
 export function animarEtapa3() {
@@ -41,7 +56,7 @@ export function inicioEtapa3(mundo, int, mov) {
     console.log("pling")
   }
   canvas[0].onpointermove = function() {
-    if (mov.rota)  {
+    if (mov.rota) {
       console.log("rotando")
       int.oldX = int.mouse.x;
       int.mouse.x = (event.clientX / mundo.renderizador.domElement.clientWidth) * 2 - 1;
@@ -63,7 +78,7 @@ export function inicioEtapa3(mundo, int, mov) {
 }
 // Etapa 2
 export function animarEtapa2(user, red, reloj) {
-  modificarP("dato", user.texto(reloj.getElapsedTime()), "65%", "55%");
+  modificarP("dato", user.texto(reloj.getElapsedTime()), "55%", "55%");
   mostrarDatos(0.02);
   user.calcularDistancias(red.usuarios, red.visible);
   red.calcularDistanciasRed(user);
@@ -71,7 +86,7 @@ export function animarEtapa2(user, red, reloj) {
 export function inicioEtapa2(int, user, m, mov, red) {
   int.estado = "etapa2";
   user.vel = 25.0;
-  crearP("dato", user.texto(m.reloj.getElapsedTime()));
+  crearP("dato", user.texto(m.reloj.getElapsedTime()), "55%", "55%");
   // click
   let mods = red.sacarModelos();
   document.onpointerdown = function() {
@@ -131,7 +146,7 @@ export function inicioEtapa1(m, user, int, sonidos, mov, colores, red) {
   document.body.appendChild(b);
   document.getElementById("botonC").disabled = false;
   b.onclick = function() {
-    int.play = true;
+    mostrarInstucciones(int);
     b.disabled = true;
   }
 }
@@ -176,7 +191,7 @@ export function inicioCustomizacionB(m, estilo, media, int) {
           sonidos[i].stop();
         }
       }
-      int.play = "true";
+      mostrarInstucciones(int);
       d.removeEventListener('click', clickB);
     } else if (ult.id != "botonera" && ult.id != "nme" && ult.id.length > 0) {
       // si es sonido
@@ -274,13 +289,13 @@ export function animarCustomizacionB(escena, usuario) {
     usuario.nombre = "";
   }
   //habilitar continuar
-  if (usuario.estilo.color != "" && usuario.estilo.sonido != "" && usuario.nombre != "") {
+  if (usuario.estilo.color != "" && usuario.estilo.sonido != "" && usuario.nombre != "" && document.getElementById("blocker").style.display === "none") {
     let c = document.getElementById("botonC");
     c.disabled = false;
   }
 }
 // Customización A
-export function inicioCustomizacionA(m, raycaster, mouse, estilo, colores) {
+export function inicioCustomizacionA(m, int, estilo, colores) {
   m.crearFondoCustomizacion();
   var f1 = armarModelo("f1", { forma: "cubo", color: "--", pos: { x: -2.5, y: 0, z: -3 } }, colores);
   var f2 = armarModelo("f2", { forma: "cono", color: "--", pos: { x: 2.5, y: 0, z: -3 } }, colores);
@@ -288,13 +303,13 @@ export function inicioCustomizacionA(m, raycaster, mouse, estilo, colores) {
   m.escena.add(f2);
   window.addEventListener('click', function clickA() {
     //console.log("clickA")
-    mouse.x = (event.clientX / m.renderizador.domElement.clientWidth) * 2 - 1;
-    mouse.y = -(event.clientY / m.renderizador.domElement.clientHeight) * 2 + 1;
-    raycaster.setFromCamera(mouse, m.camara);
-    var intersects = raycaster.intersectObjects([f1, f2]);
+    int.mouse.x = (event.clientX / m.renderizador.domElement.clientWidth) * 2 - 1;
+    int.mouse.y = -(event.clientY / m.renderizador.domElement.clientHeight) * 2 + 1;
+    int.raycaster.setFromCamera(int.mouse, m.camara);
+    let intersects = int.raycaster.intersectObjects([f1, f2]);
     if (intersects.length > 0) {
-      var int = intersects[0].object.name;
-      if (int == "f1") {
+      let inter = intersects[0].object.name;
+      if (inter == "f1") {
         estilo.forma = "cubo";
       } else {
         estilo.forma = "cono";
@@ -302,7 +317,7 @@ export function inicioCustomizacionA(m, raycaster, mouse, estilo, colores) {
       window.removeEventListener('click', clickA);
     }
   })
-  return "customizacionA";
+  int.estado = "customizacionA";
 }
 export function animarCustomizacionA(escena) {
   var f1 = escena.getObjectByName("f1");
