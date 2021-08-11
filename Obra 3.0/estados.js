@@ -27,37 +27,40 @@ export function animarEtapa4(int, mov) {
     }
     mov.movs += 0.1 * mov.dir;
   }
-  mostrarDatos(0.03);
+  mostrarDatos(0.01);
 }
-export function inicioEtapa4(int, camara, modelo) {
+export function inicioEtapa4(int, m, user, media) {
   int.estado = "etapa4";
+  m.escena.fog = null;
   document.addEventListener('wheel', function(event) {
     event.preventDefault();
-    if (event.deltaY > 0 && camara.position.y > -1) {
-      camara.position.y -= 0.1;
-    } else if (event.deltaY < 0 && camara.position.y < 2.5) {
-      camara.position.y += 0.1;
+    if (event.deltaY > 0 && m.camara.position.y > -1) {
+      m.camara.position.y -= 0.1;
+    } else if (event.deltaY < 0 && m.camara.position.y < 2.5) {
+      m.camara.position.y += 0.1;
     }
-    camara.lookAt(modelo.position);
+    m.camara.lookAt(user.modelo.position);
   });
+  media.mostrarCodigo(m.escena);
+  user.vel = 10.0;
+
+  ///
   document.getElementById("botonC").disabled = false;
 }
 // Etapa 3
 export function animarEtapa3() {
-  mostrarDatos(0.03);
+  mostrarDatos(0.04);
 }
-export function inicioEtapa3(mundo, int, mov) {
+export function inicioEtapa3(mundo, int, mov, usuario) {
   int.estado = "etapa3";
   let canvas = document.getElementsByTagName("canvas");
   canvas[0].onpointerdown = function() {
     mov.rota = true;
     int.oldX = int.mouse.x;
     int.distancia = int.mouse.x;
-    console.log("pling")
   }
   canvas[0].onpointermove = function() {
     if (mov.rota) {
-      console.log("rotando")
       int.oldX = int.mouse.x;
       int.mouse.x = (event.clientX / mundo.renderizador.domElement.clientWidth) * 2 - 1;
     }
@@ -73,15 +76,14 @@ export function inicioEtapa3(mundo, int, mov) {
       }
     }
   }
+  usuario.vel = 15.0;
+
   ///sacar de aca
   document.getElementById("botonC").disabled = false;
 }
 // Etapa 2
-export function animarEtapa2(user, red, reloj) {
-  modificarP("dato", user.texto(reloj.getElapsedTime()), "55%", "55%");
+export function animarEtapa2() {
   mostrarDatos(0.02);
-  user.calcularDistancias(red.usuarios, red.visible);
-  red.calcularDistanciasRed(user);
 }
 export function inicioEtapa2(int, user, m, mov, red) {
   int.estado = "etapa2";

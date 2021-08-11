@@ -33,6 +33,27 @@ export class Media {
     }
     return true;
   }
+  mostrarCodigo(escena) {
+    for (let i = 0; i < 4; i++) {
+      const id = "codigo".concat(i.toString());
+      escena.getObjectByName(id).visible = true;
+    }
+  }
+  ubicarCodigo(escena) {
+    const alt = 130;
+    this.imagenes[0].position.set(0, alt, -200);
+    this.imagenes[1].position.set(200, alt, 0);
+    this.imagenes[1].rotation.y = -Math.PI / 2;
+    this.imagenes[2].position.set(0, alt, 200);
+    this.imagenes[2].rotation.y = Math.PI;
+    this.imagenes[3].position.set(-200, alt, 0);
+    this.imagenes[3].rotation.y = Math.PI / 2;
+    for (var i = 0; i < 4; i++) {
+      this.imagenes[i].name = "codigo".concat(i.toString());
+      this.imagenes[i].visible = false;
+      escena.add(this.imagenes[i]);
+    }
+  }
   cargarImagenes() {
     for (var i = 0; i < 4; i++) {
       this.imagenes[i] = this.cargarImagen("0".concat((i + 1).toString(), "cod"));

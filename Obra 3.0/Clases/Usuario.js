@@ -83,7 +83,7 @@ export class Usuario {
     const t = "Usuario: ".concat(this.nombre, "\n");
     const t2 = "ID: ".concat(this.id, "\n");
     const t3 = "Forma: ".concat(this.estilo.forma, "\n");
-    const t4 = "Texto: ".concat(this.estilo.color, "\n");
+    const t4 = "Color: ".concat(this.estilo.color, "\n");
     const t5 = "Posición: ".concat(parseInt(this.estilo.pos.x), ", ", parseInt(this.estilo.pos.y), ", ", parseInt(this.estilo.pos.z), "\n");
     const t6 = "Sonido: ".concat(this.estilo.sonido, "\n");
     const t7 = "Formas cerca: ".concat(this.conexiones.length, "\n");

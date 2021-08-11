@@ -118,6 +118,7 @@ function animar() {
     animarCustomizacionB(mundo.escena, usuario);
     if (int.play) {
       inicioEtapa1(mundo, usuario, int, media.sonidos, mov, media.colores, red);
+      media.ubicarCodigo(mundo.escena);
       int.play = false;
     }
   } else if (int.estado === "etapa1") {
@@ -128,16 +129,17 @@ function animar() {
     }
   } else if (int.estado === "etapa2") {
     // Etapa 2 -->
-    animarEtapa2(usuario, red, mundo.reloj);
+    animarEtapa2();
     if (int.play) {
-      inicioEtapa3(mundo, int, mov);
+      mundo.escena.fog.near = 20;
+      inicioEtapa3(mundo, int, mov, usuario);
       int.play = false;
     }
   } else if (int.estado === "etapa3") {
     // Etapa 3 -->
     animarEtapa3();
     if (int.play) {
-      inicioEtapa4(int, mundo.camara, usuario.modelo);
+      inicioEtapa4(int, mundo, usuario, media);
       int.play = false;
     }
   } else if (int.estado === "etapa4") {
@@ -155,6 +157,11 @@ function animar() {
   if (int.estado.includes("etapa")) {
     usuario.mover(mundo.camara, mov);
     usuario.actualizarPos(mundo.camara, usuario.limite(195));
+    if(int.estado != "etapa1"){
+      modificarP("dato", usuario.texto(mundo.reloj.getElapsedTime()), "55%", "55%");
+      usuario.calcularDistancias(red.usuarios, red.visible);
+      red.calcularDistanciasRed(usuario);
+    }
   }
   mundo.renderizar();
 }
