@@ -3,7 +3,7 @@ import * as THREE from 'https://unpkg.com/three@0.121.1/build/three.module.js';
 export class Media {
   constructor(listener) {
     this.archivos = [];
-    this.cant = 1;
+    this.cant = 4;
     this.sonidos = {};
     this.imagenes = [];
     this.cargo = false;
