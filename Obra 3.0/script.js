@@ -175,8 +175,12 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
   document.getElementById("play").innerText = "";
 
 } else {
-  inicializar();
-  animar();
+  if (confirm("Presione OK para ir a la versión con base de datos :)")) {
+    location.href = "https://juliasaenz.000webhostapp.com/";
+  } else {
+    inicializar();
+    animar();
+  }
 }
 
 /// Eventos
