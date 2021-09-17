@@ -1,0 +1,622 @@
+html {
+   pointer-events: auto;
+}
+
+body {
+   font-size: 16px;
+   font-family: Arial, Helvetica, sans-serif;
+   font-weight: 400;
+   font-style: normal;
+   letter-spacing: 0em;
+   line-height: 1.9em;
+   text-transform: none;
+}
+
+.deep-integrations__wrapper {
+   margin: 0 auto;
+   max-width: 100vw;
+   background: url('data:image/svg+xml;utf8,<svg height="480" viewBox="0 0 431 480" width="431" xmlns="http://www.w3.org/2000/svg"> <path d= "M 215, 0 V 240 M 46, 55 v 15 M 46, 70 L 215, 240 M 395, 55 v 15 M 395, 70 L 215, 240 M 1, 410 v -15 M 1, 395 L 215, 240 M 430, 410 v -15 M 430, 395 L 215, 240 M 86, 480 v -15 M 86, 465 L 215, 240 M 355, 480 v -15 M 355, 465 L 215, 240 z" stroke="black" stroke-width="1" fill="none" stroke-opacity="0.3"/> </svg>') center center no-repeat;
+   /*background: url('data:image/svg+xml;utf8,<svg height="480" viewBox="0 0 341 480" width="341" xmlns="http://www.w3.org/2000/svg"><path d="m171 0-.000181 238.792 168.5-168.5.000181-15.792h1v16h-.088181l.147362.1479259-169.352362 169.3510741 169.352362 169.353074-.148362.147926h.089181v16h-1l-.000181-15.793-168.5-168.5.000181 238.793h-1l-.000181-238.793-168.49999988 168.5.00018088 15.793h-1v-16h.08881913l-.148-.147926 169.35199987-169.352074-169.35199987-169.3520741.147-.1479259h-.08781913v-16h1l-.00018088 15.792 168.49999988 168.5.000181-238.792z" fill="%23d8d8d8" fill-rule="evenodd"/></svg>') center center no-repeat;
+   */
+   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+   color: #333;
+}
+
+.deep-integrations__a {
+   height: 640px;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   width: 100%;
+   overflow: hidden;
+}
+
+.deep-integrations__e {
+   display: flex;
+   position: relative;
+}
+
+@media (max-width: 1023px) {
+   .deep-integrations__wrapper {
+      display: none;
+   }
+}
+
+.deep-integrations__a {
+   height: 640px;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   width: 100%;
+   overflow: hidden;
+}
+
+.deep-integrations__e {
+   display: flex;
+   position: relative;
+}
+
+.deep-integrations__f {
+   flex-grow: 1;
+   flex-shrink: 0;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 33.333333333333%;
+   position: relative;
+}
+
+@keyframes areas {
+   0% {
+      transform: translateY(0);
+      opacity: 1;
+   }
+
+   12.5% {
+      transform: translateY(0);
+      opacity: 1;
+   }
+
+   25% {
+      transform: translateY(-3rem);
+      opacity: 1;
+   }
+
+   37.5% {
+      transform: translateY(-3rem);
+      opacity: 1;
+   }
+
+   50% {
+      transform: translateY(-6rem);
+      opacity: 1;
+   }
+
+   62.5% {
+      transform: translateY(-6rem);
+      opacity: 1;
+   }
+
+   75% {
+      transform: translateY(-9rem);
+      opacity: 1;
+   }
+
+   87.3% {
+      transform: translateY(-9rem);
+      opacity: 1;
+   }
+
+   87.4% {
+      transform: translateY(-9rem);
+      opacity: 0;
+   }
+
+   87.5% {
+      opacity: 0;
+      transform: translateY(0);
+   }
+
+   90% {
+      opacity: 0;
+      transform: translateY(0);
+   }
+
+   100% {
+      opacity: 0;
+      transform: translateY(0);
+   }
+}
+
+@media (min-width: 1025px) {
+   .deep-integrations__o {
+      padding-left: 0;
+   }
+}
+
+.deep-integrations__p {
+   background: #fff;
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+   align-items: flex-start;
+   position: relative;
+   z-index: 3;
+}
+
+.deep-integrations__r {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin: 0.6vw 0;
+   padding: 2px;
+   position: relative;
+   z-index: 3;
+}
+
+.deep-integrations__s {
+   width: 37px;
+   height: 37px;
+   border-radius: 999px;
+   background: #ccc;
+   margin-right: 16px;
+}
+
+.deep-integrations__s--1 {
+   background: #20264a;
+   /*margin-top: 1.1vw*/
+}
+
+.deep-integrations__s--2 {
+   background: #2f3371;
+}
+
+.deep-integrations__s--3 {
+   background: #3c3d91;
+}
+
+.deep-integrations__s--4 {
+   background: #4b4bba;
+}
+
+.deep-integrations__s--5 {
+   background: #5553d3;
+   /*margin-bottom: 1.1vw*/
+}
+
+.deep-integrations__u {
+   position: absolute;
+   top: -8px;
+   left: -3.5px;
+   bottom: -4px;
+   border: 1px solid #d8d8d8;
+   width: 38px;
+   border-radius: 9999px;
+   padding: 3.5px;
+   background: #f0f0f0;
+   z-index: 1;
+}
+
+.deep-integrations__w {
+   color: #040273;
+   font-size: 24px;
+   font-weight: 600;
+   text-align: center;
+   width: 18rem;
+   position: absolute;
+}
+
+.deep-integrations__cursor {
+   transform: translate(32px, 12px);
+   position: relative;
+   z-index: 2;
+}
+
+.deep-integrations__click {
+   position: absolute;
+   z-index: 1;
+   width: 8px;
+   height: 8px;
+   border-radius: 8px;
+   background: #ccc;
+}
+
+.deep-integrations__click--1 {
+   transform: translate(32px, -14px);
+}
+
+.deep-integrations__click--2 {
+   transform: translate(-16px, 28px);
+}
+
+@keyframes a1 {
+   0% {
+      opacity: 0;
+   }
+
+   25% {
+      opacity: 1;
+   }
+
+   50% {
+      opacity: 0;
+   }
+
+   100% {
+      opacity: 0;
+   }
+}
+
+.deep-integrations__a1 {
+   transform-origin: center center;
+   transform-box: fill-box;
+   animation: a1 1.5s infinite linear;
+}
+
+.deep-integrations__a2 {
+   transform-origin: center center;
+   transform-box: fill-box;
+   animation: a1 1.5s infinite linear;
+   animation-delay: 0.75s;
+}
+
+@keyframes circle {
+   0% {
+      transform: rotate(359deg);
+   }
+
+   100% {
+      transform: rotate(0deg);
+   }
+}
+
+.deep-integrations__circle {
+   transform-origin: center center;
+   transform-box: fill-box;
+   animation: circle 2s infinite linear;
+   z-index: 9;
+}
+
+@keyframes ripple {
+   0% {
+      opacity: 0.8;
+      transform: scale(1);
+   }
+
+   50% {
+      opacity: 0.8;
+      transform: scale(1.2);
+   }
+
+   100% {
+      opacity: 0;
+      transform: scale(2);
+   }
+}
+
+.deep-integrations__ripple {
+   transform-origin: center center;
+   transform-box: fill-box;
+   animation: ripple 2s infinite linear;
+}
+
+@keyframes pipeline {
+   0% {
+      transform: translateX(0%);
+   }
+
+   50% {
+      transform: translateX(100%);
+   }
+
+   100% {
+      transform: translateX(100%);
+   }
+}
+
+@keyframes pipeline-center {
+   0% {
+      transform: translateX(0%);
+   }
+
+   100% {
+      transform: translateX(80%);
+   }
+
+}
+
+@keyframes bottom-left {
+   0% {
+      transform: translateX(0%);
+   }
+
+   100% {
+      transform: translateX(80%) translateY(8.5vw);
+   }
+}
+
+@keyframes top-left {
+   0% {
+      transform: translateX(0%);
+   }
+
+   100% {
+      transform: translateX(80%) translateY(-4.5vw);
+   }
+
+}
+
+@keyframes bottom-left-2 {
+   0% {
+      transform: translateX(0%);
+   }
+
+   100% {
+      transform: translateX(80%) translateY(4vw);
+   }
+}
+
+@keyframes top-left-2 {
+   0% {
+      transform: translateX(0%);
+   }
+
+   100% {
+      transform: translateX(80%) translateY(-9vw);
+   }
+}
+
+.top-left .deep-integrations__pipeline,
+.top-left-2 .deep-integrations__pipeline,
+.bottom-left .deep-integrations__pipeline,
+.bottom-left-2 .deep-integrations__pipeline {
+   transform-origin: center center;
+   transform-box: fill-box;
+}
+
+.top-left .deep-integrations__pipeline {
+   animation: top-left 2s infinite linear alternate;
+   animation-delay: 1.75s;
+}
+
+.top-left-2 .deep-integrations__pipeline {
+   animation: top-left-2 2s infinite linear alternate;
+   animation-delay: 1.75s;
+}
+
+.bottom-left .deep-integrations__pipeline {
+   animation: bottom-left 2s infinite linear alternate;
+   animation-delay: 1.75s;
+}
+
+.bottom-left-2 .deep-integrations__pipeline {
+   animation: bottom-left-2 2s infinite linear alternate;
+   animation-delay: 1.75s;
+}
+
+.lineTop-1,
+.lineBottom-1,
+.lineTop-2,
+.lineBottom-2 {
+   height: 1px;
+   width: 100%;
+   position: absolute;
+   background: #d8d8d8;
+   z-index: 0;
+   right: -50%;
+}
+
+.lineTop-1 {
+   top: 38%;
+   transform: rotate(-10deg);
+}
+
+.lineBottom-1 {
+   top: 62%;
+   transform: rotate(10deg);
+}
+
+.lineTop-2 {
+   top: 25%;
+   transform: rotate(-18deg);
+}
+
+.lineBottom-2 {
+   top: 75%;
+   transform: rotate(18deg);
+}
+
+.deep-integrations__pipeline {
+   transform-origin: center center;
+   transform-box: fill-box;
+   animation: pipeline 4s infinite linear;
+   animation-delay: 0.5s;
+}
+
+.deep-integrations__pipeline--2 {
+   transform-origin: center center;
+   transform-box: fill-box;
+   animation: pipeline-center 2s infinite linear alternate;
+   animation-delay: 1.75s;
+}
+
+/* Progress indicator */
+
+@keyframes deep-progress-indicator {
+   0% {
+      transform: scale(1.1, 1.1);
+   }
+
+   50% {
+      transform: scale(0.8, 0.8);
+   }
+
+   100% {
+      transform: scale(1.1, 1.1);
+   }
+}
+
+.animated .deep-progress-indicator__circle {
+   animation: deep-progress-indicator 2s infinite linear;
+   transform-origin: center center;
+   transform-box: fill-box;
+   position: relative;
+   z-index: 2;
+}
+
+.animated .deep-progress-indicator__circle--1 {
+   animation-duration: 1.1s;
+}
+
+.animated .deep-progress-indicator__circle--2 {
+   animation-duration: 1.2s;
+}
+
+.animated .deep-progress-indicator__circle--3 {
+   animation-duration: 1.3s;
+}
+
+.animated .deep-progress-indicator__circle--4 {
+   animation-duration: 1.4s;
+}
+
+.animated .deep-progress-indicator__circle--5 {
+   animation-duration: 1.5s;
+}
+
+.animated .deep-progress-indicator__circle--6 {
+   animation-duration: 1.6s;
+}
+
+.animated .deep-progress-indicator__circle--7 {
+   animation-duration: 1.7s;
+}
+
+.animated .deep-progress-indicator__circle--8 {
+   animation-duration: 1.8s;
+}
+
+.animated .deep-progress-indicator__circle--9 {
+   animation-duration: 1.9s;
+}
+
+.animated .deep-progress-indicator__circle--10 {
+   animation-duration: 2s;
+}
+
+.animated .deep-progress-indicator__circle--11 {
+   animation-duration: 2.1s;
+}
+
+.animated .deep-progress-indicator__circle--12 {
+   animation-duration: 2.2s;
+}
+
+.animated .deep-progress-indicator__circle--13 {
+   animation-duration: 2.3s;
+}
+
+.animated .deep-progress-indicator__circle--14 {
+   animation-duration: 2.4s;
+}
+
+.animated .deep-progress-indicator__circle--15 {
+   animation-duration: 2.5s;
+}
+
+.animated .deep-progress-indicator__circle--16 {
+   animation-duration: 2.6s;
+}
+
+.animated .deep-progress-indicator__circle--17 {
+   animation-duration: 2.7s;
+}
+
+
+.animated .deep-progress-indicator__circle--18 {
+   animation: none;
+   transform: scale(0, 0);
+}
+
+.animated .deep-progress-indicator__circle--19 {
+   animation: none;
+   transform: scale(0, 0);
+}
+
+.animated .deep-progress-indicator__circle--20 {
+   animation: none;
+   transform: scale(0, 0);
+}
+
+.animated .deep-progress-indicator__circle--21 {
+   animation: none;
+   transform: scale(0, 0);
+}
+
+.animated.fast .deep-progress-indicator__circle--1 {
+   animation-duration: 0.3s;
+}
+
+.animated.fast .deep-progress-indicator__circle--2 {
+   animation-duration: 0.4s;
+}
+
+.animated.fast .deep-progress-indicator__circle--3 {
+   animation-duration: 0.3s;
+}
+
+.animated.fast .deep-progress-indicator__circle--4 {
+   animation-duration: 0.4s;
+}
+
+.animated.fast .deep-progress-indicator__circle--5 {
+   animation-duration: 0.5s;
+}
+
+.animated.fast .deep-progress-indicator__circle--6 {
+   animation-duration: 0.6s;
+}
+
+.animated.fast .deep-progress-indicator__circle--7 {
+   animation-duration: 0.7s;
+}
+
+.animated.fast .deep-progress-indicator__circle--8 {
+   animation-duration: 0.8s;
+}
+
+.animated.fast .deep-progress-indicator__circle--9 {
+   animation-duration: 0.9s;
+}
+
+.animated.fast .deep-progress-indicator__circle--10 {
+   animation-duration: 1s;
+}
+
+.animated.fast .deep-progress-indicator__circle--11 {
+   animation-duration: 1.1s;
+}
+
+.animated.fast .deep-progress-indicator__circle--12 {
+   animation-duration: 1.2s;
+}
+
+.animated.fast .deep-progress-indicator__circle--13 {
+   animation-duration: 1.3s;
+}
+
+.animated.fast .deep-progress-indicator__circle--14 {
+   animation-duration: 1.4s;
+}
+
+.animated.fast .deep-progress-indicator__circle--15 {
+   animation-duration: 1.5s;
+}
+
+.animated.fast .deep-progress-indicator__circle--16 {
+   animation-duration: 1.6s;
+}
+
+.animated.fast .deep-progress-indicator__circle--17 {
+   animation-duration: 1.7s;
+}
