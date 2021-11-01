@@ -176,7 +176,7 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
 
 } else {
   if (confirm("Presione OK para ir a la versión con base de datos :)")) {
-    location.href = "https://juliasaenz.000webhostapp.com/";
+    location.href = "http://contornosilusorios.juliasaenz.online/";
   } else {
     inicializar();
     animar();
