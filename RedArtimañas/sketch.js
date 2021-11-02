@@ -35,8 +35,6 @@ function draw() {
         categorias[i].dibujar();
         categorias[i].hoverCategoria(fuente);
     }
-    fill(0,73)
-    rect(0,0,innerWidth,innerHeight)
     for( let i = 0; i < cantO; i++){
         obras[i].mover();
         obras[i].dibujar();
@@ -50,14 +48,16 @@ function mouseClicked() {
     }
     for( let i = 0; i < cantO; i++){
         obras[i].seleccionado = obras[i].resaltar(categorias, cantC)
+        obras[i].destoqueObra();
         obras[i].toqueObra();
+        
     }
 }
 
 function llenarObras(){
     cantO = Object.keys(dataObras).length
     for( let i = 0; i < cantO; i++){
-        obras[i] = new Obra(dataObras[i].nombre,dataObras[i].autor,dataObras[i].categorias)
+        obras[i] = new Obra(dataObras[i].nombre,dataObras[i].autor,dataObras[i].categorias,dataObras[i].link)
         obras[i].posicionar(obras);
         obras[i].dibujar();
         //print(obras[i])
