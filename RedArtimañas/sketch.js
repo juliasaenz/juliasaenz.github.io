@@ -54,6 +54,11 @@ function mouseClicked() {
     }
 }
 
+function touchStarted() {
+    console.log("TOUCH");
+    background(255,0,0);
+}
+
 function llenarObras(){
     cantO = Object.keys(dataObras).length
     for( let i = 0; i < cantO; i++){
