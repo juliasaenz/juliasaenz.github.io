@@ -1,14 +1,23 @@
 class Categoria{
-   constructor(n, x = 20, c = '#FAFAFA'){
+   constructor(n, x = width/20, c = '#FAFAFA',llena,vacia){
       this.nombre = n;
       this.obras = [];
       this.x = x;
-      this.y = 60;
-      this.tam = 50;
+      this.y = height/10;
+      this.tam = height/12;
       this.colorcito = c;
       this.seleccionado = false;
-      this.imagen = loadImage('data/categorias/'+this.nombre+'.png')
-      this.imagenVacia = loadImage('data/categorias/'+this.nombre+' vacio.png')
+      if(width > height){
+         llena.resize(width/22,0);
+         vacia.resize(width/22,0);
+      } else {
+         llena.resize(width/8,0);
+         vacia.resize(width/8,0);
+      }
+      this.imagen = llena;
+      
+      this.imagenVacia = vacia;
+      this.reloj = 0;
    }
 
    cargarObras(obr){
@@ -34,11 +43,13 @@ class Categoria{
       if(this.seleccionado){
          noStroke();
          fill(this.colorcito);
+         //
          image(this.imagen,this.x+this.tam/2,this.y);
       } else {
          stroke(this.colorcito);
          strokeWeight(2);
          noFill();
+         //this.imagenVacia.resize(width/22,0)
          image(this.imagenVacia,this.x+this.tam/2,this.y);
       }
       //rect(this.x, this.y+100, this.tam, this.tam);
@@ -63,6 +74,9 @@ class Categoria{
          if(mouseY >= this.y-this.tam/2 && mouseY <= this.y + this.tam){
             this.seleccionado = !this.seleccionado
             print("click ",this.nombre,"  ",this.seleccionado)
+            if(this.seleccionado){
+               this.reloj = 100;
+            }
          }
       }
    }
@@ -73,11 +87,24 @@ class Categoria{
             fill(this.colorcito);
             noStroke();
             textFont(fuente)
-            textSize(24);
+            textSize(height/26);
             textAlign(CENTER, CENTER);
-            text(this.nombre.toUpperCase(), this.x+this.tam/2, 110);
+            text(this.nombre.toUpperCase(), this.x+this.tam/2, this.y + height/15);
          }
       }
+   }
+
+   mostrarTexto(){
+      if(this.seleccionado && this.reloj > 0){
+         fill(this.colorcito);
+         noStroke();
+         textFont(fuente)
+         textSize(height/26);
+         textAlign(CENTER, CENTER);
+         text(this.nombre.toUpperCase(), this.x+this.tam/2, this.y + height/15);
+         this.reloj--;
+      }
+      print(this.reloj)
    }
 
 // fin clase
