@@ -78,6 +78,10 @@ function draw() {
         obras[i].mover();
         obras[i].dibujar();
         obras[i].hoverObra();
+        if(obras[i].click){
+            obras[i].texto();
+        }
+        obras[i].bonkObras(obras);
     }
 }
 
