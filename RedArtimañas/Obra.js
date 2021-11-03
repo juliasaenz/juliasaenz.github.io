@@ -25,7 +25,7 @@ class Obra{
         for(let i = 0; i < obras.length - 1; i++){
             while( dist(this.x,this.y,obras[i].x,obras[i].y) < width/10){
                 this.x = random(width-width/20) + width/20;
-                this.y = random((height/3)*2) + height/4;
+                this.y = random(height/2) + height/4;
             }
         }
     }
