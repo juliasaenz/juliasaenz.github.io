@@ -6,11 +6,11 @@ class Obra{
         this.link = link;
         this.x = random(width-width/20);
         this.y = height/2;
-        this.r = height/100;
+        this.r = height/90;
         if (height > width ){
             this.r = height/85;
         }
-        this.v = 0.09;
+        this.v = 1.09;
         this.dirX = random([-1,1]);
         this.dirY = random([-1,1]);
         this.seleccionado = false;
@@ -21,21 +21,21 @@ class Obra{
         for(let i = 0; i < obras.length - 1; i++){
             while( dist(this.x,this.y,obras[i].x,obras[i].y) < width/10){
                 this.x = random(width-width/20);
-                this.y = random(height/2) + height/4;
+                this.y = random(height/3) + height/3;
             }
         }
     }
     mover(){
         if(this.x <= this.r || this.x >= width-this.r*3){
             this.dirX = this.dirX * -1;       
-            print("borde")
         }
         if(height < width){
             if(this.y <= height/6 || this.y >= height-this.r*3){
                 this.dirY = this.dirY * -1;       
             }
         } else {
-            if(this.y <= height/6*2.5 || this.y >= height-this.r*3){
+            if(this.y <= height/3 || this.y >= height-this.r*3){
+                print("bonk???");
                 this.dirY = this.dirY * -1;       
             }
         }
@@ -71,12 +71,12 @@ class Obra{
             } else {
                 fill(100)
             }
-            textAlign(LEFT)
+            textAlign(LEFT);
             textSize(height/35);
             if(this.x < width/3*2){
-                text(this.nombre, this.x + width/90, this.y);
+                text(this.nombre, this.x + width/80, this.y);
             } else {
-                text(this.nombre, this.x - textWidth(this.nombre) - width/90, this.y);
+                text(this.nombre, this.x - textWidth(this.nombre) - width/80, this.y);
             }
     }
 

@@ -131,7 +131,7 @@ function windowResized() {
     }
     for(let i= 0; i < cantO; i++){
         obras[i].x = random(width-width/20);
-        obras[i].y = random(height/2) + height/4;
+        obras[i].y = random(height/3) + height/3;
     }
   }
 
