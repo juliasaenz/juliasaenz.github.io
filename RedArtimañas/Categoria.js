@@ -75,7 +75,7 @@ class Categoria{
             this.seleccionado = !this.seleccionado
             print("click ",this.nombre,"  ",this.seleccionado)
             if(this.seleccionado){
-               this.reloj = 100;
+               this.reloj = 20;
             }
          }
       }
@@ -87,7 +87,7 @@ class Categoria{
             fill(this.colorcito);
             noStroke();
             textFont(fuente)
-            textSize(height/26);
+            textSize(height/30);
             textAlign(CENTER, CENTER);
             text(this.nombre.toUpperCase(), this.x+this.tam/2, this.y + height/15);
          }
@@ -99,7 +99,7 @@ class Categoria{
          fill(this.colorcito);
          noStroke();
          textFont(fuente)
-         textSize(height/26);
+         textSize(height/30);
          textAlign(CENTER, CENTER);
          text(this.nombre.toUpperCase(), this.x+this.tam/2, this.y + height/15);
          this.reloj--;
