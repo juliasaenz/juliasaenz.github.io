@@ -94,7 +94,7 @@ class Categoria{
       }
    }
 
-   mostrarTexto(){
+   mostrarTexto(fuente){
       if(this.seleccionado && this.reloj > 0){
          fill(this.colorcito);
          noStroke();

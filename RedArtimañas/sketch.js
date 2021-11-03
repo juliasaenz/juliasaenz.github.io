@@ -68,8 +68,10 @@ function draw() {
     for( let i = 0; i < cantC; i++){
         categorias[i].dibujarLineas();
         categorias[i].dibujar();
-        categorias[i].hoverCategoria(fuente);
-        categorias[i].mostrarTexto();
+        if(height < width){
+            categorias[i].hoverCategoria(fuente);
+        }
+        categorias[i].mostrarTexto(fuente);
     }
     for( let i = 0; i < cantO; i++){
         obras[i].mover();
