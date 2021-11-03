@@ -70,8 +70,9 @@ function draw() {
         categorias[i].dibujar();
         if(height < width){
             categorias[i].hoverCategoria(fuente);
+        } else {
+            categorias[i].mostrarTexto(fuente);
         }
-        categorias[i].mostrarTexto(fuente);
     }
     for( let i = 0; i < cantO; i++){
         obras[i].mover();
@@ -136,7 +137,7 @@ function reordenarCategorias(){
         if(height > width){
             categorias[i].x = (width/8)*(i+1)
             if(i > cantC/2-1){
-                categorias[i].x = (width/10)*(i-cantC/2+1)
+                categorias[i].x = (width/8)*(i-cantC/2+1)
                 categorias[i].y = height/10 * 2.5
             }
         } else {

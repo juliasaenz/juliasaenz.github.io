@@ -99,7 +99,7 @@ class Categoria{
          fill(this.colorcito);
          noStroke();
          textFont(fuente)
-         textSize(height/30);
+         textSize(height/36);
          textAlign(CENTER, CENTER);
          text(this.nombre.toUpperCase(), this.x+this.tam/2, this.y + height/15);
          this.reloj--;
