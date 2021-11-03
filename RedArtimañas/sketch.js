@@ -130,9 +130,8 @@ function windowResized() {
         }
     }
     for(let i= 0; i < cantO; i++){
-        print(viejo[0], width);
-        obras[i].x =map(obras[i].x,0,viejo[0],0,width);
-        obras[i].y =map(obras[i].y,0,viejo[1],0,height);
+        obras[i].x = random(width-width/20);
+        obras[i].y = random(height/2) + height/4;
     }
   }
 

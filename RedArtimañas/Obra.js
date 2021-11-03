@@ -10,7 +10,7 @@ class Obra{
         if (height > width ){
             this.r = height/85;
         }
-        this.v = 1.09;
+        this.v = 0.09;
         this.dirX = random([-1,1]);
         this.dirY = random([-1,1]);
         this.seleccionado = false;
@@ -48,7 +48,7 @@ class Obra{
     bonkObras(obras){
         for(let i= 0; i < obras.length; i++){
             if(this.nombre != obras[i].nombre){
-                if(dist(this.x,this.y,obras[i].x,obras[i].y) > this.r*6){
+                if(dist(this.x,this.y,obras[i].x,obras[i].y) >= this.r*4){
                     this.dirX = this.dirX * -1; 
                     this.dirY = this.dirY * -1;    
                 }
@@ -58,7 +58,9 @@ class Obra{
 
     hoverObra(){
         if(dist(mouseX,mouseY,this.x,this.y)<this.r){
-            this.texto();
+            if(!this.click){
+                this.texto();
+            }
         }
     }
 
