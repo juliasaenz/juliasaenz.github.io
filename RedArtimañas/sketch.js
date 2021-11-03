@@ -134,7 +134,7 @@ function reordenarCategorias(){
         if(height > width){
             categorias[i].x = (width/8)*(i+1)
             if(i > cantC/2-1){
-                categorias[i].x = (width/8)*(i-cantC/2+1)
+                categorias[i].x = (width/10)*(i-cantC/2+1)
                 categorias[i].y = height/10 * 2.5
             }
         } else {
