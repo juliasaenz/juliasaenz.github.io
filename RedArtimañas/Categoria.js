@@ -96,12 +96,14 @@ class Categoria{
 
    mostrarTexto(fuente){
       if(this.seleccionado && this.reloj > 0){
+         fill(3,3,3);
+         rect(0, height/10*2.4,width, width/20)
          fill(this.colorcito);
          noStroke();
          textFont(fuente)
-         textSize(height/36);
+         textSize(width/20);
          textAlign(CENTER, CENTER);
-         text(this.nombre.toUpperCase(), this.x+this.tam/2, this.y + height/15);
+         text(this.nombre.toUpperCase(), width/2, height/10 * 2.5);
          this.reloj--;
       }
       print(this.reloj)

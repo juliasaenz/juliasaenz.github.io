@@ -118,7 +118,7 @@ function windowResized() {
             categorias[i].x = (width/8)*(i+1)
             if(i > cantC/2-1){
                 categorias[i].x = (width/8)*(i-cantC/2+1)
-                categorias[i].y = height/10 * 2.5
+                categorias[i].y = height/10 * 2
             }
         } else {
             categorias[i].x = (width/14)*(i+1)
@@ -138,7 +138,7 @@ function reordenarCategorias(){
             categorias[i].x = (width/8)*(i+1)
             if(i > cantC/2-1){
                 categorias[i].x = (width/8)*(i-cantC/2+1)
-                categorias[i].y = height/10 * 2.5
+                categorias[i].y = height/10 * 2
             }
         } else {
             categorias[i].x = (width/14)*(i+1)

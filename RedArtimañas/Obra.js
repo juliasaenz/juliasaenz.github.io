@@ -6,11 +6,11 @@ class Obra{
         this.link = link;
         this.x = random(width-width/20) + width/20;
         this.y = height/2;
-        this.r = height/110;
+        this.r = height/100;
         if (height > width ){
             this.r = height/85;
         }
-        this.v = 0.05;
+        this.v = 0.09;
         this.dirX = random([-1,1]);
         this.dirY = random([-1,1]);
         this.seleccionado = false;
@@ -30,11 +30,11 @@ class Obra{
         }
     }
     mover(){
-        if(this.x <= this.r || this.x >= width-this.r*2){
+        if(this.x <= this.r || this.x >= width-this.r*3){
             this.dirX = this.dirX * -1;       
             //print("borde")
         }
-        if(this.y <= innerHeight/6 || this.y >= innerHeight-this.r*3){
+        if(this.y <= height/6 || this.y >= height-this.r*3){
             this.dirY = this.dirY * -1;       
         }
         if(!this.click){
@@ -54,7 +54,7 @@ class Obra{
                 fill(100)
             }
             textAlign(LEFT)
-            textSize(innerHeight/35);
+            textSize(height/35);
             if(!this.click){
                 text(this.nombre, this.x + width/90, this.y);
             }
