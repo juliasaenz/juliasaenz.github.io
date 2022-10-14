@@ -40,8 +40,12 @@ class MatterMundo {
 
     /* Fondo juego */
     push();
+
+    let escala = this.escalarImgAltura(this.actFondo.height);
+    console.log("escala fondo: ", escala);
     translate(innerWidth/2,innerHeight/2);
-    scale(this.escalarImgAltura(this.actFondo.height));
+    if (escala >= 1.3 ) { escala = 1.3 };
+    scale(escala);
     imageMode(CENTER);
     image(this.actFondo,0, 0);
     pop();
