@@ -81,3 +81,8 @@ function resetearCuerpo(mundo, cuerpo){
 
    estado = "elegir";
 }
+
+function windowResized() {
+	resizeCanvas(innerWidth, innerHeight);
+  //resetearCuerpo(mundo,cuerpo);
+}

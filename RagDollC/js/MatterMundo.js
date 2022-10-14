@@ -35,12 +35,12 @@ class MatterMundo {
     push();
     scale(this.escalarImgAltura(this.bordes.height));
     image(this.bordes,0,0);
-    image(this.bordes, width+this.bordes.width/3,0);
+    image(this.bordes, innerWidth+this.bordes.width/3,0);
     pop();
 
     /* Fondo juego */
     push();
-    translate(width/2,height/2);
+    translate(innerWidth/2,innerHeight/2);
     scale(this.escalarImgAltura(this.actFondo.height));
     imageMode(CENTER);
     image(this.actFondo,0, 0);
@@ -51,7 +51,7 @@ class MatterMundo {
   }
 
   escalarImgAltura(altura){
-    return height/altura;
+    return innerHeight/altura;
   }
 
   agregarObjeto(obj) {
