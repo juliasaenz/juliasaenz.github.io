@@ -15,7 +15,8 @@ class MatterMundo {
     this.fondos = [];
     this.actFondo;
 
-    this.bordes;
+    this.bordes; // imagen de fondo cuando no alcanza el resize
+    this.caja;  // bordes de colisiones
   }
 
   cargarFondo() {
@@ -42,7 +43,7 @@ class MatterMundo {
     push();
 
     let escala = this.escalarImgAltura(this.actFondo.height);
-    console.log("escala fondo: ", escala);
+    //console.log("escala fondo: ", escala);
     translate(innerWidth/2,innerHeight/2);
     if (escala >= 1.3 ) { escala = 1.3 };
     scale(escala);
@@ -65,22 +66,30 @@ class MatterMundo {
 
   armarCaja() {
     /* Arma la caja que contiene el ragdoll */
+    let w = this.actFondo.width;
+    let h = this.actFondo.height;
     var piso = Bodies.rectangle(width / 2, height, width, 60, { label: "piso", isStatic: true });
     var techo = Bodies.rectangle(width / 2, 0, width, 60, { label: "techo", isStatic: true });
-    var paredDer = Bodies.rectangle(width, height / 2, 60, height, { label: "paredDer", isStatic: true });
-    var paredIzq = Bodies.rectangle(0, height / 2, 60, height, { label: "paredDer", isStatic: true });
-    var caja = Composite.create({
+    
+    var paredDer = Bodies.rectangle(width, height / 2, 20, height, { label: "paredDer", isStatic: true });
+    var paredIzq = Bodies.rectangle(0, height / 2, 20, height, { label: "paredDer", isStatic: true });
+    this.caja = Composite.create({
       bodies: [piso, techo, paredDer, paredIzq]
     });
-    Composite.add(this.mundo,caja);
+    Composite.add(this.mundo,this.caja);
   }
 
-  dibujarPared(pared) {
+  dibujarParedes() {
     /* Dibuja la caja que contiene el ragdoll */
-    noStroke(255);
-    fill(255, 0, 0);
-    rectMode(CENTER);
-    rect(pared.position.x, pared.position.y, width, 20);
+    let c = this.caja.bodies;
+      noStroke(255);
+      fill(255, 0, 0);
+      rectMode(CENTER);
+      rect(c[0].position.x,c[0].position.y,width,20); //piso
+      rect(c[1].position.x,c[1].position.y,width,20); //techo
+      rect(c[2].position.x,c[2].position.y,20,height); //der
+      rect(c[3].position.x,c[3].position.y,20,height); //izq
+
   }
 
   activarMouse(canvas,cuerpo) {

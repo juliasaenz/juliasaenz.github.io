@@ -27,7 +27,7 @@ class Torso {
     this.body = Bodies.rectangle(x, y, this.w, this.h, options);
 
     this.imagenes = [];
-    this.imgActual = 0;
+    this.imgActual = int(random(5));
     this.cargarImagenes();
   }
 

@@ -28,7 +28,7 @@ class BrazoIzq {
     this.body.angle = 0.8;
 
     this.imagenes = [];
-    this.imgActual = 0;
+    this.imgActual = int(random(5));
     this.cargarImagenes();
   }
 

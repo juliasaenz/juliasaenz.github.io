@@ -37,7 +37,6 @@ function setup() {
   //console.log("Constraints en mundo: ", Composite.allConstraints(mundo.mundo));
   console.log("Bodies en el mundo: ", Composite.allBodies(mundo.mundo));
 
-  /* hm? */
 }
 
 function draw() {
@@ -45,6 +44,10 @@ function draw() {
 
   /* Muestra el cuerpo */
   cuerpo.mostrar(estado);
+  //mundo.dibujarParedes();
+  textSize(24);
+  text("flecha derecha para jugar con física, flecha izquierda para elegir cuerpito",40,60);
+
 }
 
 function keyPressed() {
