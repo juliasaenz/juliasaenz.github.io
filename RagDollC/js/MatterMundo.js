@@ -14,10 +14,14 @@ class MatterMundo {
 
     this.fondos = [];
     this.actFondo;
+
+    this.bordes;
   }
 
   cargarFondo() {
     /* Carga las imagenes de fondo e inicializa la primera */
+    this.bordes = loadImage("./img/carton.jpg");
+
     this.fondos.push(loadImage("./img/fondo01.jpg"));
     this.fondos.push(loadImage("./img/fondo02.jpg"));
 
@@ -26,8 +30,28 @@ class MatterMundo {
 
   actualizar() {
     /* Actualiza la engine */
-    image(this.actFondo, 0, 0);
+
+    /* Bordes cartón */
+    push();
+    scale(this.escalarImgAltura(this.bordes.height));
+    image(this.bordes,0,0);
+    image(this.bordes, width+this.bordes.width/3,0);
+    pop();
+
+    /* Fondo juego */
+    push();
+    translate(width/2,height/2);
+    scale(this.escalarImgAltura(this.actFondo.height));
+    imageMode(CENTER);
+    image(this.actFondo,0, 0);
+    pop();
+
+    
     Engine.update(this.engine);
+  }
+
+  escalarImgAltura(altura){
+    return height/altura;
   }
 
   agregarObjeto(obj) {

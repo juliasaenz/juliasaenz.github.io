@@ -19,7 +19,8 @@ function preload() {
 }
 
 function setup() {
-  var canvas = createCanvas(720, 540);
+  var canvas = createCanvas(innerWidth, innerHeight);
+  background(0);
   canvas.position(innerWidth / 2 - width / 2, innerHeight / 2 - height / 2);
 
   /* Armar y agregar cuerpo */
