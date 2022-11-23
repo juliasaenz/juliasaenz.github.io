@@ -6,8 +6,7 @@ var Engine = Matter.Engine,
 
 let engine;
 let world;
-let mouse;
-let mConstraint;
+let mConstraint, mouseConstraint;
 //
 let datosJson;
 let fondo;
@@ -48,11 +47,11 @@ function setup() {
 
     /* mapear latitud y longitud del centro */
     let centro = provincias[i].properties.centro;
-    console.log("aqui centro: ",centro);
+    console.log("aqui centro: ", centro);
     let offsetX = width / 2;
     centro[0] = map(centro[0] - Math.abs((lonG[0] - lonG[1]) / 2), lonG[0], lonG[1], 0, ancho) + offsetX;
     centro[1] = map(centro[1], latG[0], latG[1], height, 0);
-    console.log("aqui centro: ",centro);
+    console.log("aqui centro: ", centro);
     /* Recorrer vertices de provincia y mapear */
     for (let j = 0; j < coords.length; j++) {
       let lon = coords[j][0];
@@ -82,26 +81,23 @@ function draw() {
 }
 
 function mouseClicked() {
-  console.log(mouseX,mouseY);
+  console.log("desktop");
   if (mConstraint.body != null) {
     seleccionarProvincia();
     moverAlFinal();
   }
 }
 
-function touchStarted() {
-  console.log(mouseX,mouseY);
-  if (mConstraint.body != null) {
+ function touchStarted() {
+  console.log("mobile");
+  if (mouseConstraint.body != null) {
     seleccionarProvincia();
     moverAlFinal();
   }
-}
-
-
+} 
 
 function recibirFiltro(datos) {
   // Qué filtro hice click y qué color muestro
-
   // Lista de provincias
   // Con cantidad de sueños
   /*
@@ -132,20 +128,28 @@ function seleccionarProvincia() {
   /* Cambiar estilo de provincia seleccionada */
   argentina.forEach((provincia) => provincia.seleccionar(mConstraint.body.id));
 }
-function moverAlFinal(){
-  let prov = argentina.find(provincia => provincia.estaSeleccionada() == true );
-  if (prov != null){
-  console.log("Provincia seleccionada: ", prov);
-  argentina.splice( argentina.indexOf(prov), 1);
-  argentina.push( prov );
+function moverAlFinal() {
+  let prov = argentina.find((provincia) => provincia.estaSeleccionada() == true);
+  if (prov != null) {
+    console.log("Provincia seleccionada: ", prov);
+    argentina.splice(argentina.indexOf(prov), 1);
+    argentina.push(prov);
   }
 }
 function cositasDelMouse() {
-  mouse = Mouse.create(canvas);
+  // Desktop
+  var mouse = Mouse.create(canvas);
   mouse.pixelRatio = pixelDensity(); // for retina displays etc
-  let options = {
+  mConstraint = MouseConstraint.create(engine, {
     mouse: mouse,
-  };
-  mConstraint = MouseConstraint.create(engine, options);
+  });
   World.add(world, mConstraint);
+
+  // Mobile
+  var m = Mouse.create(canvas);
+  m.pixelRatio = pixelDensity(); // for retina displays etc
+  mouseConstraint = MouseConstraint.create(engine, {
+    mouse: m,
+  });
+  World.add(world, mouseConstraint);
 }
