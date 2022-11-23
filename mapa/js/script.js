@@ -89,6 +89,14 @@ function mouseClicked() {
   }
 }
 
+function touchStarted() {
+  console.log(mouseX,mouseY);
+  if (mConstraint.body != null) {
+    seleccionarProvincia();
+    moverAlFinal();
+  }
+}
+
 
 
 function recibirFiltro(datos) {
