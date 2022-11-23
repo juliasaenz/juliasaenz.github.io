@@ -2,7 +2,8 @@
 var Engine = Matter.Engine,
   World = Matter.World,
   MouseConstraint = Matter.MouseConstraint,
-  Mouse = Matter.Mouse;
+  Mouse = Matter.Mouse,
+  Events = Matter.Events;
 
 let engine;
 let world;
@@ -80,22 +81,6 @@ function draw() {
   pop();
 }
 
-function mouseClicked() {
-  console.log("desktop");
-  if (mConstraint.body != null) {
-    seleccionarProvincia();
-    moverAlFinal();
-  }
-}
-
- function touchStarted() {
-  console.log("mobile");
-  if (mouseConstraint.body != null) {
-    seleccionarProvincia();
-    moverAlFinal();
-  }
-} 
-
 function recibirFiltro(datos) {
   // Qué filtro hice click y qué color muestro
   // Lista de provincias
@@ -137,7 +122,6 @@ function moverAlFinal() {
   }
 }
 function cositasDelMouse() {
-  // Desktop
   var mouse = Mouse.create(canvas);
   mouse.pixelRatio = pixelDensity(); // for retina displays etc
   mConstraint = MouseConstraint.create(engine, {
@@ -145,11 +129,11 @@ function cositasDelMouse() {
   });
   World.add(world, mConstraint);
 
-  // Mobile
-  var m = Mouse.create(canvas);
-  m.pixelRatio = pixelDensity(); // for retina displays etc
-  mouseConstraint = MouseConstraint.create(engine, {
-    mouse: m,
+    Events.on(mConstraint, 'mousedown', function(event) {
+    console.log("EVENTO");
+      if (mConstraint.body != null) {
+    seleccionarProvincia();
+    moverAlFinal();
+  }
   });
-  World.add(world, mouseConstraint);
 }
