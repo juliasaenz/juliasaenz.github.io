@@ -1,4 +1,5 @@
 var Bodies = Matter.Bodies;
+Body = Matter.Body;
 World = Matter.World;
 
 class Provincia {
@@ -8,23 +9,27 @@ class Provincia {
     this.vertices = []; // vertices del geoJSON
     this.centro = []; // centro del geoJSON 
     this.seleccionado = false; 
+
+    this.burbuja = new Burbuja();
   }
 
   crearCuerpo(vertices, world, centro) {
+    /* Crea la provincia */
     // Guardar datos
     this.vertices = vertices[0];
     this.centro = centro;
     
     // Crear y guardar Bodies
     this.cuerpo = Bodies.fromVertices(centro[0], centro[1], vertices, { isStatic: true });
-    World.add(world, this.cuerpo);
+    Body.scale(this.cuerpo,1.5,1.5);
+    //World.add(world, this.cuerpo);
     this.show();
 
     console.log(this.centro, this.cuerpo.position); 
   }
 
   show() {
-    // Mostrar cuerpo
+    /* La dibuja con p5 */
     let pos = this.cuerpo.position;
     let angulo = this.cuerpo.angle;
 
@@ -45,8 +50,7 @@ class Provincia {
     fill(200, 50, 120);
     ellipse(0,0, 10, 10);
     */ 
-    pop();
-    
+    pop();    
   }
 
   estilo(){
@@ -62,7 +66,9 @@ class Provincia {
     stroke("#FFD9E1"); //violeta
   }
 
+
   seleccionar(provincia){
+    /* Seleccionar provincia */
     if(provincia == this.cuerpo.id){
       this.seleccionado = !this.seleccionado;
       return;
@@ -72,5 +78,9 @@ class Provincia {
 
   estaSeleccionada(){
     return this.seleccionado;
+  }
+
+  dibujarBurbuja(){
+    this.burbuja.show(this.centro);
   }
 }

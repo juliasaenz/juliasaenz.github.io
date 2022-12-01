@@ -3,7 +3,8 @@ var Engine = Matter.Engine,
   World = Matter.World,
   MouseConstraint = Matter.MouseConstraint,
   Mouse = Matter.Mouse,
-  Events = Matter.Events;
+  Events = Matter.Events,
+  Composite = Matter.Composite;
 
 let engine;
 let world;
@@ -14,6 +15,7 @@ let fondo;
 let lonG = [-74, -52.4];
 let latG = [-56, -20];
 let argentina = [];
+let argCuerpos = Composite.create();
 
 function preload() {
   datosJson = loadJSON("assets/ProvinciasArgentina.geojson");
@@ -65,7 +67,13 @@ function setup() {
     let prov = new Provincia(provincias[i].properties.nombre);
     argentina.push(prov);
     prov.crearCuerpo(vertices, world, centro);
+
+    /* Agregar al compuesto */
+    Composite.add(argCuerpos,prov.cuerpo);
   }
+
+  World.add(world, argCuerpos);
+  console.log("Este es el mundo: ",world);
 
   //
   Engine.update(engine);
@@ -74,9 +82,10 @@ function setup() {
 function draw() {
   image(fondo, 0, 0);
   push();
-  for (let i = 0; i < argentina.length; i++) {
-    argentina[i].show();
-  }
+
+  argentina.forEach((provincia) => provincia.show());
+  argentina.forEach((provincia) => provincia.dibujarBurbuja());
+
   Engine.update(engine);
   pop();
 }
@@ -117,6 +126,13 @@ function moverAlFinal() {
   let prov = argentina.find((provincia) => provincia.estaSeleccionada() == true);
   if (prov != null) {
     console.log("Provincia seleccionada: ", prov);
+    
+    let v = []
+    prov.vertices.forEach(element => {
+      v.push([element.x, element.y]);
+    });
+    console.log("v: ", JSON.stringify( v ));
+
     argentina.splice(argentina.indexOf(prov), 1);
     argentina.push(prov);
   }
@@ -129,11 +145,12 @@ function cositasDelMouse() {
   });
   World.add(world, mConstraint);
 
-    Events.on(mConstraint, 'mousedown', function(event) {
+  /* Evento click */
+  Events.on(mConstraint, "mousedown", function (event) {
     console.log("EVENTO");
-      if (mConstraint.body != null) {
-    seleccionarProvincia();
-    moverAlFinal();
-  }
+    if (mConstraint.body != null) {
+      seleccionarProvincia();
+      moverAlFinal();
+    }
   });
 }
