@@ -39,9 +39,9 @@ export class Mundo {
       RIGHT: THREE.MOUSE.ROTATE,
     };
     this.controles.touches = {
-	ONE: THREE.TOUCH.PAN,
-	TWO: THREE.TOUCH.DOLLY_PAN
-}
+      ONE: THREE.TOUCH.ROTATE,
+      TWO: THREE.TOUCH.DOLLY_PAN,
+    };
   }
   agregar(figura) {
     this.escena.add(figura);
