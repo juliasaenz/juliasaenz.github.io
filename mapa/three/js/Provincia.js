@@ -1,5 +1,5 @@
 import * as THREE from "https://unpkg.com/three@0.121.1/build/three.module.js";
-const extrudeSettings = { depth: 30, bevelEnabled: true, bevelSegments: 2, steps: 2, bevelSize: 1, bevelThickness: 1 };
+const extrudeSettings = { depth: 2, bevelEnabled: false, bevelSegments: 2, steps: 2, bevelSize: 1, bevelThickness: 1 };
 
 export class Provincia {
   constructor(prov) {
@@ -8,8 +8,9 @@ export class Provincia {
     this.vectores = [];
     this.figura;
     this.mesh; 
-    this.color = 0xFFFFFF;
+    this.color = prov.color;
     this.seleccionado = false;
+    this.contador = new Contador();
   }
   crearVector(pos) {
    /*let px = (pos[1]+180)*(window.innerWidth/360);
@@ -19,7 +20,7 @@ export class Provincia {
    let px = pos[0];
    let py = pos[1];
     return new THREE.Vector2(px, py);
-  }11
+  }
   crearFigura(offset) {
     this.puntos.forEach((punto) => {
       this.vectores.push(this.crearVector(punto));
@@ -38,7 +39,7 @@ export class Provincia {
    this.figura.autoClose = true;
    const points = this.figura.getPoints();
    const geometryPoints = new THREE.BufferGeometry().setFromPoints( points );
-   let line = new THREE.Line( geometryPoints, new THREE.LineBasicMaterial( { color: 0xFFBF02, linewidth: 5, linecap: 'round', alphaToCoverage: true,} ) );
+   let line = new THREE.Line( geometryPoints, new THREE.LineBasicMaterial( { color: 0xFFFFFF, linewidth: 5, linecap: 'round', alphaToCoverage: true,} ) );
 		line.position.set( offset[0], offset[1], 101 );
 		line.rotation.set( 3.08, 0, 0);
    return line
@@ -49,20 +50,80 @@ export class Provincia {
   getFigura() {
     return this.figura;
   }
-  seleccionar(id){
+  seleccionar(id, tema){
+   if(tema == undefined || String(tema).length == 0){
    if(this.mesh.id == id){
       this.seleccionado = !this.seleccionado;
    } else {
       this.seleccionado = false;
    }
+   }
 
    if(this.seleccionado){
-      this.color = 0xFFBF02;
-      this.mesh.position.z = 115;
+      this.mesh.material.color.set(0xFFBF02);
+      //this.mesh.position.z = 101;
+      this.contador.hacerVisible();
    } else {
-      this.mesh.position.z = 100;
-      this.color = 0xFFFFFF;
+      this.mesh.material.color.set(this.color);
+      this.contador.hacerInvisible();
    }
-   this.mesh.material.color.set(this.color);
+   
+   this.contador.actualizarTema(tema);
   }
+  crearCirculo(datos){
+      return this.contador.crearCirculo(datos, this.mesh);
+  }
+}
+
+
+//////////////
+export class Contador{
+   constructor(){
+      this.circle = null;
+      this.datos = {};
+      this.colores = {
+         todos: 0xe3e3e3,
+         tema1: 0xff0000,
+         tema2: 0xf0ff00,
+         tema3: 0x00ffff,
+         tema4: 0xffdfd0,
+         tema5: 0x5f5f50,
+         tema6:0xf6f3E0
+      }
+   }
+   actualizarTema(tema){
+      let nueCol = this.colores[tema];
+      console.log("nueCol: ", nueCol)
+      if(nueCol != undefined){
+         console.log("ping")
+         if(String(nueCol).length > 0){
+         
+         this.circle.material.color.set(this.colores[tema]);
+         console.log(this.circle.material);
+      }
+      } 
+   }
+   hacerVisible(){
+      this.circle.visible = true;
+   }
+   hacerInvisible(){
+      this.circle.visible = false;
+   }
+   crearCirculo(datos, mesh){
+      this.datos = {
+         tema1: 15, 
+         tema2: 3,
+         tema3: 7,
+         tema4: 8,
+         tema5: 2,
+         tema6: 1
+      }
+
+      const geometry = new THREE.CircleGeometry( 9, 36);
+      const material = new THREE.MeshBasicMaterial( { color: this.colores.tema2} );
+      this.circle = new THREE.Mesh( geometry, material );
+      this.circle.position.set(mesh.position.x, mesh.position.y, mesh.position.z + 20);
+      this.circle.visible = false;
+      return this.circle;
+   }
 }
