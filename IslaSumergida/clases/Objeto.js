@@ -15,7 +15,12 @@ class Objeto {
   }
 
   cargarImagen(img) {
-    this.textura = img;
+    if (img instanceof p5.Image) {
+      this.textura = img;
+      console.log("la imagen es correcta")
+    } else {
+      console.error("Invalid image object:", img);
+    }
   }
 
   armar(mundo) {
@@ -63,7 +68,7 @@ class Objeto {
 
   dibujar(colorcito = 127) {
     textureMode(NORMAL);
-    texture(this.textura);
+    //texture(this.textura);
 
     fill(colorcito);
     noStroke();

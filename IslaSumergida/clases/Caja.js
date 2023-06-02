@@ -74,6 +74,7 @@ class Caja extends Objeto {
     super.dibujar("#F43EDA");
 
     textSize(32);
+    textFont(fuente);
     textAlign(CENTER, CENTER);
     text(this.nombre, this.centroX, this.centroY);
   }

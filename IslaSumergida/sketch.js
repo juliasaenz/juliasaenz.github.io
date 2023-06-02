@@ -4,6 +4,7 @@ const { Vec2D, Rect } = toxi.geom;
 
 let mundo;
 let estado = "juego";
+let fuente; 
 
 let objetos = [];
 let cajas = [];
@@ -12,6 +13,7 @@ let imgTupper;
 
 function preload(){
   imgTupper = loadImage('./data/tupper01.png');
+  fuente = loadFont('./data/Rajdhani-Medium.ttf')
 }
 
 function setup() {
@@ -28,6 +30,7 @@ function setup() {
 
   objetos.forEach((obj) => {
     obj.armar(mundo);
+    obj.cargarImagen(imgTupper);
   });
   cajas.forEach((caja) => {
     caja.armar(mundo);
@@ -37,6 +40,7 @@ function setup() {
 }
 
 function draw() {
+  translate(-width*.5, -height*.5, 0)
   //this.drawJuego();
   background(255);
   mundo.update();
