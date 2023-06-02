@@ -10,6 +10,12 @@ class Objeto {
     this.ultima = 0;
     this.radio = radio;
     this.dureza = dureza;
+
+    this.textura;
+  }
+
+  cargarImagen(img) {
+    this.textura = img;
   }
 
   armar(mundo) {
@@ -56,6 +62,9 @@ class Objeto {
   }
 
   dibujar(colorcito = 127) {
+    textureMode(NORMAL);
+    texture(this.textura);
+
     fill(colorcito);
     noStroke();
     beginShape();

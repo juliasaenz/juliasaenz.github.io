@@ -8,11 +8,16 @@ let estado = "juego";
 let objetos = [];
 let cajas = [];
 let nombres = ["objeto", "otro1", "otro2", "otro3", "otro4"];
+let imgTupper;
+
+function preload(){
+  imgTupper = loadImage('./data/tupper01.png');
+}
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(windowWidth, windowHeight, WEBGL);
   mundo = new VerletPhysics2D(); // mundo
-  mundo.addBehavior(new GravityBehavior(new Vec2D(0.0009, 0.0005)));
+  mundo.addBehavior(new GravityBehavior(new Vec2D(0.0009, 0.0001)));
   mundo.setWorldBounds(new Rect(0, 0, width, height)); // bordes mundo
   //mundo.setDrag(0);
 
