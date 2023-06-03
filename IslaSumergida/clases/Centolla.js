@@ -1,7 +1,9 @@
-class Soga extends Objeto {
+class Centolla extends Objeto {
     constructor(img, tamX, tamY) {
       super(img, tamX, tamY);
-      super.setNombre("basura");
+      super.setCentro(random(width * 0.1, width * 0.9), random(height * 0.1, height * 0.55))
+      
+      super.setNombre("centolla");
     }
   
     dibujar(colorcito = 127) {

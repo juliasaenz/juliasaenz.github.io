@@ -1,7 +1,7 @@
-class Soga extends Objeto {
+class Pescado extends Objeto {
     constructor(img, tamX, tamY) {
       super(img, tamX, tamY);
-      super.setNombre("basura");
+      super.setNombre("pescado");
     }
   
     dibujar(colorcito = 127) {

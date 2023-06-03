@@ -4,16 +4,38 @@ const { Vec2D, Rect } = toxi.geom;
 
 let mundo;
 let estado = "juego";
-let fuente; 
+let fuente;
 
 let objetos = [];
-let cajas = [];
-let nombres = ["objeto", "otro1", "otro2", "otro3", "otro4"];
-let imgTupper;
+let bandejas = [];
+let imgTupper,
+  imgBandeja,
+  fondoBarco,
+  imgSoga,
+  imgPescado,
+  imgVieira,
+  imgLangostilla,
+  imgCentolla;
 
-function preload(){
-  imgTupper = loadImage('./data/tupper01.png');
-  fuente = loadFont('./data/Rajdhani-Medium.ttf')
+let carpetas = [];
+
+function preload() {
+  fuente = loadFont("./data/Rajdhani-Medium.ttf");
+  imgTupper = loadImage("./data/tupper01.png");
+  imgSoga = loadImage("./data/soga01.png");
+  imgPescado = loadImage("./data/pescado01.png");
+  imgVieira = loadImage("./data/viera01.png");
+  imgBandeja = loadImage("./data/bandejaVacia.png");
+  imgCentolla = loadImage("./data/centolla01.png");
+  imgLangostilla = loadImage("./data/langostilla01.png");
+  fondoBarco = loadImage("./data/fondoBarco.png");
+
+  carpetas.push(["vacia", loadImage("./data/carpetaVacia.png")]);
+  carpetas.push(["basura", loadImage("./data/carpetaBasura.png")]);
+  carpetas.push(["centolla", loadImage("./data/carpetaCentolla.png")]);
+  carpetas.push(["vieira", loadImage("./data/carpetaViera.png")]);
+  carpetas.push(["langostilla", loadImage("./data/carpetaLangostilla.png")]);
+  carpetas.push(["pescado", loadImage("./data/carpetaPescado.png")]);
 }
 
 function setup() {
@@ -23,105 +45,103 @@ function setup() {
   mundo.setWorldBounds(new Rect(0, 0, width, height)); // bordes mundo
   //mundo.setDrag(0);
 
-  for (let i = 0; i < 5; i++) {
-    objetos.push(new Objeto());
-    cajas.push(new Caja(i * 210 + 100, height * 0.85, 80, nombres[i]));
+  for (let i = 0; i < 8; i++) {
+    objetos.push(new Tupper(imgTupper, 40, 40));
+    objetos.push(new Soga(imgSoga, 8, 60));
+    objetos.push(new Pescado(imgPescado, 100, 31));
+    objetos.push(new Vieira(imgVieira, 25, 24));
+    objetos.push(new Centolla(imgCentolla, 100, 66));
+    objetos.push(new Langostilla(imgLangostilla, 20, 24));
   }
 
-  objetos.forEach((obj) => {
-    obj.armar(mundo);
-    obj.cargarImagen(imgTupper);
-  });
-  cajas.forEach((caja) => {
-    caja.armar(mundo);
-  });
-
-  //this.setupJuego();
+  for (let i = 1; i < 11; i += 2) {
+    bandejas.push(new Bandeja(imgBandeja, carpetas, 86, 114, width * (i / 10)));
+  }
 }
 
 function draw() {
-  translate(-width*.5, -height*.5, 0)
-  //this.drawJuego();
+  translate(-width * 0.5, -height * 0.5, 0);
   background(255);
+
+  image(
+    fondoBarco,
+    0,
+    0,
+    width,
+    height,
+    0,
+    0,
+    fondoBarco.width,
+    fondoBarco.height,
+    COVER
+  );
   mundo.update();
 
-  cajas.forEach((caja) => {
-    caja.dibujar();
-    objetos = caja.colisionObjeto(objetos);
-  });
+  push();
 
-  objetos.forEach((obj) => {
-    obj.dibujar();
-  });
+  if (estado == "juego") {
+    bandejas.forEach((bandeja) => {
+      bandeja.dibujar();
+      objetos = bandeja.guardarObjeto(objetos, bandejas);
+    });
+
+    objetos.forEach((obj) => {
+      obj.dibujar();
+      //obj.colisionObjeto(bandejas[0])
+    });
+
+    if (objetos.length == 0) {
+      /* condición de juego */
+      estado = "ganar";
+    }
+  }
+  else if (estado === "infografia") {
+    let bandeja = bandejas.filter((b) => b.getSeleccionado() === true)
+    bandeja[0].infografia();
+  }
+  else if (estado === "ganar") {
+    textSize(32);
+    fill(10);
+    textFont(fuente);
+    text("ganaste! yay! bien! wohoo! felicidades! ", width * 0.5, height * 0.6);
+  }
+
+  pop();
 }
 
 function mousePressed() {
-  //this.mousePressedJuego();
+  if (estado == "juego") {
+    objetos.forEach((obj) => {
+      obj.seleccionar();
+    });
 
-  objetos.forEach((obj) => {
-    obj.seleccionar();
-  });
+    bandejas.forEach((bandeja) => {
+      bandeja.seleccionar();
+    });
+
+    /* condicion de cambio */
+    if (bandejas.some((bandeja) => bandeja.getSeleccionado())) {
+      estado = "infografia";
+      console.log("alguna hay");
+    }
+  }
+  else if (estado == "infografia") {
+    estado = "juego";
+  }
+  
 }
 
-function mouseReleased() {
-  //this.mouseReleasedJuego();
-}
+function mouseReleased() {}
 
 function mouseDragged() {
-  objetos.forEach((obj) => {
-    obj.arrastrar();
-  });
+  if (estado === "juego") {
+    objetos.forEach((obj) => {
+      obj.arrastrar();
+    });
+  }
 }
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
   mundo.setWorldBounds(new Rect(0, 0, width, height));
-}
-
-/// ESTADO -- JUEGO ///
-function setupJuego() {
-  /* Las cosas que necesita para funcionar el juego */
-
-  background(200);
-
-  for (let i = 0; i < 5; i++) {
-    objetos.push(new Soga());
-  }
-  for (let i = 0; i < 2; i++) {
-    cajas.push(new Caja(width / 9, height - height / 6, 100, 100, "objeto"));
-    cajas.push(
-      new Caja((width / 9) * 3, height - height / 6, 100, 100, "soga")
-    );
-  }
-  // let gravity = new GravityBehavior(new Vec2D(0, .5));
-  // mundo.addBehavior(gravity)
-}
-
-function drawJuego() {
-  /* Todo lo de draw de juego */
-  mundo.update();
-  push();
-
-  cajas.forEach((caja) => {
-    objetos = caja.colisionObjeto(objetos);
-    caja.dibujar();
-  });
-
-  objetos.forEach((objeto) => {
-    objeto.dibujar();
-  });
-
-  pop();
-}
-
-function mousePressedJuego() {
-  objetos.forEach((objeto) => {
-    objeto.seleccionar();
-  });
-}
-
-function mouseReleasedJuego() {
-  objetos.forEach((objeto) => {
-    objeto.deseleccionar();
-  });
 }
