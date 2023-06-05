@@ -48,7 +48,6 @@ class Pescado extends Objeto {
   }
 
   dibujar(colorcito = 127) {
-    super.dibujar();
     fill(127)
 
     textureMode(NORMAL);
@@ -71,7 +70,6 @@ class Pescado extends Objeto {
   }
 
   seleccionar() {
-    super.seleccionar();
     let sumX = 0;
     let sumY = 0;
     for (let i = 0; i < this.vertices; i++) {
@@ -84,7 +82,6 @@ class Pescado extends Objeto {
   }
 
   arrastrar() {
-    super.arrastrar();
     if (this.seleccionado) {
       const { index, distance } = this.particles.reduce(
         (closest, particle, index) => {

@@ -177,7 +177,7 @@ class Centolla extends Objeto {
       super.mouseEnRango(this.particles[4], this.tamY) &&
       super.mouseEnRango(this.particles[5], this.tamY);
 
-    //console.log(cercaLados);
+    console.log(cercaLados);
 
     this.seleccionado = cercaLados && cercaArriba;
   }

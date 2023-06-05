@@ -23,7 +23,7 @@ class Vieira extends Objeto {
     imageMode(CENTER);
     image(this.textura, 0, 0, this.tamX, this.tamX);
     pop();
-    //this.dibujarEstructura();
+    this.dibujarEstructura();
   }
 
   seleccionar() {

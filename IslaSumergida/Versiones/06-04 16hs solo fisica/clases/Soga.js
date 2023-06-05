@@ -4,8 +4,6 @@ class Soga extends Objeto {
     super.setNombre("basura");
 
     let angle = 0;
-
-    super.vertices = 12;
   }
 
   armar() {
@@ -67,7 +65,7 @@ class Soga extends Objeto {
       vertex(x, y, 0.9, i / this.particles.length);
     }
     endShape(CLOSE);
-    //this.dibujarEstructura();
+    this.dibujarEstructura();
   }
 
   seleccionar() {

@@ -43,85 +43,6 @@ class Bandeja extends Objeto {
     }
   }
 
-  guardarObjetoB(objetos, bandejas) {
-    /* cuales son los objetos seleccionados */
-    let objetosSeleccionados = objetos.filter(
-      (obj) => obj.getSeleccionado() == true
-    );
-
-    if (objetosSeleccionados.length == 0) {
-      /* si no seleccione nada */
-      return objetos;
-    }
-
-    if (this.unObjetoEnBandeja(objetosSeleccionados)) {
-      console.log("un objeto en bandeja");
-      /* si todos los selecciondos tienen el mismo nombre */
-      if (
-        objetosSeleccionados.every(
-          (obj) => obj.getNombre() === objetosSeleccionados[0].getNombre()
-        )
-      ) {
-        /* si no había asignado tipo de objeto a la bandeja y no hay ninguna de ese tipo */
-        if (
-          this.nombre === "bandeja" &&
-          bandejas.every(
-            (band) => band.getNombre() != objetosSeleccionados[0].getNombre()
-          )
-        ) {
-          /* si no había asignado tipo de bandeja y todos los objetos son del mismo tipo */
-          this.nombre = objetosSeleccionados[0].getNombre();
-          this.actualizarCarpeta(objetosSeleccionados[0].getNombre());
-        }
-        if (this.nombre === objetosSeleccionados[0].getNombre()) {
-          /* si los objetos coinciden con la bandeja */
-          
-          let objetosPerdidos = []; // para los objetos que quedan fuera de la bandeja
-          objetosSeleccionados.forEach((obj) => {
-            if (this.unObjetoEnBandeja([obj])) {
-              this.objetosClasificados.push(obj);
-              obj.eliminar();
-              this.cantidadObjetos++;
-            } else {
-              objetosPerdidos.push(obj);
-            }
-          });
-          //console.log(this.objetosClasificados.length);
-
-          objetos = objetos.filter(
-            (obj) => !objetosSeleccionados.includes(obj)
-          );
-
-          objetosPerdidos.forEach(obj => {
-            objetos.push(obj);
-          });
-        }
-      }
-    }
-    return objetos;
-  }
-
-  unObjetoEnBandeja(objetos) {
-    let hay = false;
-    objetos.forEach((obj) => {
-      let parts = obj.getParticles();
-      hay =
-        hay ||
-        parts.some(
-          (p) =>
-            super.particulaEnRango(
-              p.x,
-              p.y,
-              this.centroX,
-              this.centroY,
-              this.tamX/2
-            ) == true
-        );
-    });
-
-    return hay;
-  }
-
   guardarObjeto(objetos, bandejas) {
     /* cuales son los objetos seleccionados */
     let objetosSeleccionados = objetos.filter(
@@ -159,14 +80,24 @@ class Bandeja extends Objeto {
         }
         if (this.nombre === objetosSeleccionados[0].getNombre()) {
           /* si los objetos coinciden con la bandeja */
-          //console.log("Colision de: ", objetosSeleccionados, this.nombre);
+          console.log("Colision de: ", objetosSeleccionados, this.nombre);
           this.cantidadObjetos += objetosSeleccionados.length;
 
           objetosSeleccionados.forEach((obj) => {
+            obj.setEscala(0.8);
+            obj.setCentro(
+              random(
+                this.centroX - this.tamX * 0.4,
+                this.centroX + this.tamX * 0.4
+              ),
+              random(
+                this.centroY - this.tamY * 0.6,
+                this.centroY + this.tamY * 0.6
+              )
+            );
             this.objetosClasificados.push(obj);
-            obj.eliminar();
           });
-          //console.log(this.objetosClasificados.length);
+          console.log(this.objetosClasificados.length);
 
           objetos = objetos.filter(
             (obj) => !objetosSeleccionados.includes(obj)
@@ -176,19 +107,6 @@ class Bandeja extends Objeto {
     }
 
     return objetos;
-  }
-
-  ubicarImagen(obj) {
-    let img = obj.getImagen();
-    let tamX = obj.getTamX() * 0.6;
-    let tamY = obj.getTamY() * 0.6;
-    let pos = random(
-      this.centroY - this.tamY * 0.6,
-      this.centroY + this.tamY * 0.6
-    );
-
-    imageMode(CENTER);
-    image(img, pos, pos, tamX, tamY);
   }
 
   actualizarCarpeta(nom) {

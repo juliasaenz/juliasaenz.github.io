@@ -74,7 +74,7 @@ class Tupper extends Objeto {
       mouseX,
       mouseY
     );
-    //console.log("seleccionado? ", this.seleccionado, distanc, this.tamX / 2);
+    console.log("seleccionado? ", this.seleccionado, distanc, this.tamX / 2);
   }
 
   arrastrar() {

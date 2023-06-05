@@ -3,10 +3,10 @@ const { GravityBehavior } = toxi.physics2d.behaviors;
 const { Vec2D, Rect } = toxi.geom;
 
 let mundo;
-let gravedad;
 let estado = "juego";
 let fuente;
 
+let gravedad;
 let objetos = [];
 let bandejas = [];
 let imgTupper,
@@ -15,9 +15,11 @@ let imgTupper,
   imgSoga,
   imgPescado,
   imgVieira,
-  imgLangostilla;
-let partesCentolla = [];
+  imgLangostilla,
+  imgCentolla;
+
 let carpetas = [];
+let partesCentolla = [];
 
 let prevMouseX;
 let prevMouseY;
@@ -49,27 +51,12 @@ function setup() {
   mundo = new VerletPhysics2D(); // mundo
   gravedad = new GravityBehavior(new Vec2D(-0.0009, 0.0001));
   mundo.addBehavior(gravedad);
-  mundo.setWorldBounds(new Rect(0, 0, width, height)); // bordes mundo
-  mundo.setDrag(0.05);
+  mundo.setWorldBounds(new Rect(10, 10, width - 10, height - 10)); // bordes mundo
+  mundo.setDrag(0);
 
-  for (let i = 0; i < 1; i++) {
-    
-    objetos.push(new Tupper(imgTupper, 60, 60));
-    objetos.push(new Soga(imgSoga, 5, 100));
-
-    objetos.push(new Vieira(imgVieira, 35, 34));
-    objetos.push(new Pescado(imgPescado, 230, 75));
-    //objetos.push(new Centolla(partesCentolla, 180, 140));
-    objetos.push(new Langostilla(imgLangostilla, 50, 90));
-  }
-
-  for (let i = 1; i < 11; i += 2) {
-    bandejas.push(new Bandeja(imgBandeja, carpetas, 86, 114, width * (i / 10)));
-  }
-
-  objetos.forEach((obj) => {
-    obj.armar();
-  });
+  //objetos.push(new Soga(imgSoga, 10, 180))
+  objetos.push(new Langostilla(imgLangostilla, 50, 90));
+  objetos[0].armar();
 
   /* iniciar tiempo */
   prevMouseX = mouseX;
@@ -97,54 +84,23 @@ function draw() {
 
   push();
 
-  if (estado == "juego") {
-    cambiarGravedad();
-
-    bandejas.forEach((bandeja) => {
-      bandeja.dibujar();
-      objetos = bandeja.guardarObjetoB(objetos, bandejas);
-    });
-
-    objetos.forEach((obj) => {
-      obj.dibujar();
-    });
-
-    if (objetos.length == 0) {
-      /* condición de juego */
-      estado = "ganar";
-    }
-  } else if (estado === "infografia") {
-    let bandeja = bandejas.filter((b) => b.getSeleccionado() === true);
-    bandeja[0].infografia();
-  } else if (estado === "ganar") {
-    textSize(32);
-    fill(10);
-    textFont(fuente);
-    text("ganaste! yay! bien! wohoo! felicidades! ", width * 0.5, height * 0.6);
-  }
-
-  mouseMuyRapido();
+  objetos[0].dibujar();
 
   pop();
+  cambiarGravedad();
 }
 
 function mousePressed() {
-  if (estado == "juego" && !mouseMuyRapido()) {
-    objetos.forEach((obj) => {
-      obj.seleccionar();
-    });
-  } else if (estado == "infografia") {
-    estado = "juego";
-  }
+
+    objetos[0].seleccionar();
+  
 }
 
 function mouseReleased() {}
 
 function mouseDragged() {
-  if (estado === "juego" && !mouseMuyRapido()) {
-    objetos.forEach((obj) => {
-      obj.arrastrar();
-    });
+  if (!mouseMuyRapido()) {
+    objetos[0].arrastrar();
   }
 }
 
@@ -160,7 +116,7 @@ function cambiarGravedad() {
 
   mundo.removeBehavior(gravedad);
   gravedad = new GravityBehavior(
-    new Vec2D(random(-0.09, 0.09), random(-0.09, 0.09))
+    new Vec2D(random(-0.009, 0.009), random(-0.009, 0.009))
   );
   mundo.addBehavior(gravedad);
 }
@@ -183,13 +139,9 @@ function mouseMuyRapido() {
   prevMouseY = mouseY;
   prevTime = currentTime;
 
-  if (mouseVelocityX > limite || mouseVelocityY > limite) {
-    //console.log("muy rapido!");
-  } else {
-    //console.log("vamos bien")
+  if ( mouseVelocityX > limite || mouseVelocityY > limite ) {
+    console.log("muy rapido!")
   }
-
-  //console.log(mouseVelocityX);
 
   return mouseVelocityX > limite || mouseVelocityY > limite;
 }

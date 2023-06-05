@@ -1,38 +1,38 @@
-class Pescado extends Objeto {
+class Langostilla extends Objeto {
   constructor(img, tamX, tamY) {
     super(img, tamX, tamY);
-    super.setNombre("pescado");
+    super.setNombre("langostilla");
   }
 
   armar() {
     for (let i = 0; i < this.vertices; i++) {
-      let x = this.centroX + i * (this.tamX / this.vertices);
-      let y = this.centroY;
+      let x = this.centroX;
+      let y = this.centroY + i * (this.tamY / this.vertices);
       this.particles.push(new Particle(x, y));
 
-      x = this.centroX + i * (this.tamX / this.vertices);
-      y = this.centroY + this.tamY;
+      x = this.centroX + this.tamX;
+      y = this.centroY + i * (this.tamY / this.vertices);
       this.particles.push(new Particle(x, y));
     }
 
     this.springs.push(
-      new Spring(this.particles[0], this.particles[1], this.dureza * 0.5)
+      new Spring(this.particles[0], this.particles[1], this.dureza)
     );
     this.springs.push(
-      new Spring(this.particles[1], this.particles[3], this.dureza * 0.5)
+      new Spring(this.particles[1], this.particles[3], this.dureza)
     );
     this.springs.push(
-      new Spring(this.particles[3], this.particles[5], this.dureza * 0.5)
+      new Spring(this.particles[3], this.particles[5], this.dureza)
     );
     this.springs.push(
-      new Spring(this.particles[5], this.particles[4], this.dureza * 0.5)
+      new Spring(this.particles[5], this.particles[4], this.dureza)
     );
 
     this.springs.push(
-      new Spring(this.particles[4], this.particles[2], this.dureza * 0.5)
+      new Spring(this.particles[4], this.particles[2], this.dureza)
     );
     this.springs.push(
-      new Spring(this.particles[2], this.particles[0], this.dureza * 0.5)
+      new Spring(this.particles[2], this.particles[0], this.dureza)
     );
     // criss cross
     this.springs.push(
@@ -41,6 +41,19 @@ class Pescado extends Objeto {
     this.springs.push(
       new Spring(this.particles[1], this.particles[4], this.dureza)
     );
+    // extra criss cross
+    this.springs.push(
+      new Spring(this.particles[0], this.particles[3], this.dureza)
+    );
+    this.springs.push(
+      new Spring(this.particles[1], this.particles[2], this.dureza)
+    );
+    this.springs.push(
+      new Spring(this.particles[2], this.particles[5], this.dureza)
+    );
+    this.springs.push(
+      new Spring(this.particles[3], this.particles[4], this.dureza)
+    );
     //
     this.springs.push(
       new Spring(this.particles[2], this.particles[3], this.dureza)
@@ -48,30 +61,26 @@ class Pescado extends Objeto {
   }
 
   dibujar(colorcito = 127) {
-    super.dibujar();
-    fill(127)
+    fill(127);
 
     textureMode(NORMAL);
     textureWrap(CLAMP);
     texture(this.textura);
-    
+
     beginShape(TRIANGLE_STRIP);
 
     vertex(this.particles[0].x, this.particles[0].y, 0.01, 0, 0);
-    vertex(this.particles[1].x, this.particles[1].y, 0.01, 1, 0); 
+    vertex(this.particles[1].x, this.particles[1].y, 0.01, 1, 0);
     vertex(this.particles[2].x, this.particles[2].y, 0.01, 0, 0.5);
     vertex(this.particles[3].x, this.particles[3].y, 0.01, 1, 0.5);
     vertex(this.particles[4].x, this.particles[4].y, 0.01, 0, 1);
     vertex(this.particles[5].x, this.particles[5].y, 0.01, 1, 1);
-    
-     
-    
+
     endShape();
-    //this.dibujarEstructura();
+    this.dibujarEstructura();
   }
 
   seleccionar() {
-    super.seleccionar();
     let sumX = 0;
     let sumY = 0;
     for (let i = 0; i < this.vertices; i++) {
@@ -84,7 +93,6 @@ class Pescado extends Objeto {
   }
 
   arrastrar() {
-    super.arrastrar();
     if (this.seleccionado) {
       const { index, distance } = this.particles.reduce(
         (closest, particle, index) => {
