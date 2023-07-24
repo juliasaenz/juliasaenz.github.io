@@ -1,0 +1,300 @@
+body {
+  font-size: 16px;
+  font-family: "Rubik", Helvetica, Arial, Lucida, sans-serif;
+  margin: 0px;
+  background-color: var(--violeta-oscuro);
+  overflow-x: hidden;
+}
+
+header {
+  background-color: var(--blanco);
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100vw;
+  height: 12vh;
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: 999;
+  /*min-height: 100px;*/
+}
+
+footer {
+  position: relative;
+  bottom: 0;
+  background-color: var(--blanco);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100vw;
+  height: 15vh;
+  z-index: 999;
+}
+
+footer div img {
+    width: 13vw;
+    max-height: 10vh;
+}
+
+
+#vistas{
+  min-height: fit-content;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+
+#verComoMes, #verComoSemana {
+  background-color: var(--violeta);
+  color: var(--blanco);
+  /* height: 8vh; */
+  font-size: 1.2rem;
+  padding: 0.6rem 1.1rem;
+  text-align: center;
+  cursor: pointer;
+}
+
+@media (max-width: 400px) {
+  #vistas {
+    display: block;
+  }
+
+  #verComoMes, #verComoSemana {
+    padding: 2vw;
+  }
+}
+
+
+.boton-navegacion {
+  cursor: pointer;
+  margin-top: 0.5vh;
+}
+
+.boton-navegacion img {
+    width: 3.5vw;
+}
+
+#mesSiguiente {
+  margin-left: -10vw;
+}
+
+#mesAnterior {
+  margin-right: -10vw;
+}
+
+.view-selected {
+  background-color: var(--violeta-oscuro) !important;
+}
+
+#anio {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--violeta-oscuro);
+}
+
+.container {
+  height: fit-content;
+  width: 100%;
+  padding-top: 10vh;
+  background-color: var(--violeta-oscuro);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagina {
+  height: fit-content;
+  width: 100vw;
+  /*background-color: var(--violeta);*/
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.portada-mes,
+.portada-mes-enero,
+.portada-mes-febrero,
+.portada-mes-marzo,
+.portada-mes-abril,
+.portada-mes-mayo,
+.portada-mes-junio,
+.portada-mes-julio,
+.portada-mes-agosto,
+.portada-mes-septiembre,
+.portada-mes-octubre,
+.portada-mes-noviembre,
+.portada-mes-diciembre {
+  width: 100%;
+  max-width: 70vw;
+}
+
+.mes {
+  width: 85vw;
+  display: flex;
+  flex-flow: wrap;
+  align-items: start;
+  justify-content: space-around;
+  gap: 1vw;
+  margin-bottom: 2em;
+}
+
+.semana-mes {
+  display: flex;
+  flex-direction: row;
+  /*background-color: var(--violeta-claro);*/
+  width: 13vw;
+  width: -moz-fit-content;
+  width: fit-content;
+  gap: 1em;
+}
+
+.dia-mes {
+  width: 13%;
+  height: 13vw;
+  position: relative;
+}
+
+.dia-mes.vista-semana {
+  width: 100%;
+}
+
+.dia-hidden.vista-semana,
+.semana-titulo.vista-semana {
+  display: none;
+}
+
+.dia-mes .escondido {
+  opacity: 0;
+}
+
+.dia-hidden {
+  width: 13%;
+  height: 13vw;
+  text-shadow: none !important;
+}
+
+.semana-titulo {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  width: 13%;
+}
+
+.dia-numero {
+  position: relative;
+  top: 5%;
+  left: 11%;
+  text-shadow: -3px 3px var(--negro);;
+}
+
+.vista-semana .dia-numero {
+  left: 2%;
+  text-shadow: -0.4vw .4vw var(--negro);;
+  font-size: 6vw;  
+}
+
+.dia-hidden .dia-numero {
+  text-shadow: none !important;
+}
+
+.dia-texto {
+  position: absolute;
+  bottom: 10%;
+  text-align: right;
+  right: 10%;
+  max-width: 85%;
+  font-size: 1vw;
+  padding: 0 0 0.5vw 0.2vw;
+}
+
+.vista-semana .dia-texto{
+  display: none;
+}
+
+.vista-semana .evento-vista-semanal-img-container .dia-texto-inner {
+  font-size: 1.5vw;
+}
+
+#popup {
+  max-width: 90vw;
+  max-height: 90vh;
+  min-width: 320px;
+  padding: 20px;
+  position: fixed;
+  z-index: 99999;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 66%;
+  height: 33%;
+  background-color: blue;
+  display: none;
+  text-align: center;
+}
+
+.ver-actividad, .ver-contexto, .ver-video {
+  display: none;
+}
+
+#popup-contenido {
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - 20px);
+  height: calc(100% - 20px);
+  background-color: var(--blanco);;
+  padding: 10px;
+  margin: 0;
+}
+
+#popup-contenido img {
+    width: 50%;
+}
+
+#popup .fecha {
+  position: relative;
+  height: 10vh;
+}
+
+#popup .descripcion {
+  font-weight: 700;
+  margin-bottom: 2vh;
+  font-size: 2vh;
+}
+
+#popup .fecha1, #popup .fecha2, #popup .fecha3 {
+  position: absolute;
+  font-weight: 900;
+  font-size: 4vw;
+  color: #2F84C5;
+  width: 100%;
+  background-color: var(--blanco);;
+}
+
+#popup .fecha1 {
+  top: 0;
+}
+
+#popup .fecha2 {
+  top: 2.5vw;
+}
+
+#popup .fecha3 {
+ top: 5vw;   
+}
+
+#popup .fecha1 .texto {
+  opacity: .5;
+}
+
+#popup .fecha2 .texto {
+  opacity: .7;
+}

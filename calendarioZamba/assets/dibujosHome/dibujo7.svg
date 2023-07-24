@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" fill="none" viewBox="0 0 38 38">
+  <g class="dibujo7">
+    <g class="&lt;Group&gt;">
+      <path fill="#74C3AE" d="M21.931 21.357c1.425-1.425 1.425-3.75 0-5.25a3.667 3.667 0 0 0-5.175 0 3.602 3.602 0 0 0-.075 5.175c1.425 1.5 3.75 1.5 5.25.075Z" class="&lt;Path&gt;"/>
+      <path fill="#DD4297" d="M21.931 21.357c1.425-1.425 1.425-3.75 0-5.25a3.667 3.667 0 0 0-5.175 0 3.602 3.602 0 0 0-.075 5.175c1.425 1.5 3.75 1.5 5.25.075Z" class="&lt;Path&gt;"/>
+      <g class="&lt;Group&gt;" style="mix-blend-mode:multiply">
+        <g class="&lt;Group&gt;">
+          <path fill="#CACAC9" d="M17.581 17.607c-.9.9-1.575 1.8-1.5 2.925-.75-1.35-.6-3.3.6-4.5a3.758 3.758 0 0 1 5.25.075c.3.3.6.9.825 1.275-1.275-1.2-3.675-1.275-5.175.225Z" class="&lt;Path&gt;"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

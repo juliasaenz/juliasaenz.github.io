@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 12.4 92.8" style="enable-background:new 0 0 12.4 92.8;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#7359A2;}
+	.st1{fill:#332F56;}
+	.st2{fill:#6A4D9B;}
+	.st3{fill:#FFFFFF;filter:url(#Adobe_OpacityMaskFilter);}
+	.st4{mask:url(#mask0_149_64092_2_);}
+	.st5{fill:none;stroke:#9A82BB;stroke-width:0.4;}
+</style>
+<path class="st0" d="M11.5,19.4l66.8,1.2l1.2,71.9l-67.4,0.4L11.5,19.4z"/>
+<path class="st1" d="M-0.5,3.3l77.4,16.3l-65.3-0.2l0.6,73.5L-1.1,75.7L-0.5,3.3z"/>
+<path class="st2" d="M66.9,5.6l11.5,15l-66.8-1.2L-0.5,3.3L66.9,5.6z"/>
+<defs>
+	<filter id="Adobe_OpacityMaskFilter" filterUnits="userSpaceOnUse" x="-53.5" y="-99.2" width="135.8" height="171.1">
+		<feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+	</filter>
+</defs>
+<mask maskUnits="userSpaceOnUse" x="-53.5" y="-99.2" width="135.8" height="171.1" id="mask0_149_64092_2_">
+	<path class="st3" d="M-0.5,3.3L67,5.6l11.5,15l-66.9-1.2L-0.5,3.3z"/>
+</mask>
+<g class="st4">
+	<path class="st5" d="M81.4,71.8L-19.9-69"/>
+	<path class="st5" d="M82.1,67.3L-19.2-73.6"/>
+	<path class="st5" d="M81.8,61L-11-68.4"/>
+	<path class="st5" d="M81.1,54.6L-11.8-74.7"/>
+	<path class="st5" d="M80.3,48.4l-84-117.1"/>
+	<path class="st5" d="M79.9,42L-4.4-75.1"/>
+	<path class="st5" d="M79,35.6L-4.9-81.5"/>
+	<path class="st5" d="M78.2,29.3l-84-116.6"/>
+	<path class="st5" d="M77.8,22.9L-7.5-94.3"/>
+	<path class="st5" d="M76.9,16.5L-3.8-99.1"/>
+	<path class="st5" d="M41.6,37.8l-76.9-107"/>
+	<path class="st5" d="M40.8,31.3l-68.8-94.5"/>
+	<path class="st5" d="M40,25l-68.1-93.8"/>
+	<path class="st5" d="M43.4,24.2l-62.2-86"/>
+	<path class="st5" d="M28.3,39.1l-78.6-107"/>
+	<path class="st5" d="M23.5,39.4l-76.8-107"/>
+	<path class="st5" d="M27.1,32.6l-68.8-94.5"/>
+	<path class="st5" d="M26.2,26.3l-67.5-93.8"/>
+	<path class="st5" d="M29.3,25.5l-62.1-86"/>
+</g>
+</svg>

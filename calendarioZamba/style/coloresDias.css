@@ -1,0 +1,139 @@
+.semana-titulo{
+  color: var(--blanco);
+}
+
+.dia-mes {
+    background-size: contain;
+}
+
+/*.dia-mes.variante-1.enero::before, .dia-mes.enero.variante-1::after {
+    width: 20px;
+    height: 100%;
+    overflow: hidden;
+    background-image: url(/assets/fondos/fondo-celda-1-1.svg);
+}*/
+
+.variante-1.vista-semana, .variante-2.vista-semana, .variante-3.vista-semana {
+  background-position: left top, right top, left top;
+  background-size: contain, contain, contain;
+  background-repeat: no-repeat, no-repeat, repeat-x;
+  background-clip: border-box,border-box, content-box;
+  padding: 0 0.6vw;    
+}
+
+.variante-1.enero, .variante-1.febrero, .variante-1.diciembre {
+    background-image: url(../assets/fondos/fondo-celda-1-1.svg);
+}
+.variante-1.enero.vista-semana, .variante-1.febrero.vista-semana, .variante-1.diciembre.vista-semana {
+  background-image: url(../assets/fondos/fondo-celda-1-1-b.svg), url(../assets/fondos/fondo-celda-1-1-e.svg), url(../assets/fondos/fondo-celda-1-1-c.svg);
+}
+.variante-2.enero, .variante-2.febrero, .variante-2.diciembre {
+    background-image: url(../assets/fondos/fondo-celda-1-2.svg);
+}
+.variante-2.enero.vista-semana, .variante-2.febrero.vista-semana, .variante-2.diciembre.vista-semana {
+  background-image: url(../assets/fondos/fondo-celda-1-2-b.svg), url(../assets/fondos/fondo-celda-1-2-e.svg), url(../assets/fondos/fondo-celda-1-2-c.svg);
+}
+.variante-3.enero, .variante-3.febrero, .variante-3.diciembre {
+    background-image: url(../assets/fondos/fondo-celda-1-3.svg);
+}
+.variante-3.enero.vista-semana, .variante-3.febrero.vista-semana, .variante-3.diciembre.vista-semana {
+  background-image: url(../assets/fondos/fondo-celda-1-3-b.svg), url(../assets/fondos/fondo-celda-1-3-e.svg), url(../assets/fondos/fondo-celda-1-3-c.svg);
+}
+
+/* marzo / abril / mayo */
+
+.variante-1.marzo, .variante-1.abril, .variante-1.mayo {
+    background-image: url(../assets/fondos/fondo-celda-2-1.svg);
+}
+.variante-1.marzo.vista-semana, .variante-1.abril.vista-semana, .variante-1.mayo.vista-semana {
+  background-image: url(../assets/fondos/fondo-celda-2-1-b.svg), url(../assets/fondos/fondo-celda-2-1-e.svg), url(../assets/fondos/fondo-celda-2-1-c.svg);
+}
+.variante-2.marzo, .variante-2.abril, .variante-2.mayo {
+    /*background-color: var(--rosa-oscuro);*/
+    background-image: url(../assets/fondos/fondo-celda-2-2.svg);
+}
+.variante-2.marzo.vista-semana, .variante-2.abril.vista-semana, .variante-2.mayo.vista-semana {
+  background-image: url(../assets/fondos/fondo-celda-2-2-b.svg), url(../assets/fondos/fondo-celda-2-2-e.svg), url(../assets/fondos/fondo-celda-2-2-c.svg);
+}
+.variante-3.marzo, .variante-3.abril, .variante-3.mayo {
+    /*background-color: var(--rosa-oscuro);*/
+    background-image: url(../assets/fondos/fondo-celda-2-3.svg);
+}
+.variante-3.marzo.vista-semana, .variante-3.abril.vista-semana, .variante-3.mayo.vista-semana {
+  background-image: url(../assets/fondos/fondo-celda-2-3-b.svg), url(../assets/fondos/fondo-celda-2-3-e.svg), url(../assets/fondos/fondo-celda-2-3-c.svg);
+}
+
+/* junio / julio / agosto */
+
+.variante-1.junio, .variante-1.julio, .variante-1.agosto {
+    background-image: url(../assets/fondos/fondo-celda-3-1.svg);
+}
+.variante-1.junio.vista-semana, .variante-1.julio.vista-semana, .variante-1.agosto.vista-semana {
+  background-image: url(../assets/fondos/fondo-celda-3-1-b.svg), url(../assets/fondos/fondo-celda-3-1-e.svg), url(../assets/fondos/fondo-celda-3-1-c.svg);
+}
+.variante-2.junio, .variante-2.julio, .variante-2.agosto {
+    /*background-color: var(--rosa-oscuro);*/
+    background-image: url(../assets/fondos/fondo-celda-3-2.svg);
+}
+.variante-2.junio.vista-semana, .variante-2.julio.vista-semana, .variante-2.agosto.vista-semana {
+  background-image: url(../assets/fondos/fondo-celda-3-2-b.svg), url(../assets/fondos/fondo-celda-3-2-e.svg), url(../assets/fondos/fondo-celda-3-2-c.svg);
+}
+.variante-3.junio, .variante-3.julio, .variante-3.agosto {
+    /*background-color: var(--rosa-oscuro);*/
+    background-image: url(../assets/fondos/fondo-celda-3-3.svg);
+}
+.variante-3.junio.vista-semana, .variante-3.julio.vista-semana, .variante-3.agosto.vista-semana {
+  background-image: url(../assets/fondos/fondo-celda-3-3-b.svg), url(../assets/fondos/fondo-celda-3-3-e.svg), url(../assets/fondos/fondo-celda-3-3-c.svg);
+}
+
+/* septiembre / octubre / noviembre */
+
+.variante-1.septiembre, .variante-1.octubre, .variante-1.noviembre {
+    background-image: url(../assets/fondos/fondo-celda-4-1.svg);
+}
+.variante-1.septiembre.vista-semana, .variante-1.octubre.vista-semana, .variante-1.noviembre.vista-semana {
+  background-image: url(../assets/fondos/fondo-celda-4-1-b.svg), url(../assets/fondos/fondo-celda-4-1-e.svg), url(../assets/fondos/fondo-celda-4-1-c.svg);
+}
+.variante-2.septiembre, .variante-2.octubre, .variante-2.noviembre {
+    /*background-color: var(--rosa-oscuro);*/
+    background-image: url(../assets/fondos/fondo-celda-4-2.svg);
+}
+.variante-2.septiembre.vista-semana, .variante-2.octubre.vista-semana, .variante-2.noviembre.vista-semana {
+  background-image: url(../assets/fondos/fondo-celda-4-2-b.svg), url(../assets/fondos/fondo-celda-4-2-e.svg), url(../assets/fondos/fondo-celda-4-2-c.svg);
+}
+.variante-3.septiembre, .variante-3.octubre, .variante-3.noviembre {
+    /*background-color: var(--rosa-oscuro);*/
+    background-image: url(../assets/fondos/fondo-celda-4-3.svg);
+}
+.variante-3.septiembre.vista-semana, .variante-3.octubre.vista-semana, .variante-3.noviembre.vista-semana {
+  background-image: url(../assets/fondos/fondo-celda-4-3-b.svg), url(../assets/fondos/fondo-celda-4-3-e.svg), url(../assets/fondos/fondo-celda-4-3-c.svg);
+}
+/*
+.variante-1.junio, .variante-1.julio, .variante-1.agosto {
+    background-image: url(/assets/fondos/fondo-celda-3-1.svg);
+}
+.variante-2.junio, .variante-2.julio, .variante-2.agosto {
+    background-image: url(/assets/fondos/fondo-celda-3-2.svg);
+}
+.variante-3.junio, .variante-3.julio, .variante-3.agosto {
+    background-image: url(/assets/fondos/fondo-celda-3-3.svg);
+}
+
+.variante-1.septiembre, .variante-1.octubre, .variante-1.noviembre {
+    background-image: url(/assets/fondos/fondo-celda-4-1.svg);
+}
+.variante-2.septiembre, .variante-2.octubre, .variante-2.noviembre {
+    background-image: url(/assets/fondos/fondo-celda-4-2.svg);
+}
+.variante-3.septiembre, .variante-3.octubre, .variante-3.noviembre {
+    background-image: url(/assets/fondos/fondo-celda-4-3.svg);
+}
+*/
+
+
+.dia-hidden {
+     background-color: transparent !important;
+     color: transparent !important;
+     background-image: none !important;
+}
+

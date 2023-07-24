@@ -1,0 +1,174 @@
+#home {
+  min-height: 80vh;
+  background-image: url("../assets/fondos/violeta.svg");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  margin-top: -10vh;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.decorado-home {
+  /* opacity: 0.5;
+  background-color: red; */
+  /*background-image: url("../assets/dibujosHome/decorado.svg");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;*/
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  width: 100vw;
+  height: max-content;
+}
+.portada-home {
+  padding-top: 5vh;
+  width: 55vw;
+  height: fit-content;
+  z-index: -10;
+}
+
+.menu-meses {
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 4vh;
+  padding: 5vh;
+  z-index: 10;
+}
+
+.boton-mes {
+  height: 30vw;
+  width: 90vw;
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  -o-background-size: contain;
+  background-size: fit;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.boton-mes:hover {
+  transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+#boton-enero {
+  background-color: var(--rosa);
+  background-image: url("../assets/portadasSVG/enero.svg"), url("../assets/fondos/rosa.svg");
+  background-size: fit, auto;
+  -webkit-background-size: contain, cover;
+  -moz-background-size: contain, cover;
+  -o-background-size: contain, cover;
+}
+#boton-febrero {
+  background-color: var(--rosa);
+  background-image: url("../assets/portadasSVG/febrero.svg"), url("../assets/fondos/rosa.svg");
+  background-size: fit;
+  -webkit-background-size: contain, cover;
+  -moz-background-size: contain, cover;
+  -o-background-size: contain, cover;
+}
+#boton-marzo {
+  background-color: var(--naranja);
+  background-image: url("../assets/portadasSVG/marzo.svg"), url("../assets/fondos/naranja.svg");
+  background-size: fit;
+  -webkit-background-size: contain, cover;
+  -moz-background-size: contain, cover;
+  -o-background-size: contain, cover;
+}
+#boton-abril {
+  background-color: var(--naranja);
+  background-image: url("../assets/portadasSVG/abril.svg"), url("../assets/fondos/naranja.svg");
+  background-size: fit;
+  -webkit-background-size: contain, cover;
+  -moz-background-size: contain, cover;
+  -o-background-size: contain, cover;
+}
+#boton-mayo {
+  background-color: var(--naranja);
+  background-image: url("../assets/portadasSVG/mayo.svg"), url("../assets/fondos/naranja.svg");
+  background-size: fit;
+  -webkit-background-size: contain, cover;
+  -moz-background-size: contain, cover;
+  -o-background-size: contain, cover;
+}
+#boton-junio {
+  background-color: var(--azul);
+  background-image: url("../assets/portadasSVG/junio.svg"), url("../assets/fondos/azul.svg");
+  background-size: fit;
+  -webkit-background-size: contain, cover;
+  -moz-background-size: contain, cover;
+  -o-background-size: contain, cover;
+}
+#boton-julio {
+  background-color: var(--azul);
+  background-image: url("../assets/portadasSVG/julio.svg"), url("../assets/fondos/azul.svg");
+  background-size: fit;
+  -webkit-background-size: contain, cover;
+  -moz-background-size: contain, cover;
+  -o-background-size: contain, cover;
+}
+#boton-agosto {
+  background-color: var(--azul);
+  background-image: url("../assets/portadasSVG/agosto.svg"), url("../assets/fondos/azul.svg");
+  background-size: fit;
+  -webkit-background-size: contain, cover;
+  -moz-background-size: contain, cover;
+  -o-background-size: contain, cover;
+}
+#boton-septiembre {
+  background-color: var(--verde);
+  background-image: url("../assets/portadasSVG/septiembre.svg"), url("../assets/fondos/verde.svg");
+  background-size: fit;
+  -webkit-background-size: contain, cover;
+  -moz-background-size: contain, cover;
+  -o-background-size: contain, cover;
+}
+#boton-octubre {
+  background-color: var(--verde);
+  background-image: url("../assets/portadasSVG/octubre.svg"), url("../assets/fondos/verde.svg");
+  background-size: fit;
+  -webkit-background-size: contain, cover;
+  -moz-background-size: contain, cover;
+  -o-background-size: contain, cover;
+}
+#boton-noviembre {
+  background-color: var(--verde);
+  background-image: url("../assets/portadasSVG/noviembre.svg"), url("../assets/fondos/verde.svg");
+  background-size: fit;
+  -webkit-background-size: contain, cover;
+  -moz-background-size: contain, cover;
+  -o-background-size: contain, cover;
+}
+#boton-diciembre {
+  background-color: var(--rosa);
+  background-image: url("../assets/portadasSVG/diciembre.svg"), url("../assets/fondos/rosa.svg");
+  background-size: fit;
+  -webkit-background-size: contain, cover;
+  -moz-background-size: contain, cover;
+  -o-background-size: contain, cover;
+}
+
+/* pantallas grandes */
+@media (min-width: 769px) {
+  .menu-meses {
+    width: 95vw;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 4vh;
+  }
+  .boton-mes {
+    margin-bottom: 1vh;
+    display: flex;
+    flex-grow: 1;
+    height: 35vh;
+    width: 25vw;
+    margin: 5vh;
+  }
+}

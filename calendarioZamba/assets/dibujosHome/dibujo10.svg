@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="38" height="38" fill="none" viewBox="0 0 38 38">
+  <g class="dibujo10">
+    <g class="&lt;Group&gt;">
+      <g class="&lt;Group&gt;">
+        <path fill="url(#a)" d="M0 0h18.032v13.607H0z" class="xLUbaj 00000142867248684205860820000016451981395143221161" transform="matrix(-.84227 -.53905 -.54679 .83727 30 17.97)"/>
+      </g>
+    </g>
+  </g>
+  <defs>
+    <pattern id="a" width="1" height="1" class="a" patternContentUnits="objectBoundingBox">
+      <use xlink:href="#b" transform="scale(.00247 .00323)"/>
+    </pattern>
+  </defs>
+</svg>

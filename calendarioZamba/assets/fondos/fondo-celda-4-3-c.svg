@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="3"
+   height="61"
+   viewBox="0 0 3 61"
+   fill="none"
+   version="1.1"
+   id="svg6"
+   sodipodi:docname="fondo-celda-4-3-c.svg"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs10" />
+  <sodipodi:namedview
+     id="namedview8"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     width="3px"
+     inkscape:zoom="13.836066"
+     inkscape:cx="4.264218"
+     inkscape:cy="9.5764218"
+     inkscape:window-width="1920"
+     inkscape:window-height="1016"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg6" />
+  <path
+     d="M 30.699998,60.1001 H -20 V 2.8999 L -17.000002,0 l 47.7,2.8999 3,54.2002 z"
+     fill="#116432"
+     id="path2" />
+  <path
+     d="m 33.699998,57.2 h -50.7 V 0 h 50.7 z"
+     fill="#21b04b"
+     id="path4" />
+</svg>

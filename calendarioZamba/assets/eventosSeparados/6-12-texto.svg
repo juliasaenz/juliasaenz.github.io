@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="62" height="28" fill="none" viewBox="0 0 62 28">
+  <g class="6-12-texto">
+    <g class="&lt;Group&gt;">
+      <g class="&lt;Group&gt;">
+        <g class="&lt;Group&gt;">
+          <path fill="#FEFEFE" fill-rule="evenodd" d="M4.7 1.7c.9 0 2 .1 1.6 3C5.9 7.4 5 7.5 3.6 7.6h-.5l.8-5.9h.8Zm-.2.7-.6 4.5c1.2 0 1.3-1.2 1.5-2.2.1-.9.4-2.4-.9-2.3Z" class="&lt;Compound Path&gt;" clip-rule="evenodd"/>
+          <path fill="#FEFEFE" d="M7.2 7.5h-.7l.8-5.8h.8l-.9 5.8Zm.3-6.1-.3-.2L8 0l.5.3-1 1.1Z" class="&lt;Compound Path&gt;"/>
+          <path fill="#FEFEFE" fill-rule="evenodd" d="m10.2 1.6.5 5.8-.8.1-.1-1.2H8.7l-.4 1.2h-.8l2.1-5.9h.6Zm-.4 3.3V2.8h-.1l-.8 2.9h.9v-.8Z" class="&lt;Compound Path&gt;" clip-rule="evenodd"/>
+          <path fill="#FEFEFE" d="m14 1.6.3 4.2.1-.3.4-1.4.8-2.6h.7l-.2 5.8-.8.1.2-2.2.1-1.1.1-.8h-.1l-.2.9-1 3.2h-.6l-.2-4-.8 4h-.7l1.3-5.8h.6Zm4.1-.1-.6 4.3c-.1.7.1.9.4.9.6-.1.6-.4.7-.9l.6-4.3.8-.1-.6 4.2c-.1.8-.2 1.8-1.6 1.8-1.2 0-1.2-.8-1-1.9l.5-4h.8Zm3.1 1.7L21 5.1l-.3 2.2h-.8l.8-5.9h.8l.7 4.4.2-2.3.3-2.1h.7l-.8 5.8h-.7l-.7-4.4v.4Z" class="&lt;Compound Path&gt;"/>
+          <path fill="#FEFEFE" fill-rule="evenodd" d="M25.1 1.4c.9-.1 1.9 0 1.5 2.9-.4 2.7-1.3 2.9-2.7 2.9h-.5l.8-5.8h.9Zm-.2.6-.6 4.5c1.3.1 1.4-1.1 1.5-2.1.1-.9.4-2.5-.9-2.4Z" class="&lt;Compound Path&gt;" clip-rule="evenodd"/>
+          <path fill="#FEFEFE" d="M27.6 7.1h-.8l.8-5.8h.8l-.8 5.8Z" class="&lt;Compound Path&gt;"/>
+          <path fill="#FEFEFE" fill-rule="evenodd" d="m30.6 1.2.4 5.9h-.8V5.9L29 6l-.4 1.1h-.7l2-5.8.7-.1Zm-.4 3.2V2.3l-.9 3h.9v-.9Z" class="&lt;Compound Path&gt;" clip-rule="evenodd"/>
+          <path fill="#FEFEFE" d="m32.9 1.2-.7 5.2 1.3-.1-.1.7-2.1.1.8-5.9h.8Zm5.3.9c-.133-.067-.3-.1-.5-.1-1.1 0-1.3 1.6-1.4 2.3-.1.8-.3 2.2.8 2.2.133 0 .3-.033.5-.1l-.1.7c-.2.067-.433.1-.7.1-1.5.1-1.5-1.6-1.3-2.8.1-1.2.5-3.1 2.1-3.2.3 0 .5.1.7.2l-.1.7Z" class="&lt;Compound Path&gt;"/>
+          <path fill="#FEFEFE" fill-rule="evenodd" d="M41.2 4.2c-.2 1-.5 3-2 3s-1.2-1.9-1.1-3c.2-1 .5-3 2-3s1.2 1.9 1.1 3Zm-2.2 0c-.2 1.3-.3 2.3.3 2.3s.9-1.1 1-2.3c.2-1.3.3-2.3-.3-2.3s-.9 1.1-1 2.3Z" class="&lt;Compound Path&gt;" clip-rule="evenodd"/>
+          <path fill="#FEFEFE" d="m42.6 3-.2 1.9-.3 2.2h-.7l.8-5.9h.7l.8 4.4.1-2.3.3-2.1h.8L44.1 7h-.8l-.7-4.4V3Zm5.1-1.9-.1.7h-.9L46 7h-.8l.7-5.2-.9.1.1-.7 2.6-.1Z" class="&lt;Compound Path&gt;"/>
+          <path fill="#FEFEFE" fill-rule="evenodd" d="M47.9 1.1h.9c.6 0 1.5 0 1.3 1.5-.1.5-.4 1.4-1 1.5l.7 2.8h-.9l-.6-2.8-.4 2.9h-.8l.8-5.9Zm1.3 1.6c.1-.5.1-1-.5-1h-.1l-.3 1.9c.6.1.8-.3.9-.9Z" class="&lt;Compound Path&gt;" clip-rule="evenodd"/>
+          <path fill="#FEFEFE" fill-rule="evenodd" d="m52.4 1.1.4 5.8H52V5.7l-1.2.1-.4 1.1h-.7l2.1-5.8h.6Zm-.5 3.2V2.2l-.9 3h.9v-.9Z" class="&lt;Compound Path&gt;" clip-rule="evenodd"/>
+          <path fill="#FEFEFE" d="m57.4 1-.1.6-1.3.1-.2 1.8h1.1l-.1.6-1.1.1-.3 1.9h1.3l-.1.7h-2.1l.8-5.8h2.1Zm1.2-.1-.7 5.2h1.3l-.1.7H57l.8-5.8.8-.1Z" class="&lt;Compound Path&gt;"/>
+        </g>
+      </g>
+    </g>
+    <g class="&lt;Group&gt;">
+      <g class="&lt;Group&gt;">
+        <path fill="#DD4297" d="M58.2 25.8 5.1 27.2l.3-4.9L58.6 21l-.4 4.8Z" class="&lt;Path&gt;"/>
+      </g>
+      <g class="&lt;Group&gt;">
+        <g class="&lt;Group&gt;">
+          <path fill="#FEFEFE" d="m7.1 28 .9-7.6h2.3l-1 7.6H7.1Zm11.2-7.7-1 7.6h-2.1l-2-3.3-.4 3.4h-2.3l1-7.6 2.1-.1 2 3.3.4-3.3h2.3Zm2.5 7.6h-2.3l1-7.6 5.5-.1-.3 2.1-3.2.1-.1 1h2.9l-.2 2h-3l-.3 2.5Z" class="&lt;Compound Path&gt;"/>
+          <path fill="#FEFEFE" fill-rule="evenodd" d="m29.9 20.1 1.9 7.6h-2.5l-.2-.7h-2.4l-.4.8h-2.5l3.8-7.6 2.3-.1Zm-2.3 4.7h1.1l-.3-1.6-.8 1.6Z" class="&lt;Compound Path&gt;" clip-rule="evenodd"/>
+          <path fill="#FEFEFE" d="m40.2 20-1 7.6h-2l-2.1-3.2-.4 3.3h-2.2l.9-7.6h2.1l2 3.2.4-3.3h2.3Zm2.7 2.1h-2.1l.3-2.1 6.5-.1-.3 2.1-2.1.1-.7 5.4-2.3.1.7-5.5Zm4.6 5.4.9-7.6h2.3l-1 7.6h-2.2Zm6.7-7.7-.7 5.5 3.2-.1-.2 2.2-5.6.1 1-7.7h2.3Z" class="&lt;Compound Path&gt;"/>
+        </g>
+      </g>
+    </g>
+    <g class="&lt;Group&gt;">
+      <g class="&lt;Group&gt;">
+        <path fill="#DD4297" d="M61.5 15.9 0 16.9.5 12l61.1-.9-.1 4.8Z" class="&lt;Path&gt;"/>
+      </g>
+      <g class="&lt;Group&gt;">
+        <g class="&lt;Group&gt;">
+          <path fill="#FEFEFE" d="M5.6 17.3H5L3.9 15l-.4 3.2H1.2l1-7.6h2.1l1.5 2.9 2.2-3h2.2l-1 7.6H6.9l.4-3.1-1.7 2.3Z" class="&lt;Compound Path&gt;"/>
+          <path fill="#FEFEFE" fill-rule="evenodd" d="m16 10.4 1.8 7.6h-2.4l-.2-.8-2.5.1-.3.8H9.9l3.8-7.7H16Zm-2.3 4.8 1-.1-.3-1.6-.7 1.7Z" class="&lt;Compound Path&gt;" clip-rule="evenodd"/>
+          <path fill="#FEFEFE" d="m21.8 10.3-.7 5.5h3.2l-.3 2.1-5.5.1 1-7.6 2.3-.1Zm4.1 2.1h-2.1l.3-2.1 6.5-.1-.3 2.2h-2.1l-.7 5.5h-2.3l.7-5.5Z" class="&lt;Compound Path&gt;"/>
+          <path fill="#FEFEFE" fill-rule="evenodd" d="m37.3 17.7-2.7.1-1.4-1.9H33l-.2 1.9h-2.3l1-7.6h3.7c.4.1.7.2 1.2.5.4.3.7.6.8 1.2.067.333.1.7.1 1.1-.133 1.067-.667 1.833-1.6 2.3l1.6 2.4Zm-3.9-5.4-.1 1.5.8-.1c.467 0 .7-.233.7-.7.1-.4-.1-.7-.5-.7h-.9ZM43.7 10l1.8 7.6-2.4.1-.2-.8h-2.5l-.3.8h-2.5l3.8-7.6 2.3-.1Zm-2.3 4.7h1l-.3-1.6-.7 1.6Z" class="&lt;Compound Path&gt;" clip-rule="evenodd"/>
+          <path fill="#FEFEFE" d="m47.4 12.1-2.1.1.3-2.2 6.4-.1-.2 2.2h-2.1l-.7 5.5h-2.3l.7-5.5Z" class="&lt;Compound Path&gt;"/>
+          <path fill="#FEFEFE" fill-rule="evenodd" d="M56.3 9.7c1.133 0 2.033.4 2.7 1.2.667.733.933 1.633.8 2.7-.133 1.133-.633 2.1-1.5 2.9a4.508 4.508 0 0 1-3 1.1c-1.133.067-2.033-.3-2.7-1.1-.667-.733-.933-1.667-.8-2.8.133-1.067.633-2 1.5-2.8a4.982 4.982 0 0 1 3-1.2Zm-.7 5.8c.4 0 .8-.167 1.2-.5.333-.4.533-.833.6-1.3.067-.533-.033-.966-.3-1.3-.267-.333-.633-.5-1.1-.5-.467 0-.867.167-1.2.5-.4.4-.633.833-.7 1.3-.067.533.067.967.4 1.3.267.333.633.5 1.1.5Z" class="&lt;Compound Path&gt;" clip-rule="evenodd"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

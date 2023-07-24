@@ -1,0 +1,158 @@
+.dia-mes {
+	background-repeat: no-repeat;
+    font-weight: bolder;
+    color: white;
+}
+
+.fecha-con-evento .dia-numero {
+	display: none;
+}
+
+.fecha-con-evento.vista-semana .dia-numero {
+	display: block;
+}
+
+.dia-texto{
+	font-weight: 500; /* medium */
+}
+
+.evento {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+	/*transform: scale(1.2);*/
+  transition: transform .4s; /* Animation */
+}
+
+
+
+.fecha-con-evento:hover {
+  z-index: 99;
+}
+
+.fecha-con-evento.vista-semana:hover {
+	z-index: 2;
+}
+
+.fecha-con-evento.vista-semana {
+    padding: 0 1.4vw;
+}
+
+.evento .evento-img-container {
+ transition: transform .4s;
+}
+.evento .evento-img-container:hover {
+  transform: scale(1.3) rotate(-7deg); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+.fecha-con-evento {
+	background-color: transparent !important;
+	background-image: none !important;
+	z-index: 2;
+	position: relative;
+}
+
+.fecha-con-evento.vista-semana {
+	/* aqui vamos a tener que trabajar las variantes de color para cada evento */
+	/*background-image: none !important;*/
+}
+
+.evento-img-container {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+}
+
+.vista-semana .evento-img-container {
+	display: none;
+}
+
+.evento-vista-semanal-img-container {
+	display: none;	
+}
+
+.evento-vista-semanal-img-container .evento-img {
+	height: 13vw;
+	max-width: 20vw;
+}
+
+.evento-vista-semanal-img-container .evento-texto {
+	height: 13vw;
+	max-width: 20vw;
+}
+
+
+.evento-vista-semanal-img-container.lado-izq  .evento-img, .evento-vista-semanal-img-container.lado-der .evento-texto {
+	/*position: relative;
+	left: 50%;*/
+}
+
+.evento-vista-semanal-img-container.lado-izq  .evento-texto, .evento-vista-semanal-img-container.lado-der .evento-img {
+	/*position: relative;
+	left: 30vw;*/
+	flex-direction: row-reverse;
+}
+
+
+.vista-semana .evento-vista-semanal-img-container {
+	display: flex;
+  flex-flow: nowrap;
+  align-content: center;
+  gap: 3vw;
+  padding-left: 10vw;
+  padding-right: 3vw;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.evento-img-container>img {
+	position: absolute;
+	bottom: 1.5vw;
+	left: 0.5vw;
+	width: 100%;
+	height: auto;	
+}
+
+.vista-semana .evento-img-container>img {
+	left: 50%;
+}
+
+.evento-con-link {
+	cursor: pointer;
+}
+
+
+.vista-semana .lado-izq {
+	left: 35% !important;
+}
+
+.vista-semana .lado-der {
+	right: 35% !important;
+}
+
+/*** Eventos en particular ***/
+.vista-semana.vista-semanal-color-celeste-1 {
+	background-image: url(../assets/fondos/fondo-celeste-1-b.svg), url(../assets/fondos/fondo-celeste-1-e.svg), url(../assets/fondos/fondo-celeste-1-c.svg) !important;
+	padding: 0 12px;
+}
+
+.vista-semana.vista-semanal-color-violeta-1 {
+	background-image: url(../assets/fondos/fondo-violeta-1-b.svg), url(../assets/fondos/fondo-violeta-1-e.svg), url(../assets/fondos/fondo-violeta-1-c.svg) !important;
+	padding: 0 12px;
+}
+
+.vista-semana.vista-semanal-color-verde-1 {
+	background-image: url(../assets/fondos/fondo-verde-1-b.svg), url(../assets/fondos/fondo-verde-1-e.svg), url(../assets/fondos/fondo-verde-1-c.svg) !important;
+	padding: 0 12px;
+}
+
+.vista-semana.vista-semanal-color-rosa-1 {
+	background-image: url(../assets/fondos/fondo-rosa-1-b.svg), url(../assets/fondos/fondo-rosa-1-e.svg), url(../assets/fondos/fondo-rosa-1-c.svg) !important;
+	padding: 0 12px;
+}
+
+.vista-semana.vista-semanal-color-rojo-1 {
+	background-image: url(../assets/fondos/fondo-rojo-1-b.svg), url(../assets/fondos/fondo-rojo-1-e.svg), url(../assets/fondos/fondo-rojo-1-c.svg) !important;
+	padding: 0 12px;
+}

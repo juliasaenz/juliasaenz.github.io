@@ -1,0 +1,634 @@
+{
+  "eventos": [
+    {
+      "mes": 1,
+      "dia": 23,
+      "asset": 1,
+      "actividades": 1,
+      "contexto": 1,
+      "video": "https://www.youtube.com/watch?v=fpplA8qSrtY",
+      "textoPopup": "Día nacional del músico",
+      "color": "celeste-1"
+    },
+    {
+      "mes": 1,
+      "dia": 24,
+      "asset": 1,
+      "color": "violeta-1"
+    },
+    {
+      "mes": 1,
+      "dia": 26,
+      "asset": 1,
+      "color": "verde-1"
+    },
+    {
+      "mes": 1,
+      "dia": 27,
+      "texto": "Día de Conmemoración de las Víctimas del Holocausto"
+    },
+    {
+      "mes": 2,
+      "dia": 2,
+      "asset": 1,
+      "color": "celeste-1"
+    },
+    {
+      "mes": 2,
+      "dia": 10,
+      "texto": "Ley Saenz Peña",
+      "color": "celeste-1"
+    },
+    {
+      "mes": 2,
+      "dia": 11,
+      "asset": 1,
+      "color": "rojo-1"
+    },
+    {
+      "mes": 2,
+      "dia": 13,
+      "asset": 1,
+      "color": "violeta-1"
+    },
+    {
+      "mes": 2,
+      "dia": 14,
+      "texto": "Día mundial de la energía"
+    },
+    {
+      "mes": 2,
+      "dia": 20,
+      "asset": 1,
+      "color": "verde-1"
+    },
+    {
+      "mes": 2,
+      "dia": 21,
+      "asset": 1,
+      "color": "verde-1"
+    },
+    {
+      "mes": 2,
+      "dia": 22,
+      "texto": "Soberanía en la Antártida Argentina"
+    },
+    {
+      "mes": 2,
+      "dia": 27,
+      "texto": "Creación de la bandera nacional"
+    },
+    {
+      "mes": 3,
+      "dia": 1,
+      "asset": 1,
+      "color": "rosa-1"
+    },
+    {
+      "mes": 3,
+      "dia": 8,
+      "asset": 1,
+      "actividades": 1,
+      "contexto": 1,
+      "video": "https://www.youtube.com/watch?v=fpplA8qSrtY",
+      "texto": "Día Internacional de la Mujer",
+      "color": "violeta-1"
+    },
+    {
+      "mes": 3,
+      "dia": 12,
+      "asset": 1
+    },
+    {
+      "mes": 3,
+      "dia": 15,
+      "texto": "Día de las Escuelas de Frontera",
+      "color": "celeste-1"
+    },
+    {
+      "mes": 3,
+      "dia": 21,
+      "asset": 1,
+      "color": "rosa-1"
+    },
+    {
+      "mes": 3,
+      "dia": 22,
+      "asset": 1,
+      "color": "verde-1"
+    },
+    {
+      "mes": 3,
+      "dia": 24,
+      "asset": 1,
+      "color": "violeta-1"
+    },
+    {
+      "mes": 3,
+      "dia": 26,
+      "texto": "Día del Mercosur Tratado de Asunción"
+    },
+    {
+      "mes": 3,
+      "dia": 27,
+      "asset": 1,
+      "color": "verde-1"
+    },
+    {
+      "mes": 3,
+      "dia": 31,
+      "texto": "Día Nacional del Agua"
+    },
+    {
+      "mes": 4,
+      "dia": 2,
+      "asset": 1,
+      "color": "celeste-1"
+    },
+    {
+      "mes": 4,
+      "dia": 5,
+      "texto": "Día de la Batalla de Maipú"
+    },
+    {
+      "mes": 4,
+      "dia": 6,
+      "texto": "Día Mundial de la Actividad Física y Jueves Santo"
+    },
+    {
+      "mes": 4,
+      "dia": 7,
+      "asset": 1,
+      "color": "violeta-1"
+    },
+    {
+      "mes": 4,
+      "dia": 14,
+      "texto": "Día de la Constitución Provincial"
+    },
+    {
+      "mes": 4,
+      "dia": 15,
+      "texto": "Pascua Judía"
+    },
+    {
+      "mes": 4,
+      "dia": 16,
+      "texto": "Pascua Judía"
+    },
+    {
+      "mes": 4,
+      "dia": 19,
+      "asset": 1,
+      "color": "rosa-1"
+    },
+    {
+      "mes": 4,
+      "dia": 22,
+      "asset": 1,
+      "color": "verde-1"
+    },
+    {
+      "mes": 4,
+      "dia": 23,
+      "texto": "Día Internacional del Libro y Día Internacional del Idioma"
+    },
+    {
+      "mes": 4,
+      "dia": 24,
+      "texto": "Día de la Acción por la Tolerancia y el Respeto entre los Pueblos"
+    },
+    {
+      "mes": 4,
+      "dia": 29,
+      "asset": 1,
+      "color": "rosa-1",
+      "texto": "Día del animal"
+    },
+    {
+      "mes": 4,
+      "dia": 30,
+      "texto": "1° Ronda de las Madres de Plaza de Mayo"
+    },
+    {
+      "mes": 5,
+      "dia": 1,
+      "asset": 1,
+      "color": "rosa-1"
+    },
+    {
+      "mes": 5,
+      "dia": 2,
+      "texto": "Promesa de Lealtad a la Constitución Nacional<br><br>Día Internacional contra el acoso escolar"
+    },
+    {
+      "mes": 5,
+      "dia": 11,
+      "asset": 1,
+      "color": "celeste-1"
+    },
+    {
+      "mes": 5,
+      "dia": 17,
+      "asset": 1,
+      "color": "verde-1"
+    },
+    {
+      "mes": 5,
+      "dia": 18,
+      "asset": 1,
+      "color": "rojo-1"
+    },
+    {
+      "mes": 5,
+      "dia": 24,
+      "asset": 1,
+      "color": "rosa-1"
+    },
+    {
+      "mes": 5,
+      "dia": 25,
+      "asset": 1,
+      "color": "violeta-1"
+    },
+    {
+      "mes": 5,
+      "dia": 28,
+      "texto": "Día Nacional de los Jardines de Infantes y de las/los Maestras/os Jardineras/os"
+    },
+    {
+      "mes": 5,
+      "dia": 30,
+      "texto": "Día Nacional de la Donación de Órganos y Tejidos"
+    },
+    {
+      "mes": 6,
+      "dia": 3,
+      "asset": 1,
+      "color": "violeta-1"
+    },
+    {
+      "mes": 6,
+      "dia": 5,
+      "texto": "Día Mundial del Medioambiente"
+    },
+    {
+      "mes": 6,
+      "dia": 10,
+      "texto": "Afirmación de los Derechos Argentinos sobre las Malvinas, Islas y Sector Antártico y Día del Periodista"
+    },
+    {
+      "mes": 6,
+      "dia": 12,
+      "asset": 1,
+      "color": "naranja-1"
+    },
+    {
+      "mes": 6,
+      "dia": 15,
+      "asset": 1,
+      "color": "rosa-1"
+    },
+    {
+      "mes": 6,
+      "dia": 17,
+      "asset": 1,
+      "color": "rojo-1"
+    },
+    {
+      "mes": 6,
+      "dia": 20,
+      "asset": 1,
+      "color": "violeta-1"
+    },
+    {
+      "mes": 6,
+      "dia": 21,
+      "texto": "Día de la Ancianidad, Día de la Confraternidad Antártica y Año Nuevo de los Pueblos Originarios"
+    },
+    {
+      "mes": 6,
+      "dia": 22,
+      "texto": "Gol del siglo"
+    },
+    {
+      "mes": 6,
+      "dia": 25,
+      "texto": "Invasiones Inglesas"
+    },
+    {
+      "mes": 7,
+      "dia": 7,
+      "texto": "Día de la Conservación del Suelo"
+    },
+    {
+      "mes": 7,
+      "dia": 8,
+      "asset": 1,
+      "color": "violeta-1"
+    },
+    {
+      "mes": 7,
+      "dia": 9,
+      "asset": 1,
+      "color": "celeste-1"
+    },
+    {
+      "mes": 7,
+      "dia": 16,
+      "texto": "Día de los intereses Argentinos en el Mar"
+    },
+    {
+      "mes": 7,
+      "dia": 18,
+      "texto": "Atentado en la AMIA"
+    },
+    {
+      "mes": 7,
+      "dia": 24,
+      "asset": 1,
+      "color": "rosa-1"
+    },
+    {
+      "mes": 7,
+      "dia": 29,
+      "texto": "Día de la Cultura Nacional"
+    },
+    {
+      "mes": 7,
+      "dia": 30,
+      "texto": "Año Nuevo Islámico y Día Mundial contra la Trata de Personas"
+    },
+    {
+      "mes": 8,
+      "dia": 2,
+      "texto": "Día de la Escuela Pública Digna y Segura"
+    },
+    {
+      "mes": 8,
+      "dia": 6,
+      "asset": 1,
+      "color": "violeta-1"
+    },
+    {
+      "mes": 8,
+      "dia": 8,
+      "texto": "Provincialización del Territorio Nacional del Chaco"
+    },
+    {
+      "mes": 8,
+      "dia": 9,
+      "texto": "Día de la Educación Especial  Día Internacional de los Pueblos Originarios"
+    },
+    {
+      "mes": 8,
+      "dia": 11,
+      "asset": 1,
+      "color": "naranja-1"
+    },
+    {
+      "mes": 8,
+      "dia": 12,
+      "texto": "Día de la Reconquista de Buenos Aires"
+    },
+    {
+      "mes": 8,
+      "dia": 17,
+      "asset": 1,
+      "color": "celeste-1"
+    },
+    {
+      "mes": 8,
+      "dia": 20,
+      "asset": 1,
+      "color": "rojo-1"
+    },
+    {
+      "mes": 8,
+      "dia": 22,
+      "asset": 1,
+      "color": "rosa-1"
+    },
+    {
+      "mes": 8,
+      "dia": 26,
+      "texto": "Día Internacional Contra el Dengue"
+    },
+    {
+      "mes": 8,
+      "dia": 29,
+      "asset": 1,
+      "color": "verde-1"
+    },
+    {
+      "mes": 8,
+      "dia": 31,
+      "texto": "Día Internacional de la Solidaridad"
+    },
+    {
+      "mes": 9,
+      "dia": 2,
+      "texto": "Día de la Industria"
+    },
+    {
+      "mes": 9,
+      "dia": 4,
+      "asset": 1,
+      "color": "rojo-1"
+    },
+    {
+      "mes": 9,
+      "dia": 8,
+      "asset": 1,
+      "color": "azul-1"
+    },
+    {
+      "mes": 9,
+      "dia": 11,
+      "asset": 1,
+      "color": "naranja-1"
+    },
+    {
+      "mes": 9,
+      "dia": 17,
+      "asset": 1,
+      "color": "celeste-1"
+    },
+    {
+      "mes": 9,
+      "dia": 21,
+      "texto": "Día Internacional de la Paz y Día de la Recreación"
+    },
+    {
+      "mes": 9,
+      "dia": 23,
+      "asset": 1,
+      "color": "violeta-1"
+    },
+    {
+      "mes": 9,
+      "dia": 27,
+      "asset": 1,
+      "color": "rosa-1"
+    },
+    {
+      "mes": 10,
+      "dia": 2,
+      "asset": 1,
+      "color": "violeta-1"
+    },
+    {
+      "mes": 10,
+      "dia": 5,
+      "asset": 1,
+      "color": "naranja-1"
+    },
+    {
+      "mes": 10,
+      "dia": 8,
+      "asset": 1,
+      "color": "celeste-1",
+      "texto": "Día del Estudiante Solidario"
+    },
+    {
+      "mes": 10,
+      "dia": 12,
+      "asset": 1,
+      "color": "rojo-1"
+    },
+    {
+      "mes": 10,
+      "dia": 15,
+      "texto": "Día de los Cooperadores Escolares y Día Mundial del Lavado de Manos"
+    },
+    {
+      "mes": 10,
+      "dia": 22,
+      "asset": 1,
+      "color": "violeta-1"
+    },
+    {
+      "mes": 10,
+      "dia": 24,
+      "texto": "Día de las Naciones Unidas y Día Internacional contra el Cambio Climático"
+    },
+    {
+      "mes": 10,
+      "dia": 30,
+      "texto": "Día de Recuperación de la Democracia"
+    },
+    {
+      "mes": 10,
+      "dia": 29,
+      "asset": 1,
+      "color": "rosa-1"
+    },
+    {
+      "mes": 11,
+      "dia": 2,
+      "texto": "Día de los Muertos por la Patria y del Soldado Desconocido"
+    },
+    {
+      "mes": 11,
+      "dia": 4,
+      "asset": 1,
+      "color": "naranja-1"
+    },
+    {
+      "mes": 11,
+      "dia": 6,
+      "texto": "Día de los Parques Nacionales"
+    },
+    {
+      "mes": 11,
+      "dia": 8,
+      "asset": 1,
+      "color": "rojo-1"
+    },
+    {
+      "mes": 11,
+      "dia": 10,
+      "asset": 1,
+      "color": "rosa-1"
+    },
+    {
+      "mes": 11,
+      "dia": 13,
+      "texto": "Día del Pensamiento Nacional"
+    },
+    {
+      "mes": 11,
+      "dia": 19,
+      "texto": "Día Mundial para la prevención del Abuso Infantil"
+    },
+    {
+      "mes": 11,
+      "dia": 20,
+      "asset": 1,
+      "color": "violeta-1"
+    },
+    {
+      "mes": 11,
+      "dia": 22,
+      "asset": 1,
+      "color": "violeta-1"
+    },
+    {
+      "mes": 11,
+      "dia": 23,
+      "texto": "Día de la Defensa Civil"
+    },
+    {
+      "mes": 11,
+      "dia": 25,
+      "asset": 1,
+      "color": "rosa-1"
+    },
+    {
+      "mes": 11,
+      "dia": 29,
+      "asset": 1,
+      "color": "naranja-1"
+    },
+    {
+      "mes": 12,
+      "dia": 2,
+      "asset": 1,
+      "color": "celeste-1"
+    },
+    {
+      "mes": 12,
+      "dia": 10,
+      "asset": 1,
+      "color": "violeta-1"
+    },
+    {
+      "mes": 12,
+      "dia": 14,
+      "texto": "Sanción de la Ley Nacional de Educación 26206"
+    },
+    {
+      "mes": 12,
+      "dia": 18,
+      "asset": 1,
+      "color": "naranja-1"
+    },
+    {
+      "mes": 12,
+      "dia": 25,
+      "texto": "Navidad"
+    },
+    {
+      "mes": 12,
+      "dia": 26,
+      "asset": 1,
+      "color": "rojo-1"
+    },
+    {
+      "mes": 12,
+      "dia": 31,
+      "asset": 1,
+      "color": "verde-1"
+    }
+  ]
+}

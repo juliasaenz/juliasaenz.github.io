@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>El Asombroso Calendario de Zamba</title>
+    <link
+      rel="stylesheet"
+      id="et-builder-googlefonts-cached-css"
+      href="https://fonts.googleapis.com/css?family=Rubik:300,regular,500,600,700,800,900,300italic,italic,500italic,600italic,700italic,800italic,900italic&#038;subset=latin,latin-ext&#038;display=swap"
+      type="text/css"
+      media="all"
+    />
+    <link rel="stylesheet" href="./style/variables.css" />
+    <link rel="stylesheet" href="./style/main.css" />
+    <link rel="stylesheet" href="./style/coloresDias.css" />
+    <link rel="stylesheet" href="./style/fondos.css" />
+    <link rel="stylesheet" href="./style/eventos.css" />
+  </head>
+  <body>
+    <header>
+      <a href="index.html">
+        <img src="./assets/logos/logoCalendario.svg" href="index.html" id="logoCalendario" />
+      </a>
+      <div id="anio">Año</div>
+      <div id="mesAnterior" class="boton-navegacion"><img src="assets/generales/anterior.svg" /></div>
+      <div id="vistas">
+        <div id="verComoMes" class="view-selected">Mes</div>
+        <div id="verComoSemana" class="">Semana</div>
+      </div>
+      <div id="mesSiguiente" class="boton-navegacion"><img src="assets/generales/siguiente.svg" /></div>
+    </header>
+    <div id="container" class="container"></div>
+    <div id="popup">
+      <div id="popup-contenido">
+        <div class="fecha">
+          <div class="fecha1"><span class="texto">3 de junio</span></div>
+          <div class="fecha2"><span class="texto">3 de junio</span></div>
+          <div class="fecha3"><span class="texto">3 de junio</span></div>
+        </div>
+        <div class="descripcion"># Ni Una Menos</div>
+        <div class="ver-video">
+          <a href="#"><img src="assets/generales/ver-video.svg" /></a>
+        </div>
+        <div class="ver-contexto">
+          <a href="#"><img src="assets/generales/contexto-docentes.svg" /></a>
+        </div>
+        <div class="ver-actividad">
+          <a href="#"><img src="assets/generales/actividades-aula.svg" /></a>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <div>
+        <a href="https://www.argentina.gob.ar/jefatura/contenidos-publicos"><img src="assets/generales/logo-contenidos-publicos.svg" /></a>
+      </div>
+      <div>
+        <a href="https://www.pakapaka.gob.ar/"><img src="assets/generales/logo-pakapaka.svg" /></a>
+      </div>
+      <div>
+        <a href="https://www.tvpublica.com.ar/programa/el-asombroso-mundo-de-zamba/"><img src="assets/generales/logo-asombroso-mundo-de-zamba.svg" /></a>
+      </div>
+    </footer>
+
+    <script src="scripts/code.jquery.com_jquery-3.7.0.min.js"></script>
+    <script src="scripts/imagesloaded.pkgd.min.js"></script>
+    <script src="scripts/velocity.min.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/MotionPathPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/CustomEase.min.js"></script>
+    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/velocity/2.0.5/velocity.ui.min.js"></script> -->
+
+    <script src="./scripts/funciones.js"></script>
+    <script src="./scripts/fechas.js"></script>
+    <script src="./script.js"></script>
+    <script src="./scripts/animaciones.js"></script>
+  </body>
+</html>

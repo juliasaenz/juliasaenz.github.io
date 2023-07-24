@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="90" height="45" fill="none" viewBox="0 0 90 45">
+  <g class="Logo PakaPaka">
+    <path fill="#219C6E" d="M11.916 0H0v10.624h6.604V5.312h5.312V0Z" class="&lt;Path&gt;"/>
+    <path fill="#3B62AD" d="M11.916 15.936h3.876V0h-3.876v15.936Z" class="&lt;Path&gt;"/>
+    <path fill="#ED326A" d="M11.916 10.624H0v10.48h6.604v-5.168h5.312v-5.312Z" class="&lt;Path&gt;"/>
+    <path fill="#FABC11" d="M21.966 10.624V5.312h-4.02v10.624h9.332v-5.312h-5.312Z" class="&lt;Path&gt;"/>
+    <path fill="#EC3024" d="M17.946 0v5.312h9.332v5.312h6.604V0H17.946Z" class="&lt;Path&gt;"/>
+    <path fill="#17BCE8" d="M33.882 21.104h-6.604v-10.48h6.604v10.48Z" class="&lt;Path&gt;"/>
+    <path fill="#3B62AD" d="M17.946 15.936h4.02v5.168h-4.02v-5.168Zm24.694 5.168h-6.605V0h6.604v21.104Z" class="&lt;Path&gt;"/>
+    <g class="&lt;Group&gt;">
+      <path fill="#FABC11" d="m47.52 8.327-.143.144-3.59 5.168 3.877 7.465h6.317l-6.46-12.777Z" class="&lt;Path&gt;"/>
+    </g>
+    <path fill="#EC3024" d="M42.64 15.218 53.12 0h-5.887L42.64 6.604v8.614Z" class="&lt;Path&gt;"/>
+    <path fill="#ED326A" d="m60.729 38.62 10.48-15.218h-5.886l-4.594 6.604v8.614Z" class="&lt;Path&gt;"/>
+    <path fill="#17BCE8" d="M64.748 0h-9.331v15.936h4.02V5.312h5.311V0Z" class="&lt;Path&gt;"/>
+    <path fill="#EC3024" d="M71.353 21.104h-6.605V0h6.605v21.104Z" class="&lt;Path&gt;"/>
+    <path fill="#219C6E" d="M59.437 21.104h-4.02v-5.168h4.02v5.168Z" class="&lt;Path&gt;"/>
+    <g class="&lt;Group&gt;">
+      <path fill="#F26E24" d="M64.748 15.936h-5.312v-5.312h5.312v5.312Z" class="&lt;Path&gt;"/>
+    </g>
+    <path fill="#219C6E" d="M24.693 44.506h-6.747V28.713h6.747v15.793Z" class="&lt;Path&gt;"/>
+    <path fill="#3B62AD" d="M27.278 28.713h-9.332v-5.312h9.332v5.313Z" class="&lt;Path&gt;"/>
+    <path fill="#219C6E" d="M27.278 28.713h6.604v-5.312h-6.604v5.313Z" class="&lt;Path&gt;"/>
+    <path fill="#ED326A" d="M29.862 28.713v5.169h-5.169v5.312h9.189v-10.48h-4.02Z" class="&lt;Path&gt;"/>
+    <path fill="#3B62AD" d="M40.055 44.506h-4.02v-5.312h4.02v5.312Z" class="&lt;Path&gt;"/>
+    <path fill="#EC3024" d="M45.367 23.401h-9.332v15.793h4.02v-10.48h5.312V23.4Z" class="&lt;Path&gt;"/>
+    <path fill="#17BCE8" d="M51.971 44.506h-6.604V23.4h6.604v21.105Z" class="&lt;Path&gt;"/>
+    <path fill="#FABC11" d="M45.367 39.194h-5.312v-5.312h5.312v5.312Z" class="&lt;Path&gt;"/>
+    <g class="&lt;Group&gt;">
+      <path fill="#F26E24" d="M60.729 44.506h-6.604V23.4h6.604v21.105Z" class="&lt;Path&gt;"/>
+    </g>
+    <g class="&lt;Group&gt;">
+      <path fill="#3B62AD" d="m65.61 31.585-.144.143-3.589 5.169 3.876 7.609h6.174L65.61 31.585Z" class="&lt;Path&gt;"/>
+    </g>
+    <path fill="#3B62AD" d="M89.298 44.506h-6.604V33.882h6.604v10.624Z" class="&lt;Path&gt;"/>
+    <path fill="#219C6E" d="M73.506 23.401v5.313h9.188v5.168h6.604v-10.48H73.506Z" class="&lt;Path&gt;"/>
+    <path fill="#FABC11" d="M73.506 44.506h4.02v-5.312h-4.02v5.312Z" class="&lt;Path&gt;"/>
+    <path fill="#ED326A" d="M77.526 33.882v-5.169h-4.02v10.48h9.188v-5.311h-5.168Z" class="&lt;Path&gt;"/>
+  </g>
+</svg>

@@ -1,0 +1,53 @@
+.pagina {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  padding-bottom: 5em;
+}
+
+.pagina.enero {
+  background-image: url("../assets/fondoMes/enero.svg");
+}
+
+.pagina.febrero {
+  background-image: url("../assets/fondoMes/febrero.svg");
+}
+
+.pagina.marzo {
+  background-image: url("../assets/fondoMes/marzo.svg");
+}
+
+.pagina.abril {
+  background-image: url("../assets/fondoMes/abril.svg");
+}
+
+.pagina.mayo {
+  background-image: url("../assets/fondoMes/mayo.svg");
+}
+.pagina.junio {
+  background-image: url("../assets/fondoMes/junio.svg");
+}
+.pagina.julio {
+  background-image: url("../assets/fondoMes/julio.svg");
+}
+
+.pagina.agosto {
+  background-image: url("../assets/fondoMes/agosto.svg");
+}
+
+.pagina.septiembre {
+  background-image: url("../assets/fondoMes/septiembre.svg");
+}
+
+.pagina.octubre {
+  background-image: url("../assets/fondoMes/octubre.svg");
+}
+
+.pagina.noviembre {
+  background-image: url("../assets/fondoMes/noviembre.svg");
+}
+
+.pagina.diciembre {
+  background-image: url("../assets/fondoMes/diciembre.svg");
+}

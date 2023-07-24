@@ -1,0 +1,405 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="435" height="610" fill="none" viewBox="0 0 435 610">
+  <g class="Property 1=febrero" clip-path="url(#a)">
+    <path fill="#fff" d="M0 0h435v610H0z"/>
+    <g class="Fondo" clip-path="url(#b)">
+      <path fill="#FDFDFD" d="M0 0h435v610H0z"/>
+      <path fill="#F180B3" d="M448 587.1H3V-23h445v610.1Z" class="fondo"/>
+      <g class="ondas">
+        <path fill="#ED4A97" d="M-196.95 867.57c57.6-56.3 187.8-182.1 245.5-237.9 9.5-9.2 2.7-24.7-10.7-24.7-24.6 0-57.2.1-81.9.2-13.5.1-9.2-26.6.3-35.8l345.1-334.6c.2-.2 107.1-84 .4-51.7l-92.4-48c0 .3-153.2 151.7-153.4 152l-287.6 279.4c-9.4 9.2-2.6 24.7 10.9 24.7 24.7-.1 57.3-.3 81.9-.2 13.4 0 20.2 15.5 10.8 24.6-57.7 55.9-199.1 192.8-256.8 249.1l187.9 2.9Z" class="&lt;Path&gt;"/>
+        <path stroke="#FDFDFD" stroke-linecap="round" stroke-width="2" d="m364.15 23.17 64.5-57.3" class="&lt;Path&gt;" opacity=".1"/>
+        <path fill="#F39CC2" d="M-121.05 386.87c46.2-42.1 144.9-200.5 191.1-242.2 7.6-6.9 2.2-18.5-8.6-18.5-19.7 0 29.2 2.1 9.4 2.2-10.8 0-16.3-11.6-8.7-18.5l230.5-209c.2-.2.3-.433.3-.7l-150.6-2.1c0 .2-21.6.5-21.8.7l-137.3 77.1-93.3 131.9c-7.6 6.9 19.4 18.5 30.2 18.4 19.9 0 46-.1 65.7-.1 10.8 0 16.2 11.6 8.6 18.5-46.2 41.7-159.6 144.2-205.8 186.3l90.3 56Z" class="&lt;Path&gt;"/>
+        <path fill="#ED4A97" d="M32.15 409.17c46.2-42.1 219.9-198.4 266.2-240.2 7.5-6.8 2.1-18.5-8.7-18.5-19.7 0-74.4.1-94.3.2-10.8 0-16.2-11.6-8.7-18.5l230.6-209c.2-.2-17.5-.4-17.5-.7 0 0-189.7-1.6-189.9-1.4l-233.5 209c-7.6 6.9 33.8 18.5 44.6 18.4 19.9 0-21.3-.1-1.6-.1 10.8 0 4.3 11.6-3.2 18.5-46.3 41.7-107.2 144.2-153.5 186.3l169.5 56Z" class="&lt;Path&gt;"/>
+        <path fill="#F180B3" d="M333.05 615.27c56.7-51.7 212.5-193.7 269.2-245 9.3-8.4 2.6-22.6-10.6-22.6-24.2-.1-115.4 0-139.8.1-13.2.1-19.9-14.2-10.6-22.6l282.8-256.4c.2-.2.4-.6.4-.9l-184.8-2.6c0 .3-.1.6-.4.8l-282.8 256.5c-9.3 8.4-2.6 22.6 10.6 22.6 24.4-.1 14.8-.2 39-.2 13.3 0 19.9 14.3 10.6 22.7-56.7 51.2-212.5 193.3-269.2 245l285.6 2.6Z" class="&lt;Path&gt;"/>
+        <path stroke="#FDFDFD" stroke-linecap="round" stroke-width="5.4" d="m241.85 527.47 83.4-74.2" class="&lt;Path&gt;" opacity=".2"/>
+        <path fill="#F39CC2" d="M407.35 643.37c28.8-26.2 99.3-89.9 128.1-115.9 4.7-4.3 1.3-11.5-5.4-11.5-12.3 0-52.3 0-64.6.1-6.7 0-10.1-7.2-5.4-11.5l143.4-130.1c.133-.133.233-.267.3-.4l-93.8-1.3c0 .133-.067.267-.2.4l-143.4 130c-4.8 4.3-1.3 11.6 5.4 11.5 12.3 0 28.6-.1 40.8-.1 6.8 0 10.1 7.3 5.4 11.5-28.8 26-99.3 89.8-128.1 116l117.5 1.3Z" class="&lt;Path&gt;"/>
+        <path fill="#F180B3" d="M-64.55 276.97c34.9-31.8 211.3-200.4 246.3-231.9 5.7-5.2 1.6-14-6.5-14-14.9 0-34.7.1-49.7.1-8.1 0-12.3-8.7-6.5-13.9l144.3-130.5c.2-.133.3-.3.3-.5l-113.9-1.7c0 .2-.067.4-.2.6l-174.2 157.9c-5.8 5.2-1.6 14 6.5 14 15-.1 37.7-.1 52.6-.1 8.2 0 12.3 8.7 6.6 13.9-35 31.6-123.7 109-158.6 140.8l53 65.3Zm739.2-489.5-32.9-88.8c0 .3-149.3 151.7-149.5 152l-359.1 323.4c-10.1 9.2-2.8 24.7 11.6 24.7 26.5-.1 25.8-.2 52.2-.2 14.4 0 21.7 15.5 11.5 24.6-60.1 54.3-244.6 220.4-244.6 220.4-4.7 4.2-1.3 11.5 5.4 11.4 12.3 0 61.2.2 73.5.2 6.7 0 9.6 6.7 5.4 11.5-9.7 11.2-134.1 123.9-134.1 123.9l74.7 26c9.8-8.9 16.1 15.9 35.2-.6l68.2-63.5c61.8-56.3 333.4-314.6 395.3-370.4 10.1-9.2-17.9-24.7-32.4-24.7-26.3 0-88 .1-114.5.2-14.4.1-21.7-15.5-11.6-24.6l369.9-334.6c.2-.2 90.2-43.2-24.2-10.9Z" class="&lt;Path&gt;"/>
+        <path fill="#ED4A97" d="M218.15 563.97c45.6-41.6 142.7-142.7 188.4-184 7.5-6.7 2.2-18.2-8.5-18.2-19.5 0-45.3.1-64.9.1-10.6.1-1.2-11.4 6.3-18.2l227.7-212.4c.2-.2.3 5.6.3 5.3l-87.1-57c0 .3-335.7 301.2-335.7 301.2-7.4 6.8-2 18.3 8.6 18.3 19.6-.1 45.4-.2 64.9-.2 10.6 0 16 11.5 8.5 18.2-14.1 12.8-34.6 31.3-57.4 51.9-7.9 7.1-16 14.5-24.3 21.9-45.5 41.2-203.8 193.5-203.8 193.5l142.1.7 134.9-121.1Z" class="&lt;Path&gt;"/>
+      </g>
+      <g class="decorados">
+        <path fill="#FDFDFD" d="M138.75 238.47c0 .9-.8 1.6-1.7 1.6-.9 0-1.7-.7-1.7-1.6 0-1 .8-1.7 1.7-1.7.9 0 1.7.7 1.7 1.7Z" class="&lt;Path&gt;"/>
+        <path fill="#F39CC2" d="M222.85 145.87c0 .7-.5 1.3-1.2 1.3s-1.2-.6-1.2-1.3c0-.6.5-1.2 1.2-1.2s1.2.6 1.2 1.2Z" class="&lt;Path&gt;"/>
+        <path stroke="#FDFDFD" stroke-linecap="round" stroke-width="5.6" d="m384.05 119.97 64.3-61" class="&lt;Path&gt;" opacity=".2"/>
+        <path stroke="#FDFDFD" stroke-linecap="round" stroke-width="4.8" d="m206.95 32.47 92.4-89" class="&lt;Path&gt;" opacity=".2"/>
+        <path stroke="#FDFDFD" stroke-linecap="round" stroke-width="8.3" d="m377.95 266.17 112.6-105.2" class="&lt;Path&gt;" opacity=".2"/>
+        <path stroke="#FDFDFD" stroke-linecap="round" stroke-width="2.9" d="m369.55 33.07 38.6-35.5" class="&lt;Path&gt;" opacity=".2"/>
+        <g class="&lt;Group&gt;">
+          <path fill="#F39CC2" d="M414.05 22.07c-.3-.9.3-1.8 1.1-2 .9-.2 1.8.3 2.1 1.2.2.9-.3 1.8-1.2 2-.9.2-1.8-.3-2-1.2Z" class="&lt;Path&gt;"/>
+        </g>
+        <g class="&lt;Group&gt;">
+          <path fill="#F39CC2" d="M381.35 140.77c-.3-.9.2-1.8 1.1-2 .9-.3 1.8.3 2.1 1.2.2.8-.3 1.7-1.2 2-.9.2-1.8-.3-2-1.2Z" class="&lt;Path&gt;"/>
+        </g>
+        <g class="&lt;Group&gt;">
+          <path fill="#F180B3" d="M405.75 219.07c-.2-.6.1-1.1.7-1.3.5-.1 1.1.2 1.3.8.1.5-.2 1.1-.8 1.2-.5.2-1.1-.1-1.2-.7Z" class="&lt;Path&gt;"/>
+        </g>
+        <g class="&lt;Group&gt;">
+          <path fill="#F180B3" d="M217.85 299.17c-.2-.7.2-1.4 1-1.6.7-.2 1.4.2 1.6.9.2.8-.2 1.5-.9 1.7-.8.2-1.5-.2-1.7-1Z" class="&lt;Path&gt;"/>
+        </g>
+        <g class="&lt;Group&gt;">
+          <path fill="#F180B3" d="M359.65 529.67c-.2-.7.2-1.4.9-1.6.8-.2 1.5.2 1.7.9.2.8-.2 1.5-1 1.7-.7.2-1.4-.2-1.6-1Z" class="&lt;Path&gt;"/>
+        </g>
+        <g class="&lt;Group&gt;">
+          <path fill="#ED4A97" d="M368.65 446.37c-.3-1 .3-2 1.3-2.3 1-.3 2.1.3 2.3 1.3.3 1-.3 2.1-1.3 2.4-1 .2-2.1-.4-2.3-1.4Z" class="&lt;Path&gt;"/>
+        </g>
+        <path stroke="#FDFDFD" stroke-linecap="round" stroke-width="8.3" d="m-40.35 299.37 95.3-88.9m-73.2 377.1 101.6-94.9" class="&lt;Path&gt;" opacity=".2"/>
+        <g class="&lt;Group&gt;">
+          <g class="&lt;Group&gt;">
+            <path fill="#F39CC2" d="M150.15 75.77a2.81 2.81 0 0 1-.1-3.9c1.1-1.1 2.9-1.1 4-.1 1.1 1.1 1.1 2.9 0 4s-2.8 1.1-3.9 0Z" class="&lt;Path&gt;"/>
+            <path fill="#F39CC2" d="M150.15 75.77a2.81 2.81 0 0 1-.1-3.9c1.1-1.1 2.9-1.1 4-.1 1.1 1.1 1.1 2.9 0 4s-2.8 1.1-3.9 0Z" class="&lt;Path&gt;"/>
+            <g class="&lt;Group&gt;" style="mix-blend-mode:multiply">
+              <g class="&lt;Group&gt;">
+                <path fill="#FDFDFD" d="M153.45 72.97c.6.7 1.1 1.4 1 2.2.6-1 .5-2.5-.4-3.4-1.1-1-2.9-1-3.9.1-.3.2-.5.6-.7.9 1-.9 2.8-.9 4 .2Z" class="&lt;Path&gt;"/>
+              </g>
+            </g>
+          </g>
+        </g>
+        <path fill="#F39CC2" d="M138.75 238.47c0 .9-.8 1.6-1.7 1.6-.9 0-1.7-.7-1.7-1.6 0-1 .8-1.7 1.7-1.7.9 0 1.7.7 1.7 1.7Z" class="&lt;Path&gt;"/>
+        <path fill="#F180B3" d="M140.95 434.87c0 .9-.8 1.7-1.7 1.7-.9 0-1.6-.8-1.6-1.7 0-.9.7-1.7 1.6-1.7.9 0 1.7.8 1.7 1.7Z" class="&lt;Path&gt;"/>
+        <path fill="#F39CC2" d="M53.15 283.07c0 .9-.8 1.7-1.7 1.7-.9 0-1.7-.8-1.7-1.7 0-.9.8-1.6 1.7-1.6.9 0 1.7.7 1.7 1.6Zm153.1 286.1c0 .9-.8 1.7-1.7 1.7-.9 0-1.7-.8-1.7-1.7 0-.9.8-1.7 1.7-1.7.9 0 1.7.8 1.7 1.7Zm178.1 18.6c0 .9-.7 1.6-1.6 1.6-1 0-1.7-.7-1.7-1.6 0-1 .7-1.7 1.7-1.7.9 0 1.6.7 1.6 1.7Z" class="&lt;Path&gt;"/>
+        <path fill="#F180B3" d="M387.15 223.97c0 .8-.7 1.5-1.5 1.5s-1.5-.7-1.5-1.5.7-1.5 1.5-1.5 1.5.7 1.5 1.5Z" class="&lt;Path&gt;"/>
+        <path fill="#F39CC2" d="M307.95 227.77c0 .9-.8 1.7-1.7 1.7-.9 0-1.7-.8-1.7-1.7 0-.9.8-1.7 1.7-1.7.9 0 1.7.8 1.7 1.7Z" class="&lt;Path&gt;"/>
+        <path fill="#F180B3" d="M71.95 102.37c0 1-.8 1.8-1.8 1.8s-1.8-.8-1.8-1.8.8-1.8 1.8-1.8 1.8.8 1.8 1.8Zm-56.8 236c0 1-.8 1.8-1.8 1.8-.9 0-1.7-.8-1.7-1.8s.8-1.8 1.7-1.8c1 0 1.8.8 1.8 1.8Zm157.6 152.2c0 1-.8 1.8-1.8 1.8s-1.8-.8-1.8-1.8.8-1.8 1.8-1.8 1.8.8 1.8 1.8Zm195.3-406.8c0 .7-.5 1.2-1.2 1.2-.6 0-1.2-.5-1.2-1.2s.6-1.2 1.2-1.2c.7 0 1.2.5 1.2 1.2Zm-218.3-63.1c0 .7-.5 1.2-1.2 1.2-.6 0-1.2-.5-1.2-1.2 0-.6.6-1.2 1.2-1.2.7 0 1.2.6 1.2 1.2Zm-96.5 11.5c0 .7-.5 1.2-1.2 1.2s-1.2-.5-1.2-1.2.5-1.2 1.2-1.2 1.2.5 1.2 1.2Zm39.3 139.5c0 .7-.6 1.2-1.3 1.2-.6 0-1.2-.5-1.2-1.2s.6-1.2 1.2-1.2c.7 0 1.3.5 1.3 1.2Z" class="&lt;Path&gt;"/>
+        <path fill="#ED4A97" d="M98.95 507.27c0 .6-.5 1.2-1.2 1.2s-1.2-.6-1.2-1.2c0-.7.5-1.3 1.2-1.3s1.2.6 1.2 1.3Z" class="&lt;Path&gt;"/>
+        <path stroke="#FDFDFD" stroke-linecap="round" stroke-width="1.1" d="m28.25 21.17 30.3-29.6m-63.4 189.1 28.9-25.8" class="&lt;Path&gt;" opacity=".2"/>
+        <path stroke="#FDFDFD" stroke-linecap="round" stroke-width=".9" d="m372.25 15.87 19.8-16.8" class="&lt;Path&gt;" opacity=".2"/>
+        <path stroke="#FDFDFD" stroke-linecap="round" stroke-width="1.5" d="m160.35 317.27 50-44.5" class="&lt;Path&gt;" opacity=".2"/>
+        <path stroke="#FDFDFD" stroke-linecap="round" stroke-width="1.8" d="m419.05 311.27 49.9-44m-491.1 124.3 43.8-39.2m363.7 176.6 76.7-65.8" class="&lt;Path&gt;" opacity=".2"/>
+        <path stroke="#FDFDFD" stroke-linecap="round" stroke-width="1.2" d="m210.35 404.27 33.9-29.1" class="&lt;Path&gt;" opacity=".2"/>
+        <path stroke="#FDFDFD" stroke-linecap="round" stroke-width="1.1" d="m41.75 491.07 29.3-28.3" class="&lt;Path&gt;" opacity=".2"/>
+        <path stroke="#FDFDFD" stroke-linecap="round" stroke-width="5.7" d="m64.45 51.97 92.4-89" class="&lt;Path&gt;" opacity=".2"/>
+        <path stroke="#FDFDFD" stroke-linecap="round" stroke-width="1.1" d="m417.05 210.77 22-18" class="&lt;Path&gt;" opacity=".2"/>
+        <path stroke="#FDFDFD" stroke-linecap="round" stroke-width="5.7" d="m399.25 587.77 89.5-89" class="&lt;Path&gt;" opacity=".2"/>
+        <path stroke="#FDFDFD" stroke-linecap="round" stroke-width="7" d="m120.75 581.47 94.9-93.4" class="&lt;Path&gt;" opacity=".2"/>
+      </g>
+    </g>
+    <g class="decorado" clip-path="url(#c)">
+      <g class="&lt;Group&gt;">
+        <path fill="#6A4C9E" d="m436.243 240.501-19.644.884 1.862 9.226 17.782-10.11Z" class="&lt;Path&gt;"/>
+        <path fill="#512E8D" d="m416.599 241.385 3.531 4.386-1.669 4.84-1.862-9.226Z" class="&lt;Path&gt;"/>
+        <path fill="#9B82BB" d="m436.243 240.501-16.113 5.27-1.669 4.84 17.782-10.11Z" class="&lt;Path&gt;"/>
+      </g>
+      <g class="&lt;Group&gt;">
+        <g class="&lt;Group&gt;">
+          <g class="&lt;Group&gt;">
+            <g class="&lt;Group&gt;" opacity=".4">
+              <path fill="#050505" d="M410.974 501.1s-.7.7-1.4.1c0 0-.1.6-.9.8-.8.1-.9-.4-.9-.4s0 .6-.4.8c0 0 0 .4.3 1.5s.8 1.2.8 1.2-1 .4-1 1.1l-.4-.3-1.4-5 5.1-1.5.2 1.7Z" class="&lt;Path&gt;" opacity=".2" style="mix-blend-mode:multiply"/>
+            </g>
+          </g>
+        </g>
+        <g class="&lt;Group&gt;">
+          <g class="&lt;Group&gt;">
+            <g class="&lt;Group&gt;" opacity=".4">
+              <g class="&lt;Group&gt;" opacity=".2" style="mix-blend-mode:multiply">
+                <g class="&lt;Group&gt;">
+                  <path fill="#050505" d="M381.974 492.3s-.2 1 .7 1.3c0 0-.6.4-.3 1.2.2.8.8.6.8.6s-.6.3-.6.7c0 0-.3.2-1.4.5-1.1.3-1.5-.1-1.5-.1s.1 1-.4 1.3l.4.3 5-1.2-1.1-5.2-1.6.6Z" class="&lt;Path&gt;"/>
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+      <g class="&lt;Group&gt;">
+        <path fill="#DD4297" d="M88.774 172.1c.2-.7-.2-1.4-1-1.6-.7-.2-1.5.2-1.7.9-.2.8.3 1.5 1 1.7.7.2 1.5-.2 1.7-1Z" class="&lt;Path&gt;"/>
+      </g>
+      <g class="&lt;Group&gt;">
+        <path fill="#DD4297" d="M306.874 122.8c.2-.8-.2-1.5-.9-1.7-.8-.2-1.5.2-1.7 1-.2.7.2 1.4 1 1.6.7.2 1.4-.2 1.6-.9Z" class="&lt;Path&gt;"/>
+      </g>
+      <g class="&lt;Group&gt;">
+        <path fill="#7AC057" d="M46.277 27.363c2.2-2.1 2.2-5.6.1-7.7-2.1-2.2-5.6-2.2-7.7-.1-2.2 2.1-2.2 5.6-.1 7.7 2.1 2.2 5.6 2.2 7.7.1Z" class="&lt;Path&gt;"/>
+        <path fill="#7AC057" d="M46.277 27.363c2.2-2.1 2.2-5.6.1-7.7-2.1-2.2-5.6-2.2-7.7-.1-2.2 2.1-2.2 5.6-.1 7.7 2.1 2.2 5.6 2.2 7.7.1Z" class="&lt;Path&gt;"/>
+        <g class="&lt;Group&gt;" style="mix-blend-mode:multiply">
+          <g class="&lt;Group&gt;">
+            <path fill="#7AC057" d="M39.877 21.863c-1.3 1.3-2.4 2.6-2.2 4.4-1.1-2.1-.9-5 .9-6.7 2.2-2.1 5.6-2.1 7.7.1.5.4 1 1.3 1.3 1.8-1.9-1.7-5.5-1.8-7.7.4Z" class="&lt;Path&gt;"/>
+          </g>
+        </g>
+      </g>
+      <g class="&lt;Group&gt;">
+        <path fill="#7AC057" d="M154.806 364.433c2.61 1.562 5.983.631 7.449-1.952 1.562-2.609.632-5.983-1.951-7.449-2.61-1.562-5.984-.631-7.449 1.952-1.562 2.609-.632 5.983 1.951 7.449Z" class="&lt;Path&gt;"/>
+        <path fill="#7AC057" d="M154.806 364.433c2.61 1.562 5.983.631 7.449-1.952 1.562-2.609.632-5.983-1.951-7.449-2.61-1.562-5.984-.631-7.449 1.952-1.562 2.609-.632 5.983 1.951 7.449Z" class="&lt;Path&gt;"/>
+        <g class="&lt;Group&gt;" style="mix-blend-mode:multiply">
+          <g class="&lt;Group&gt;">
+            <path fill="#7AC057" d="M158.406 356.801c-1.599-.908-3.145-1.622-4.827-.951 1.732-1.619 4.58-2.197 6.698-.914 2.61 1.562 3.514 4.839 1.952 7.449-.253.588-.987 1.31-1.39 1.732 1.134-2.284.273-5.781-2.433-7.316Z" class="&lt;Path&gt;"/>
+          </g>
+        </g>
+      </g>
+      <g class="&lt;Group&gt;">
+        <path fill="#7AC057" d="M425.274 540.3c1.6-1.6 1.7-4.1.1-5.7-1.6-1.6-4.1-1.6-5.7-.1-1.6 1.6-1.7 4.2-.1 5.8 1.6 1.6 4.1 1.6 5.7 0Z" class="&lt;Path&gt;"/>
+        <path fill="#7AC057" d="M425.274 540.3c1.6-1.6 1.7-4.1.1-5.7-1.6-1.6-4.1-1.6-5.7-.1-1.6 1.6-1.7 4.2-.1 5.8 1.6 1.6 4.1 1.6 5.7 0Z" class="&lt;Path&gt;"/>
+        <g class="&lt;Group&gt;" style="mix-blend-mode:multiply">
+          <g class="&lt;Group&gt;">
+            <path fill="#7AC057" d="M420.574 536.2c-1 1-1.8 2-1.6 3.3-.8-1.6-.7-3.7.6-5 1.6-1.6 4.2-1.5 5.8.1.3.3.7.9.9 1.4-1.4-1.3-4.1-1.4-5.7.2Z" class="&lt;Path&gt;"/>
+          </g>
+        </g>
+      </g>
+      <g class="&lt;Group&gt;">
+        <path fill="#7AC057" d="M45.718 438.791c1.968 1.117 4.404.548 5.52-1.42a4.076 4.076 0 0 0-1.419-5.521c-1.968-1.117-4.5-.522-5.617 1.446s-.452 4.378 1.516 5.495Z" class="&lt;Path&gt;"/>
+        <path fill="#7AC057" d="M45.718 438.791c1.968 1.117 4.404.548 5.52-1.42a4.076 4.076 0 0 0-1.419-5.521c-1.968-1.117-4.5-.522-5.617 1.446s-.452 4.378 1.516 5.495Z" class="&lt;Path&gt;"/>
+        <g class="&lt;Group&gt;" style="mix-blend-mode:multiply">
+          <g class="&lt;Group&gt;">
+            <path fill="#7AC057" d="M48.42 433.17c-1.23-.698-2.407-1.204-3.607-.665 1.33-1.197 3.38-1.659 4.98-.752 1.968 1.117 2.563 3.65 1.446 5.618-.21.369-.681.914-1.11 1.24.88-1.695.259-4.325-1.71-5.441Z" class="&lt;Path&gt;"/>
+          </g>
+        </g>
+      </g>
+      <g class="&lt;Group&gt;">
+        <path fill="#7AC057" d="M58.774 509.6c1.6-1.6 1.6-4.2 0-5.8-1.5-1.5-4.1-1.6-5.7 0-1.6 1.6-1.6 4.1-.1 5.7 1.6 1.6 4.2 1.6 5.8.1Z" class="&lt;Path&gt;"/>
+        <path fill="#7AC057" d="M58.774 509.6c1.6-1.6 1.6-4.2 0-5.8-1.5-1.5-4.1-1.6-5.7 0-1.6 1.6-1.6 4.1-.1 5.7 1.6 1.6 4.2 1.6 5.8.1Z" class="&lt;Path&gt;"/>
+        <g class="&lt;Group&gt;" style="mix-blend-mode:multiply">
+          <g class="&lt;Group&gt;">
+            <path fill="#7AC057" d="M53.974 505.5c-1 1-1.7 1.9-1.6 3.2-.8-1.5-.7-3.6.7-4.9 1.6-1.6 4.1-1.6 5.7 0 .3.4.7 1 .9 1.4-1.4-1.3-4-1.3-5.7.3Z" class="&lt;Path&gt;"/>
+          </g>
+        </g>
+      </g>
+      <g class="&lt;Group&gt;">
+        <path fill="#74C3AE" d="M335.376 481.476c1.9-1.9 2-5 .1-7-1.9-1.9-5.1-1.9-7 0-1.9 1.9-2 5-.1 6.9 1.9 1.9 5.1 2 7 .1Z" class="&lt;Path&gt;"/>
+        <path fill="#52B5D6" d="M335.376 481.476c1.9-1.9 2-5 .1-7-1.9-1.9-5.1-1.9-7 0-1.9 1.9-2 5-.1 6.9 1.9 1.9 5.1 2 7 .1Z" class="&lt;Path&gt;"/>
+        <g class="&lt;Group&gt;" style="mix-blend-mode:multiply">
+          <g class="&lt;Group&gt;">
+            <path fill="#CACAC9" d="M329.576 476.476c-1.2 1.2-2.1 2.4-1.9 3.9-1-1.8-.8-4.4.8-6 1.9-1.9 5-1.8 6.9.1.4.4.9 1.2 1.1 1.7-1.7-1.6-4.9-1.7-6.9.3Z" class="&lt;Path&gt;"/>
+          </g>
+        </g>
+      </g>
+      <g class="&lt;Group&gt;">
+        <path fill="#74C3AE" d="M351.859 588.207c.958 2.511 3.746 3.869 6.348 2.952 2.51-.958 3.818-3.878 2.861-6.389-.958-2.51-3.746-3.868-6.257-2.911-2.51.958-3.91 3.837-2.952 6.348Z" class="&lt;Path&gt;"/>
+        <path fill="#52B5D6" d="M351.859 588.207c.958 2.511 3.746 3.869 6.348 2.952 2.51-.958 3.818-3.878 2.861-6.389-.958-2.51-3.746-3.868-6.257-2.911-2.51.958-3.91 3.837-2.952 6.348Z" class="&lt;Path&gt;"/>
+        <g class="&lt;Group&gt;" style="mix-blend-mode:multiply">
+          <g class="&lt;Group&gt;">
+            <path fill="#CACAC9" d="M358.793 584.957c-.605-1.586-1.332-2.898-2.783-3.328 2.052-.177 4.343 1.068 5.149 3.182.958 2.511-.4 5.299-2.911 6.257-.529.201-1.463.331-2.001.309 2.155-.898 3.554-3.777 2.546-6.42Z" class="&lt;Path&gt;"/>
+          </g>
+        </g>
+      </g>
+      <g class="&lt;Group&gt;">
+        <path fill="#DD4297" d="M88.774 172.1c.2-.7-.2-1.4-1-1.6-.7-.2-1.5.2-1.7.9-.2.8.3 1.5 1 1.7.7.2 1.5-.2 1.7-1Z" class="&lt;Path&gt;"/>
+      </g>
+      <g class="&lt;Group&gt;">
+        <path fill="#DD4297" d="M306.874 122.8c.2-.8-.2-1.5-.9-1.7-.8-.2-1.5.2-1.7 1-.2.7.2 1.4 1 1.6.7.2 1.4-.2 1.6-.9Z" class="&lt;Path&gt;"/>
+      </g>
+      <g class="&lt;Group&gt;">
+        <g class="&lt;Group&gt;">
+          <path fill="#74C3AE" d="M125.453 191.452c-1.903.163-3.257 1.897-3.032 3.722.241 1.965 1.975 3.319 3.8 3.094 1.904-.163 3.258-1.897 3.094-3.8-.303-1.886-1.897-3.258-3.862-3.016Z" class="&lt;Path&gt;"/>
+          <path fill="#6ECFF5" d="M125.453 191.452c-1.903.163-3.257 1.897-3.032 3.722.241 1.965 1.975 3.319 3.8 3.094 1.904-.163 3.258-1.897 3.094-3.8-.303-1.886-1.897-3.258-3.862-3.016Z" class="&lt;Path&gt;"/>
+          <g class="&lt;Group&gt;" style="mix-blend-mode:multiply">
+            <g class="&lt;Group&gt;">
+              <path fill="#CACAC9" d="M126.514 196.594c1.201-.077 2.167-.338 2.765-1.267-.249 1.456-1.435 2.813-2.979 3.003-1.903.163-3.638-1.191-3.862-3.015-.052-.422.081-1.079.107-1.438.269 1.605 2.004 2.959 3.969 2.717Z" class="&lt;Path&gt;"/>
+            </g>
+          </g>
+        </g>
+      </g>
+      <g class="&lt;Group&gt;">
+        <g class="&lt;Group&gt;">
+          <path fill="#74C3AE" d="M188.874 239.9c.9-.9.9-2.4 0-3.4-.9-.9-2.4-.9-3.3 0-.9.9-1 2.4 0 3.3.9 1 2.4 1 3.3.1Z" class="&lt;Path&gt;"/>
+          <path fill="#6ECFF5" d="M188.874 239.9c.9-.9.9-2.4 0-3.4-.9-.9-2.4-.9-3.3 0-.9.9-1 2.4 0 3.3.9 1 2.4 1 3.3.1Z" class="&lt;Path&gt;"/>
+          <g class="&lt;Group&gt;" style="mix-blend-mode:multiply">
+            <g class="&lt;Group&gt;">
+              <path fill="#CACAC9" d="M186.074 237.5c-.6.6-1 1.1-.9 1.9-.5-.9-.4-2.2.4-2.9.9-.9 2.4-.9 3.3 0 .2.2.4.6.5.8-.8-.7-2.3-.8-3.3.2Z" class="&lt;Path&gt;"/>
+            </g>
+          </g>
+        </g>
+      </g>
+      <g class="&lt;Group&gt;">
+        <path fill="#74C3AE" d="M261.211 397.279c.958 2.51 3.746 3.869 6.348 2.952 2.51-.958 3.818-3.878 2.861-6.389-.958-2.51-3.746-3.869-6.257-2.911-2.51.958-3.91 3.837-2.952 6.348Z" class="&lt;Path&gt;"/>
+        <path fill="#52B5D6" d="M261.211 397.279c.958 2.51 3.746 3.869 6.348 2.952 2.51-.958 3.818-3.878 2.861-6.389-.958-2.51-3.746-3.869-6.257-2.911-2.51.958-3.91 3.837-2.952 6.348Z" class="&lt;Path&gt;"/>
+        <g class="&lt;Group&gt;" style="mix-blend-mode:multiply">
+          <g class="&lt;Group&gt;">
+            <path fill="#CACAC9" d="M268.145 394.029c-.605-1.586-1.332-2.898-2.783-3.328 2.052-.177 4.343 1.068 5.149 3.182.958 2.511-.401 5.299-2.911 6.257-.529.201-1.463.331-2.001.309 2.155-.898 3.554-3.778 2.546-6.42Z" class="&lt;Path&gt;"/>
+          </g>
+        </g>
+      </g>
+      <g class="&lt;Group&gt;">
+        <path fill="#DD4297" d="M309.174 130.2c.1-.8-.3-1.5-1-1.7-.7-.2-1.5.2-1.7.9-.2.8.2 1.5 1 1.7.7.2 1.5-.2 1.7-.9Z" class="&lt;Path&gt;"/>
+      </g>
+      <g class="&lt;Group&gt;">
+        <path fill="#6A4C9E" d="M197.8 547.4 182 530l-7 8.7 22.8 8.7Z" class="&lt;Path&gt;"/>
+        <path fill="#512E8D" d="m182 530-1.3 6.7-5.7 2 7-8.7Z" class="&lt;Path&gt;"/>
+        <path fill="#9B82BB" d="m197.8 547.4-17.1-10.7-5.7 2 22.8 8.7Z" class="&lt;Path&gt;"/>
+      </g>
+      <g class="&lt;Group&gt;">
+        <path fill="#6A4C9E" d="m189.708 310 1.746 23.438 10.871-2.549L189.708 310Z" class="&lt;Path&gt;"/>
+        <path fill="#512E8D" d="m191.454 333.438 5.148-4.481 5.723 1.932-10.871 2.549Z" class="&lt;Path&gt;"/>
+        <path fill="#9B82BB" d="m189.708 310 6.894 18.957 5.723 1.932L189.708 310Z" class="&lt;Path&gt;"/>
+      </g>
+      <g class="&lt;Group&gt;">
+        <path fill="#6A4C9E" d="m170.974 195 11.1 16.3 6.9-6.4-18-9.9Z" class="&lt;Path&gt;"/>
+        <path fill="#512E8D" d="m182.074 211.3 1.9-5.3 5-1.1-6.9 6.4Z" class="&lt;Path&gt;"/>
+        <path fill="#9B82BB" d="m170.974 195 13 11 5-1.1-18-9.9Z" class="&lt;Path&gt;"/>
+      </g>
+      <g class="&lt;Group&gt;">
+        <path fill="#6A4C9E" d="m394.274 562.1 11 16.3 6.9-6.4-17.9-9.9Z" class="&lt;Path&gt;"/>
+        <path fill="#512E8D" d="m405.274 578.4 1.9-5.3 5-1.1-6.9 6.4Z" class="&lt;Path&gt;"/>
+        <path fill="#9B82BB" d="m394.274 562.1 12.9 11 5-1.1-17.9-9.9Z" class="&lt;Path&gt;"/>
+      </g>
+      <g class="&lt;Group&gt;">
+        <path fill="#74C3AE" d="M415.274 176.2c1.9-1.9 2-5 .1-7-1.9-1.9-5-1.9-7 0-1.9 1.9-2 5-.1 6.9 1.9 2 5.1 2 7 .1Z" class="&lt;Path&gt;"/>
+        <path fill="#52B5D6" d="M415.274 176.2c1.9-1.9 2-5 .1-7-1.9-1.9-5-1.9-7 0-1.9 1.9-2 5-.1 6.9 1.9 2 5.1 2 7 .1Z" class="&lt;Path&gt;"/>
+        <g class="&lt;Group&gt;" style="mix-blend-mode:multiply">
+          <g class="&lt;Group&gt;">
+            <path fill="#CACAC9" d="M409.474 171.2c-1.2 1.2-2.1 2.4-1.9 3.9-1-1.8-.8-4.4.8-6 1.9-1.9 5-1.8 6.9.1.4.4.9 1.2 1.1 1.7-1.7-1.6-4.9-1.7-6.9.3Z" class="&lt;Path&gt;"/>
+          </g>
+        </g>
+      </g>
+      <g class="&lt;Group&gt;">
+        <path fill="#74C3AE" d="M18.774 337c1-1 1-2.5.1-3.5-1-1-2.6-1-3.6-.1-1 1-1 2.6 0 3.6s2.6 1 3.5 0Z" class="&lt;Path&gt;"/>
+        <path fill="#52B5D6" d="M18.774 337c1-1 1-2.5.1-3.5-1-1-2.6-1-3.6-.1-1 1-1 2.6 0 3.6s2.6 1 3.5 0Z" class="&lt;Path&gt;"/>
+        <g class="&lt;Group&gt;" style="mix-blend-mode:multiply">
+          <g class="&lt;Group&gt;">
+            <path fill="#CACAC9" d="M15.874 334.5c-.6.6-1.1 1.2-1 2-.5-1-.4-2.3.4-3.1 1-.9 2.6-.9 3.5.1.3.2.5.6.6.8-.9-.8-2.5-.8-3.5.2Z" class="&lt;Path&gt;"/>
+          </g>
+        </g>
+      </g>
+      <g class="&lt;Group&gt;">
+        <path fill="#74C3AE" d="M266.674 569.1c1-1 1-2.6 0-3.6-.9-.9-2.5-1-3.5 0s-1 2.6 0 3.6c.9.9 2.5 1 3.5 0Z" class="&lt;Path&gt;"/>
+        <path fill="#52B5D6" d="M266.674 569.1c1-1 1-2.6 0-3.6-.9-.9-2.5-1-3.5 0s-1 2.6 0 3.6c.9.9 2.5 1 3.5 0Z" class="&lt;Path&gt;"/>
+        <g class="&lt;Group&gt;" style="mix-blend-mode:multiply">
+          <g class="&lt;Group&gt;">
+            <path fill="#CACAC9" d="M263.674 566.6c-.6.6-1 1.2-.9 2-.5-1-.4-2.3.4-3.1 1-1 2.5-1 3.5 0 .2.3.5.6.6.9-.9-.8-2.5-.8-3.6.2Z" class="&lt;Path&gt;"/>
+          </g>
+        </g>
+      </g>
+      <g class="&lt;Group&gt;">
+        <path fill="#74C3AE" d="M423.374 450.4c1-.9 1-2.5.1-3.5-1-1-2.6-1-3.6 0-1 .9-1 2.5 0 3.5.9 1 2.5 1 3.5 0Z" class="&lt;Path&gt;"/>
+        <path fill="#ED4A97" d="M423.374 450.4c1-.9 1-2.5.1-3.5-1-1-2.6-1-3.6 0-1 .9-1 2.5 0 3.5.9 1 2.5 1 3.5 0Z" class="&lt;Path&gt;"/>
+        <g class="&lt;Group&gt;" style="mix-blend-mode:multiply">
+          <g class="&lt;Group&gt;">
+            <path fill="#CACAC9" d="M420.474 447.9c-.6.6-1.1 1.2-1 2-.5-.9-.4-2.3.4-3 1-1 2.6-1 3.5 0 .2.2.5.6.6.8-.9-.8-2.5-.8-3.5.2Z" class="&lt;Path&gt;"/>
+          </g>
+        </g>
+      </g>
+      <g class="&lt;Group&gt;">
+        <g class="&lt;Group&gt;">
+          <path fill="url(#d)" d="M0 0h15.202v11.636H0z" class="xLUbaj 21" transform="scale(-1 1) rotate(48.24 -544.12 30.301)"/>
+        </g>
+      </g>
+      <g class="&lt;Group&gt;">
+        <g class="&lt;Group&gt;">
+          <path fill="url(#e)" d="M0 0h17.221v12.95H0z" class="xLUbaj 19" transform="matrix(-.6585 .75258 .7421 .67029 242.523 208.348)"/>
+        </g>
+      </g>
+      <g class="&lt;Group&gt;">
+        <g class="&lt;Group&gt;">
+          <path fill="url(#f)" d="M0 0h17.221v12.95H0z" class="xLUbaj 19" transform="matrix(-.6585 .75258 .7421 .67029 39.34 92)"/>
+        </g>
+      </g>
+      <g class="&lt;Group&gt;">
+        <g class="&lt;Group&gt;">
+          <path fill="url(#g)" d="M0 0h17.221v12.95H0z" class="xLUbaj 19" transform="matrix(-.41774 -.90857 -.91504 .40336 87.076 443.909)"/>
+        </g>
+      </g>
+      <g class="&lt;Group&gt;">
+        <g class="&lt;Group&gt;">
+          <path fill="url(#h)" d="M0 0h17.221v12.95H0z" class="xLUbaj 18" transform="matrix(-.6585 .75258 .7421 .67029 141.34 573)"/>
+        </g>
+      </g>
+      <g class="&lt;Group&gt;">
+        <g class="&lt;Group&gt;">
+          <path fill="url(#i)" d="M0 0h17.221v12.95H0z" class="xLUbaj 17" transform="matrix(-.6585 .75258 .7421 .67029 11.004 234.179)"/>
+        </g>
+      </g>
+      <g class="&lt;Group&gt;">
+        <g class="&lt;Group&gt;">
+          <path fill="url(#j)" d="M0 0h16.649v12.721H0z" class="xLUbaj 16" transform="matrix(-.65678 .75408 .73106 .68232 420.31 87.269)"/>
+        </g>
+      </g>
+      <g class="&lt;Group&gt;">
+        <path fill="#6A4C9E" d="m349.274 157.7 8.9-5.7 6.1 17.6-15-11.9Z" class="&lt;Path&gt;"/>
+        <path fill="#512E8D" d="m349.274 157.7 2.2 5.1 12.8 6.8-15-11.9Z" class="&lt;Path&gt;"/>
+      </g>
+      <g class="&lt;Group&gt;">
+        <path fill="#F9A419" d="m17.874 202.8 9.2-6.9 8 18.7-17.2-11.8Z" class="&lt;Path&gt;"/>
+        <path fill="#F26E21" d="m17.874 202.8 2.7 5.4 14.5 6.4-17.2-11.8Z" class="&lt;Path&gt;"/>
+      </g>
+      <g class="&lt;Group&gt;">
+        <path fill="#F9A419" d="m350 377.9 9.2-6.9 8 18.7-17.2-11.8Z" class="&lt;Path&gt;"/>
+        <path fill="#F26E21" d="m350 377.9 2.7 5.4 14.5 6.4-17.2-11.8Z" class="&lt;Path&gt;"/>
+      </g>
+      <g class="&lt;Group&gt;">
+        <path fill="#F9A419" d="m389.274 279.6-7.9 8.3-11.2-16.9 19.1 8.6Z" class="&lt;Path&gt;"/>
+        <path fill="#F26E21" d="m389.274 279.6-3.7-4.8-15.4-3.8 19.1 8.6Z" class="&lt;Path&gt;"/>
+      </g>
+      <g class="&lt;Group&gt;">
+        <path fill="#F9A419" d="m405.1 50.6-7.9 8.3L386 42l19.1 8.6Z" class="&lt;Path&gt;"/>
+        <path fill="#F26E21" d="m405.1 50.6-3.7-4.8L386 42l19.1 8.6Z" class="&lt;Path&gt;"/>
+      </g>
+      <g class="&lt;Group&gt;">
+        <path fill="#F9A419" d="m284.1 464.6-7.9 8.3L265 456l19.1 8.6Z" class="&lt;Path&gt;"/>
+        <path fill="#F26E21" d="m284.1 464.6-3.7-4.8L265 456l19.1 8.6Z" class="&lt;Path&gt;"/>
+      </g>
+      <g class="&lt;Group&gt;">
+        <path fill="#F9A419" d="m79 336.5-7.8 8.4L60 328l19 8.5Z" class="&lt;Path&gt;"/>
+        <path fill="#F26E21" d="m79 336.5-3.6-4.8L60 328l19 8.5Z" class="&lt;Path&gt;"/>
+      </g>
+      <g class="&lt;Group&gt;">
+        <path fill="#E64B93" d="m124.9 513.5-5.1-6.3 1.3-5.2 3.8 11.5Z" class="&lt;Path&gt;"/>
+        <path fill="#E77892" d="m114 510.3 5.8-3.1 1.3-5.2-5.4 3-1.7 5.3Z" class="&lt;Path&gt;"/>
+        <path fill="#C74391" d="m124.9 513.5-10.9-3.2 5.8-3.1 5.1 6.3Z" class="&lt;Path&gt;"/>
+      </g>
+      <g class="&lt;Group&gt;">
+        <path fill="#E64B93" d="m260.274 291.7 5.7 5.7-.8 5.3-4.9-11Z" class="&lt;Path&gt;"/>
+        <path fill="#E77892" d="m271.474 293.7-5.5 3.7-.8 5.3 5.1-3.6 1.2-5.4Z" class="&lt;Path&gt;"/>
+        <path fill="#C74391" d="m260.274 291.7 11.2 2-5.5 3.7-5.7-5.7Z" class="&lt;Path&gt;"/>
+      </g>
+      <g class="&lt;Group&gt;">
+        <path fill="#E64B93" d="m20.974 550.7 5.7 5.7-.8 5.3-4.9-11Z" class="&lt;Path&gt;"/>
+        <path fill="#E77892" d="m32.174 552.7-5.5 3.7-.8 5.3 5.2-3.5 1.1-5.5Z" class="&lt;Path&gt;"/>
+        <path fill="#C74391" d="m20.974 550.7 11.2 2-5.5 3.7-5.7-5.7Z" class="&lt;Path&gt;"/>
+      </g>
+      <g class="&lt;Group&gt;">
+        <path fill="#7055A3" d="M315.574 270.7c0-2.1-1.8-3.9-3.9-3.9-2.2 0-3.9 1.8-3.9 3.9 0 2.1 1.7 3.9 3.9 3.9 2.1 0 3.9-1.8 3.9-3.9Z" class="&lt;Path&gt;"/>
+        <g class="&lt;Group&gt;" style="mix-blend-mode:multiply">
+          <g class="&lt;Group&gt;">
+            <path fill="#CACAC9" d="M309.574 271.2c0 1.3.1 2.5 1.1 3.3-1.6-.5-2.9-2-2.9-3.8 0-2.1 1.7-3.9 3.9-3.9.4 0 1.1.2 1.5.3-1.8.1-3.6 1.9-3.6 4.1Z" class="&lt;Path&gt;"/>
+          </g>
+        </g>
+      </g>
+      <g class="&lt;Group&gt;">
+        <g class="&lt;Group&gt;">
+          <path fill="#74C3AE" d="M404.534-3.312c-.917-.883-2.417-.854-3.399.065a2.354 2.354 0 0 0 .063 3.3c.917.882 2.419.953 3.299-.064a2.269 2.269 0 0 0 .037-3.301Z" class="&lt;Path&gt;"/>
+          <path fill="#6ECFF5" d="M404.534-3.312c-.917-.883-2.417-.854-3.399.065a2.354 2.354 0 0 0 .063 3.3c.917.882 2.419.953 3.299-.064a2.269 2.269 0 0 0 .037-3.301Z" class="&lt;Path&gt;"/>
+          <g class="&lt;Group&gt;" style="mix-blend-mode:multiply">
+            <g class="&lt;Group&gt;">
+              <path fill="#CACAC9" d="M402.188-.467c.612.589 1.119.979 1.917.864-.89.517-2.192.442-2.907-.345a2.354 2.354 0 0 1-.063-3.3c.196-.203.592-.41.79-.514-.685.813-.756 2.315.263 3.295Z" class="&lt;Path&gt;"/>
+            </g>
+          </g>
+        </g>
+      </g>
+      <g class="&lt;Group&gt;">
+        <path fill="#6A4C9E" d="M359.986 15.447 376.07 4.036l-6.532-6.776-9.552 18.187Z" class="&lt;Path&gt;"/>
+        <path fill="#512E8D" d="m376.07 4.036-5.336-1.798-1.196-4.978 6.532 6.776Z" class="&lt;Path&gt;"/>
+        <path fill="#9B82BB" d="m359.986 15.447 10.748-13.21-1.196-4.977-9.552 18.187Z" class="&lt;Path&gt;"/>
+      </g>
+      <g class="&lt;Group&gt;">
+        <path fill="#F3EB18" d="M96.5 590.9 76 598.1 87.8 581l8.7 9.9Z" class="&lt;Path&gt;"/>
+        <path fill="#FDBC0F" d="m95.7 582.6-7.9-1.6 8.7 9.9-.8-8.3Z" class="&lt;Path&gt;"/>
+      </g>
+    </g>
+  </g>
+  <defs>
+    <pattern id="d" width="1" height="1" class="d" patternContentUnits="objectBoundingBox">
+      <use xlink:href="#k" transform="scale(.00247 .00323)"/>
+    </pattern>
+    <pattern id="e" width="1" height="1" class="e" patternContentUnits="objectBoundingBox">
+      <use xlink:href="#k" transform="scale(.00247 .00323)"/>
+    </pattern>
+    <pattern id="f" width="1" height="1" class="f" patternContentUnits="objectBoundingBox">
+      <use xlink:href="#k" transform="scale(.00247 .00323)"/>
+    </pattern>
+    <pattern id="g" width="1" height="1" class="g" patternContentUnits="objectBoundingBox">
+      <use xlink:href="#k" transform="scale(.00247 .00323)"/>
+    </pattern>
+    <pattern id="h" width="1" height="1" class="h" patternContentUnits="objectBoundingBox">
+      <use xlink:href="#k" transform="scale(.00247 .00323)"/>
+    </pattern>
+    <pattern id="i" width="1" height="1" class="i" patternContentUnits="objectBoundingBox">
+      <use xlink:href="#k" transform="scale(.00247 .00323)"/>
+    </pattern>
+    <pattern id="j" width="1" height="1" class="j" patternContentUnits="objectBoundingBox">
+      <use xlink:href="#k" transform="scale(.00247 .00323)"/>
+    </pattern>
+    <clipPath id="a" class="a">
+      <path fill="#fff" d="M0 0h435v610H0z"/>
+    </clipPath>
+    <clipPath id="b" class="b">
+      <path fill="#fff" d="M0 0h435v610H0z"/>
+    </clipPath>
+    <clipPath id="c" class="c">
+      <path fill="#fff" d="M0 0h435v663H0z" transform="translate(0 -26)"/>
+    </clipPath>
+  </defs>
+</svg>
