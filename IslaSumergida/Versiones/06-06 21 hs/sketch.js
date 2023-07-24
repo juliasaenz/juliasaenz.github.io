@@ -9,7 +9,7 @@ const { Vec2D, Rect } = toxi.geom;
 
 let mundo;
 let gravedad;
-let estado = "red";
+let estado = "juego";
 let fuente;
 let debug = false;
 
@@ -74,10 +74,10 @@ function setObjetos() {
 
 
   /* set objetos */
-  for (let i = 0; i < 2; i++) {
+  for (let i = 0; i < 3; i++) {
     objetos.push(new Centolla(partesCentolla));
   }
-  for (let i = 0; i < 4; i++) {
+  for (let i = 0; i < 6; i++) {
     objetos.push(new Pescado(imgPescado)); // pescado
     objetos.push(new Langostilla(imgLangostilla)); // langostilla
     objetos.push(new Langostilla(imgLangostilla02)); // langostilla
@@ -195,7 +195,8 @@ function draw() {
     );
     i--;
     console.log(i);
-    if (i == -240) {
+    if (i <= -240) {
+      console.log("ding")
       mundo.removeBehavior(gravedad);
       gravedad = new GravityBehavior(
         new Vec2D(random(-0.09, 0.09), random(-0.09, 0.09))
@@ -252,5 +253,5 @@ function mouseDragged() {
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
-  this.fisica.setWorldBounds(new Rect(0, 0, width, height));
+  mundo.setWorldBounds(new Rect(0, 0, width, height));
 }
